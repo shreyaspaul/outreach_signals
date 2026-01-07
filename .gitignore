@@ -6,11 +6,6 @@
 venv/
 .venv/
 
-# Output data (may contain sensitive info)
-data/
-screenshots/
-logs/
-
 # Python
 __pycache__/
 *.py[cod]

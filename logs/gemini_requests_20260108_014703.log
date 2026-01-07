@@ -1,0 +1,150 @@
+GEMINI API REQUEST LOG
+Generated: 2026-01-08T01:47:03.344086
+Input file: app.csv
+Total entries: 5
+================================================================================
+
+================================================================================
+TIMESTAMP: 2026-01-08T01:48:23.614197
+URL: https://shiftavenue.com/
+SCREENSHOT: /Users/shreyaspaul/code/outreach_signals/screenshots/shiftavenue_com.png
+IMAGE SIZE: 1969.7 KB
+
+--- PROMPT SENT TO GEMINI ---
+You are a senior design director at a top-tier design studio.
+Evaluate ONLY visual design professionalism from this website screenshot.
+Ignore content quantity.
+Be critical.
+
+Score 0-100 for professional polish, sophistication, hierarchy, typography, spacing, visual clarity, and brand craft.
+
+Consider: sophistication, intentionality, polish, hierarchy, typography, spacing, visual clarity, brand craft.
+Be critical: simple/minimal does NOT automatically mean professional.
+
+URL: https://shiftavenue.com/
+
+Return ONLY valid JSON in this exact format:
+{"design_score": <0-100>, "comment": "<one detailed sentence about the design>"}
+--- END PROMPT ---
+
+--- GEMINI RESPONSE (attempt 1) ---
+{"design_score": 83, "comment": "The visual design demonstrates strong professionalism through its cohesive dark theme, effective typographic hierarchy, and impactful hero imagery, though the cookie consent banner's contrasting button colors and slightly less refined presentation detract slightly from overall brand polish and intentionality."}
+--- END RESPONSE ---
+
+================================================================================
+TIMESTAMP: 2026-01-08T01:48:42.181078
+URL: https://telly.com/
+SCREENSHOT: /Users/shreyaspaul/code/outreach_signals/screenshots/telly_com.png
+IMAGE SIZE: 3416.1 KB
+
+--- PROMPT SENT TO GEMINI ---
+You are a senior design director at a top-tier design studio.
+Evaluate ONLY visual design professionalism from this website screenshot.
+Ignore content quantity.
+Be critical.
+
+Score 0-100 for professional polish, sophistication, hierarchy, typography, spacing, visual clarity, and brand craft.
+
+Consider: sophistication, intentionality, polish, hierarchy, typography, spacing, visual clarity, brand craft.
+Be critical: simple/minimal does NOT automatically mean professional.
+
+URL: https://telly.com/
+
+Return ONLY valid JSON in this exact format:
+{"design_score": <0-100>, "comment": "<one detailed sentence about the design>"}
+--- END PROMPT ---
+
+--- GEMINI RESPONSE (attempt 1) ---
+```json
+{
+  "design_score": 65,
+  "comment": "The design effectively utilizes bold typography and high-quality product imagery within a clear dark theme, yet its professionalism is significantly undermined by a critical inconsistency in brand color application for interactive elements (mixing brand red with generic blue for links), coupled with some unpolished feature visuals that detract from overall sophistication and cohesive brand craft."
+}
+```
+--- END RESPONSE ---
+
+================================================================================
+TIMESTAMP: 2026-01-08T01:49:07.225375
+URL: https://unstoppabledomains.com/
+SCREENSHOT: /Users/shreyaspaul/code/outreach_signals/screenshots/unstoppabledomains_com.png
+IMAGE SIZE: 717.7 KB
+
+--- PROMPT SENT TO GEMINI ---
+You are a senior design director at a top-tier design studio.
+Evaluate ONLY visual design professionalism from this website screenshot.
+Ignore content quantity.
+Be critical.
+
+Score 0-100 for professional polish, sophistication, hierarchy, typography, spacing, visual clarity, and brand craft.
+
+Consider: sophistication, intentionality, polish, hierarchy, typography, spacing, visual clarity, brand craft.
+Be critical: simple/minimal does NOT automatically mean professional.
+
+URL: https://unstoppabledomains.com/
+
+Return ONLY valid JSON in this exact format:
+{"design_score": <0-100>, "comment": "<one detailed sentence about the design>"}
+--- END PROMPT ---
+
+--- GEMINI RESPONSE (attempt 1) ---
+```json
+{
+  "design_score": 82,
+  "comment": "The website presents a clean, modern, and highly functional aesthetic with strong visual clarity and consistent component styling, though it leans towards a generic tech look, lacking unique sophistication and distinctive brand craft that would elevate it to truly top-tier design, and exhibiting minor inconsistencies in hierarchy and spacing."
+}
+```
+--- END RESPONSE ---
+
+================================================================================
+TIMESTAMP: 2026-01-08T01:49:24.360428
+URL: https://doublefin.com/
+SCREENSHOT: /Users/shreyaspaul/code/outreach_signals/screenshots/doublefin_com.png
+IMAGE SIZE: 699.1 KB
+
+--- PROMPT SENT TO GEMINI ---
+You are a senior design director at a top-tier design studio.
+Evaluate ONLY visual design professionalism from this website screenshot.
+Ignore content quantity.
+Be critical.
+
+Score 0-100 for professional polish, sophistication, hierarchy, typography, spacing, visual clarity, and brand craft.
+
+Consider: sophistication, intentionality, polish, hierarchy, typography, spacing, visual clarity, brand craft.
+Be critical: simple/minimal does NOT automatically mean professional.
+
+URL: https://doublefin.com/
+
+Return ONLY valid JSON in this exact format:
+{"design_score": <0-100>, "comment": "<one detailed sentence about the design>"}
+--- END PROMPT ---
+
+--- GEMINI RESPONSE (attempt 1) ---
+{"design_score": 88, "comment": "The website demonstrates strong visual professionalism through its clear hierarchy, consistent typography, polished custom illustrations, and thoughtful use of whitespace, creating a cohesive and sophisticated brand experience despite minor inconsistencies in element refinement."}
+--- END RESPONSE ---
+
+================================================================================
+TIMESTAMP: 2026-01-08T01:49:45.438705
+URL: https://codetwo.com/
+SCREENSHOT: /Users/shreyaspaul/code/outreach_signals/screenshots/codetwo_com.png
+IMAGE SIZE: 1682.1 KB
+
+--- PROMPT SENT TO GEMINI ---
+You are a senior design director at a top-tier design studio.
+Evaluate ONLY visual design professionalism from this website screenshot.
+Ignore content quantity.
+Be critical.
+
+Score 0-100 for professional polish, sophistication, hierarchy, typography, spacing, visual clarity, and brand craft.
+
+Consider: sophistication, intentionality, polish, hierarchy, typography, spacing, visual clarity, brand craft.
+Be critical: simple/minimal does NOT automatically mean professional.
+
+URL: https://codetwo.com/
+
+Return ONLY valid JSON in this exact format:
+{"design_score": <0-100>, "comment": "<one detailed sentence about the design>"}
+--- END PROMPT ---
+
+--- GEMINI RESPONSE (attempt 1) ---
+{"design_score": 63, "comment": "The website demonstrates good visual clarity and functional hierarchy, but its overall design lacks contemporary polish, employs generic typography, and exhibits an absence of sophisticated brand craft and intentionality, resulting in a competent yet visually dated presentation."}
+--- END RESPONSE ---
