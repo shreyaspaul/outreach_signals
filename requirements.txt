@@ -1,0 +1,8 @@
+pandas
+requests
+python-dotenv
+apify-client
+playwright
+google-generativeai
+cloudscraper
+beautifulsoup4

@@ -1,0 +1,35 @@
+# Environment and secrets
+.env
+.env.*
+
+# Virtual environment
+venv/
+.venv/
+
+# Output data (may contain sensitive info)
+data/
+screenshots/
+logs/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Claude Code
+.claude/
