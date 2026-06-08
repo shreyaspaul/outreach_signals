@@ -28,3 +28,8 @@ Thumbs.db
 
 # Claude Code
 .claude/
+
+# Generated enrichment output (regenerable, not source)
+data/
+logs/
+screenshots/
