@@ -489,15 +489,22 @@ def process_csv(input_path: str, output_path: str = None, delay: float = 1.0):
     Process a CSV file and add tech stack detection columns.
 
     Args:
-        input_path: Path to input CSV with 'Website' column
+        input_path: Path to input CSV with website/domain column
         output_path: Path for output CSV (default: input_techstack.csv)
         delay: Seconds to wait between requests (be polite)
     """
+    from column_utils import get_website_column, get_company_column
+
     # Read input CSV
     df = pd.read_csv(input_path)
 
-    if 'Website' not in df.columns:
-        print("Error: CSV must have a 'Website' column")
+    # Auto-detect columns
+    try:
+        website_col = get_website_column(df)
+        company_col = get_company_column(df)
+        print(f"Detected website column: '{website_col}'")
+    except ValueError as e:
+        print(f"Error: {e}")
         sys.exit(1)
 
     # Set default output path
@@ -514,8 +521,8 @@ def process_csv(input_path: str, output_path: str = None, delay: float = 1.0):
     tech_counts = {}
 
     for idx, row in df.iterrows():
-        url = row['Website']
-        company = row.get('Company Name', 'Unknown')
+        url = row[website_col]
+        company = row[company_col] if company_col else 'Unknown'
 
         print(f"[{idx + 1}/{total}] {company}: {url}")
 

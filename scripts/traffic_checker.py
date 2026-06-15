@@ -191,14 +191,21 @@ def process_csv(input_path: str, output_path: str = None):
     Process a CSV file and add traffic data columns.
 
     Args:
-        input_path: Path to input CSV with 'Website' column
+        input_path: Path to input CSV with website/domain column
         output_path: Path for output CSV
     """
+    from column_utils import get_website_column, get_company_column
+
     # Read input CSV
     df = pd.read_csv(input_path)
 
-    if 'Website' not in df.columns:
-        print("Error: CSV must have a 'Website' column")
+    # Auto-detect columns
+    try:
+        website_col = get_website_column(df)
+        company_col = get_company_column(df)
+        print(f"Detected website column: '{website_col}'")
+    except ValueError as e:
+        print(f"Error: {e}")
         sys.exit(1)
 
     # Set default output path
@@ -210,8 +217,8 @@ def process_csv(input_path: str, output_path: str = None):
     print(f"Processing {total} websites...")
     print("-" * 50)
 
-    # Extract domains from Website column
-    domains = df['Website'].tolist()
+    # Extract domains from website column
+    domains = df[website_col].tolist()
 
     # Fetch traffic data in batch
     try:
@@ -230,9 +237,9 @@ def process_csv(input_path: str, output_path: str = None):
     # Match results back to original rows
     results = []
     for idx, row in df.iterrows():
-        url = row['Website']
+        url = row[website_col]
         domain = clean_domain(url).lower()
-        company = row.get('Company Name', 'Unknown')
+        company = row[company_col] if company_col else 'Unknown'
 
         if domain in result_map:
             result = result_map[domain]

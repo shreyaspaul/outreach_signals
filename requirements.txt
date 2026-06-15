@@ -6,3 +6,6 @@ playwright
 google-generativeai
 cloudscraper
 beautifulsoup4
+tldextract
+dnspython
+Pillow
