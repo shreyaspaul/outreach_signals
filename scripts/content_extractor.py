@@ -932,6 +932,92 @@ def analyze_content_with_llm(content: str, url: str = None, api_key: str = None,
     return result
 
 
+# ---------------------------------------------------------------------------
+# Quotable "proud facts" extraction (for outreach hooks). See specs/proud-facts-plan.md
+# ---------------------------------------------------------------------------
+PROUD_FACTS_PROMPT = """You extract specific, credible, QUOTABLE facts a founder would be proud of, from their website content, for use in a personalized outreach message.
+
+ONLY extract concrete, verifiable facts that are explicitly stated in the content. Good facts (examples):
+- community size ("40,000-member Discord", "100k newsletter subscribers")
+- customers/users ("used by 2,000 teams", "500,000 users")
+- funding/backers ("raised $12M Series A", "backed by Y Combinator")
+- volume/scale ("processed $1B in payments", "1M videos generated")
+- ratings/reviews ("4.9 stars from 3,000 reviews")
+- notable customers ("trusted by Netflix and Spotify")
+- growth/milestones ("grew 300% last year", "founded 2019")
+- awards.
+
+Do NOT include vague marketing claims ("best-in-class", "trusted by many", "industry leading", "the #1 platform") — those are not quotable facts.
+Quote the exact number/name as written. Do not round, infer, or combine. If unsure a fact is really in the text, leave it out.
+
+Return ONLY a JSON list (max 3, strongest first). Each item:
+{"fact":"<short natural phrasing of the fact>","type":"community|customers|funding|volume|rating|backers|notable_customer|growth|award|other","evidence":"<the exact substring from the content that states it>"}
+If there are no concrete quotable facts, return []."""
+
+
+def _norm(s):
+    return re.sub(r'\s+', ' ', (s or '')).strip().lower()
+
+
+def _verify_fact(fact_obj, content):
+    """A fact is trusted only if it's substantiated by the source text: the evidence
+    phrase appears in the content, OR every numeric token in the fact appears in it."""
+    low = _norm(content)
+    ev = _norm(fact_obj.get('evidence'))
+    if ev and len(ev) >= 4 and ev in low:
+        return True
+    nums = re.findall(r'\d[\d,\.]*\s*(?:k|m|b|%|\+)?|\b(?:million|billion|thousand)\b',
+                      _norm(fact_obj.get('fact')))
+    nums = [n.strip() for n in nums if n.strip()]
+    return bool(nums) and all(n in low for n in nums)
+
+
+def extract_proud_facts(content: str, url: str = None, api_key: str = None, log_file: Path = None) -> list:
+    """Return a list of verified {fact, type, evidence} dicts. Never raises; [] on any failure."""
+    if not content or len((content or '').split()) < 20:
+        return []
+    import google.generativeai as genai
+    import json
+    api_key = api_key or os.getenv('GEMINI_API_KEY')
+    if not api_key:
+        return []
+    genai.configure(api_key=api_key)
+    model = genai.GenerativeModel('gemini-2.5-flash',
+                                  generation_config={'temperature': 0.0,
+                                                     'response_mime_type': 'application/json'})
+    snippet = content[:8000]
+    prompt = PROUD_FACTS_PROMPT + "\n\nCONTENT:\n" + snippet
+    raw = None
+    for attempt in range(MAX_RETRIES):
+        try:
+            raw = model.generate_content(prompt).text
+            break
+        except Exception as e:
+            if attempt < MAX_RETRIES - 1 and _is_retryable_error(str(e)):
+                time.sleep(_retry_delay_from_error(str(e), attempt)); continue
+            return []
+    try:
+        facts = json.loads((raw or '[]').strip())
+        if not isinstance(facts, list):
+            return []
+    except (json.JSONDecodeError, ValueError, TypeError):
+        return []
+    # Bulletproofing: keep only facts substantiated by the source content.
+    verified = []
+    for f in facts:
+        if isinstance(f, dict) and f.get('fact') and _verify_fact(f, content):
+            verified.append({'fact': str(f['fact']).strip(),
+                             'type': str(f.get('type', 'other')).strip(),
+                             'evidence': str(f.get('evidence', '')).strip()[:200]})
+    if log_file:
+        try:
+            with open(log_file, 'a', encoding='utf-8') as fh:
+                fh.write(f"\n--- PROUD FACTS ({url}) ---\nraw: {raw}\nverified: {verified}\n")
+        except Exception:
+            pass
+    return verified[:3]
+
+
 # CLI for standalone testing
 if __name__ == "__main__":
     import argparse

@@ -142,6 +142,14 @@ async def run_axe_on_page(page):
                 try {
                     const res = await axe.run(document, {
                         runOnly: { type: 'tag', values: tags },
+                        // meta-viewport ("zooming and scaling must not be disabled") is disabled:
+                        // it's a single meta-tag check that modern browsers (iOS Safari) ignore,
+                        // so it does not reflect a real user being blocked and produced false
+                        // positives (e.g. moescape, whose live viewport actually allows zoom).
+                        rules: {
+                            'meta-viewport': { enabled: false },
+                            'meta-viewport-large': { enabled: false }
+                        },
                         resultTypes: ['violations']
                     });
                     return { violations: res.violations };

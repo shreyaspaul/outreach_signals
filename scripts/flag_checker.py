@@ -52,6 +52,8 @@ def check_flags(input_path: str, output_path: str = None, in_place: bool = False
             'enrichment_errors': str(row.get('enrichment_errors', '')) if pd.notna(row.get('enrichment_errors')) else '',
             'pagespeed_mobile': row.get('pagespeed_mobile') if pd.notna(row.get('pagespeed_mobile')) else None,
             'pagespeed_desktop': row.get('pagespeed_desktop') if pd.notna(row.get('pagespeed_desktop')) else None,
+            'field_lcp': row.get('field_lcp') if pd.notna(row.get('field_lcp')) else None,
+            'field_lcp_desktop': row.get('field_lcp_desktop') if pd.notna(row.get('field_lcp_desktop')) else None,
             'monthly_visits': row.get('monthly_visits') if pd.notna(row.get('monthly_visits')) else None,
             'content_score': row.get('content_score') if pd.notna(row.get('content_score')) else None,
             'design_score': row.get('design_score') if pd.notna(row.get('design_score')) else None,

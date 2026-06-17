@@ -47,6 +47,8 @@ FIELD_MAP = {
     'content_reasoning':  ('content_reasoning',      'Per-dimension EVIDENCE and justification behind each content score.'),
     'content_source':     ('content_source',        'Which extractor was scored: jina (HTTP) or playwright (real browser, JS-rendered).'),
     'content_word_count': ('content_word_count',     'Number of words of text scored (from the chosen source).'),
+    'proud_facts':        ('proud_facts',           'Specific quotable facts the company is proud of (community size, customers, funding, etc.), verified present in their content. Joined by " | ".'),
+    'proud_facts_detail': ('proud_facts_detail',    'JSON of the quotable facts with type + the exact source evidence for each.'),
 
     # ---- DESIGN BREAKDOWN (each 0-20) ----
     'design_typography':  ('design_typography',  '0-20: fonts, size hierarchy, readability.'),

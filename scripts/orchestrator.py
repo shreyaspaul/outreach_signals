@@ -133,6 +133,23 @@ def flag_entry(result):
         if 'pagespeed_mobile_error' not in flags and 'pagespeed_desktop_error' not in flags:
             flags.append("missing_pagespeed")
 
+    # Check for missing CrUX field data (real-user Core Web Vitals). This is NOT a fetch
+    # error and is NOT retryable — the PageSpeed call succeeds (HTTP 200) but the origin
+    # simply isn't in Google's CrUX dataset (too little qualifying Chrome traffic). It must
+    # still be VISIBLE, not silently ignored: lab scores alone are a single synthetic load,
+    # whereas field data is what Google actually ranks on. Only flag when lab data DID come
+    # back (otherwise missing_pagespeed already covers a total fetch failure).
+    def _is_empty(v):
+        return v is None or (isinstance(v, float) and v != v) or str(v).strip() in ('', 'None', 'nan')
+    have_lab = mobile_ps is not None or desktop_ps is not None
+    if have_lab:
+        field_mobile_missing = _is_empty(result.get('field_lcp'))
+        field_desktop_missing = _is_empty(result.get('field_lcp_desktop'))
+        if field_mobile_missing and field_desktop_missing:
+            flags.append("no_crux_field_data")          # no real-user data at all (origin not in CrUX)
+        elif field_mobile_missing:
+            flags.append("no_crux_field_data_mobile")    # mobile is the ranking-relevant form factor
+
     # Check for missing traffic data
     if result.get('monthly_visits') is None:
         flags.append("missing_traffic")

@@ -68,7 +68,10 @@ DNS_TIMEOUT = 4.0             # seconds per DNS query; best-effort, never blocks
 # of the resolved NS hostname. These are infrastructure facts, NOT page content —
 # a real operating company's DNS is never delegated here.
 PARKING_NAMESERVERS = [
-    'domaincontrol.com',   # GoDaddy (parking default)
+    # NOTE: 'domaincontrol.com' (GoDaddy's DEFAULT authoritative DNS) was removed —
+    # it is used by millions of fully-operational sites registered at GoDaddy, NOT a
+    # parking signal (false-positived magichour.ai, a live 1.9M-visit product). A
+    # genuinely parked GoDaddy domain is still caught by PARKING_IPS + the content gate.
     'afternic.com',        # Afternic (GoDaddy group) marketplace
     'sedoparking.com',     # Sedo
     'dan.com',             # Dan.com (GoDaddy)

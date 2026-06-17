@@ -2,37 +2,69 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Last Session Context (2026-02-03)
+## Last Session Context (2026-06-18)
 
-### What Was Done
-1. **Created Cloud Deployment Spec** (`specs/cloud-deployment-spec.md`)
-   - Researched cheapest cloud options for running Python + Playwright
-   - Recommended Railway.app (~$10-12/month) with Slack Bot integration
-   - Full implementation plan with Dockerfile, Slack bot code, architecture diagram
-   - Includes `/enrich` and `/status` slash commands, progress updates every 50 entries
+### What Was Done This Session — Apify Traffic Refresh
+The prefilled traffic data (copied from Crunchbase into `monthly_visits`) was found to be
+stale/wrong for many rows. Refreshed it with live SimilarWeb data via Apify.
 
-2. **Added Data Quality Flagging System**
-   - Added `flag_entry()` function to `orchestrator.py` that detects anomalies
-   - New output columns: `flag_count` (number of issues) and `flag_reasons` (semicolon-separated codes)
-   - Flags: error pages, missing data, zero scores, perfect 100 scores, API errors, extreme LLM scores
-   - Prints flag summary at end of enrichment run
+1. **New script `scripts/apify_traffic_refresh.py`** — fetches fresh SimilarWeb data via the
+   `curious_coder/similarweb-scraper` Apify actor and writes it back into an enriched CSV as
+   **new `apify_`-prefixed columns** (originals left untouched, side-by-side for diffing).
+   Writes a `.bak` backup first; idempotent (drops/re-adds `apify_` cols on re-run).
+   - Usage: `python scripts/apify_traffic_refresh.py data/enriched_<ts>.csv`
+   - Built against the **current** actor schema — note `trafficSources` changed: `Search`/`Social`
+     are now split into `SearchOrganic`/`SearchPaid`/`SocialOrganic`/`SocialPaid`, `Paid Referrals`
+     is gone, and there are new sources incl. `GenAi`, `DisplayAds`, `Affiliate`. The old
+     `traffic_checker.extract_traffic_metrics()` mapping is stale for search/social — do not reuse it.
+2. **Ran it on `data/enriched_20260616_023344.csv`** (latest fully-enriched file, 100 real rows).
+   - 100/100 domains returned data, 0 failures. Added 27 `apify_` columns (now 216 cols total).
+   - Confirmed Crunchbase figures were badly off (e.g. megaphone.xyz: 3.47M → 24K actual).
+3. **Wrote descriptions into the legend row** for all 27 new columns (see grader_fields note below).
 
-3. **Created Standalone Flag Checker** (`scripts/flag_checker.py`)
-   - Runs flagging on existing enriched CSV files without re-running enrichment
-   - Usage: `python scripts/flag_checker.py` (flags most recent file)
-   - Options: `--in-place` to overwrite, `-o` for custom output, `--list` to show files
-   - Tested on 999-entry file: found 783 flagged (78.4%), 216 clean (21.6%)
+### Apify gotchas (for next time)
+- The actor needs a **one-time permission approval** in the Apify Console before the API will run it
+  (`?approvePermissions=true` link), separate from "renting" it. A new account must do both.
+- The orchestrator does **not** call Apify per-entry; it only ever reads traffic from the CSV. Only
+  `traffic_checker.py` / `apify_traffic_refresh.py` actually hit the API. So to refresh, run the
+  script first, then enrichment.
+- `apify_error` column logs per-row fetch failures (`no_url` / `no_data_returned`); blank = success.
+- `apify_country_rank` / `apify_country_rank_country` come back empty in batch mode (actor limitation).
+
+### Recent Work From Prior Sessions (was undocumented here)
+The grading pivoted from subjective content/design scoring toward **objective, deterministic
+signals** (black-and-white facts an outreach email can cite). Major additions:
+- **`scripts/ai_readiness.py`** — bot/AI-engine readiness signals (robots/llms.txt, JSON-LD schema,
+  SSR vs client-rendered content ratio, sitemaps). No LLM; every check is a verifiable fact.
+- **`scripts/security_check.py`** — security-header score, HSTS/CSP/etc., SSL validity/expiry,
+  TLS version, mixed content. Pure `requests` + stdlib `ssl`/`socket`.
+- **`scripts/page_signals.py`** — network-pass signals (page/image weight, request count, trackers,
+  cookies, consent banner, tracking-before-consent) derived from the existing Playwright capture.
+- **`scripts/accessibility.py`** — axe-core a11y violations (critical/serious/moderate/minor,
+  WCAG tags, lawsuit-risk flag).
+- **`scripts/page_gate.py`** — validity gate that runs BEFORE quality scoring to weed out
+  parked/blank/blocked pages (`site_status`, `detected_platform`).
+- **`scripts/grader_fields.py`** — **this is what creates the legend/description row** (row 0, just
+  under the header) mapping terse internal names to human-readable descriptions. When adding new
+  columns, add their descriptions to this row.
+- **`scripts/message_generator.py`** — two-pass LinkedIn message generator (Analyst picks the angle
+  from the audit, Writer drafts; re-verifies stale a11y flags live before citing).
+- **`scripts/extract_facts.py`** — backfills quotable "proud facts" onto an enriched CSV.
+- **`scripts/export_prospects.py`** — exports top prospects by segment for outreach.
+- These added many columns to the enriched CSV (seo/accessibility/best_practices scores, CrUX Core
+  Web Vitals fields, `ai_readiness_*`, `a11y_*`, `sec_header_*`/`ssl_*`, `page_weight_*`,
+  `proud_facts*`, etc.). Specs in `specs/grader-v2-implementation.md`, `specs/proud-facts-plan.md`,
+  `specs/message-generator-plan.md`.
 
 ### Current State
-- User has an ongoing enrichment run: `data/enriched_20260201_180319.csv` with ~340/999 entries completed
-- Flagged version created at: `data/enriched_20260201_180319_flagged.csv`
-- Most flags are `missing_traffic` and `missing_pagespeed` (entries not yet processed)
+- Latest fully-enriched file: **`data/enriched_20260616_023344.csv`** (100 rows + legend row, 216
+  cols incl. fresh `apify_` traffic). Backup: `.bak` alongside it.
+- Note: grading uses `overall_grade` (A+–F / INVALID), not the older `letter_grade`.
 
 ### Next Steps (User's Priority)
-1. **Cloud Deployment** - Deploy to Railway.app with Slack integration (spec is ready)
-2. Continue enrichment run to completion
-3. Build message generator for personalized outreach
-4. Build data combiner for merging multiple enrichment runs
+1. Apply fresh `apify_` traffic to a larger prospect set when ready (`apify_traffic_refresh.py`).
+2. Continue outreach via `message_generator.py` / `export_prospects.py`.
+3. Cloud Deployment — Railway.app + Slack (spec in `specs/cloud-deployment-spec.md`, still pending).
 
 ## Project Overview
 
