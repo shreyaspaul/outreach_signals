@@ -17,6 +17,7 @@ Requires GEMINI_API_KEY (or ANTHROPIC_API_KEY with --provider claude) in .env.
 See specs/message-generator-plan.md.
 """
 import os
+import re
 import sys
 import json
 import argparse
@@ -43,7 +44,7 @@ TRAFFIC_HIGH_THRESHOLD = 10000   # >= this -> the "you've got real traffic" fram
 DATA_DICTIONARY = {
     "name": "Company name.",
     "what_they_do": "What the company / product is.",
-    "monthly_visits": "Approx monthly visitors. traffic_is_high tells you if it clears the bar for scale framing.",
+    "monthly_visits": "Approx monthly visitors, the FRESH Apify/SimilarWeb figure (the old Crunchbase number is stale and ignored). This is the accurate one to quote. traffic_is_high tells you if it clears the bar for scale framing.",
     "traffic_is_high": "True = visits are meaningful enough to use the 'with your traffic, even a small slice is a real number' framing. False = do NOT lean on scale; find another true benefit.",
     "tech_stack": "What the site is built on.",
     "design_score": "0-100 how professional/distinctive the design looks. <50 = weak/generic for a funded company.",
@@ -67,6 +68,24 @@ DATA_DICTIONARY = {
     "a11y_top_issues": "The specific accessibility problems found (plain descriptions).",
     "a11y_not_measured": "True = accessibility could NOT be measured (e.g. blocked). Treat as unknown, NOT as clean.",
     "quotable_facts": "Specific credible facts the company is proud of, verified to appear on their site (e.g. '40k Discord community', 'used by 2,000 teams', 'raised $12M'). Great to quote as a genuine, flattering hook when relevant. Use the exact number/name; never alter it.",
+    "secondary_signals": (
+        "Extra OBJECTIVE, citable facts BEYOND the main design/perf/content angle, present only when "
+        "they're a real concern. Use AT MOST ONE, and put it in MESSAGE 2 (it gives the follow-up real "
+        "weight). State it plainly, no jargon. These are concrete/legal/technical, so they land harder "
+        "than a design opinion. When several are present, PREFER the rarer/more distinctive one "
+        "(ai_invisible > blocks_ai_crawlers > mixed_content > ssl > ad cookies) so messages vary:\n"
+        "  - ad_cookies_before_consent: a list of ADVERTISING products (e.g. ['Meta Pixel','Google Ads']) "
+        "whose cookies are written on first load BEFORE consent. This is the serious, defensible cookie "
+        "issue (cross-site ad identifiers, not just analytics, and NOT a harmless Consent-Mode ping). Say "
+        "the COOKIES are 'set' (not 'fires'), name the products, never say GTM. If has_consent_banner is "
+        "True -> they have a banner but it isn't actually blocking these (a clear bug, state it firmly). "
+        "If False -> hedge ('set before any consent step, worth a look for your EU traffic').\n"
+        "  - ai_invisible_client_rendered: page renders entirely in the browser, so ChatGPT / Google AI "
+        "Overviews and search crawlers basically can't read it (invisible to AI search).\n"
+        "  - blocks_ai_crawlers: their robots rules block AI crawlers.\n"
+        "  - mixed_content: some assets load over insecure http (trips browser 'not secure' warnings).\n"
+        "  - ssl_expires_in_days: their https certificate expires this soon (cite the days)."
+    ),
 }
 
 # ---------------------------------------------------------------------------
@@ -100,6 +119,9 @@ RULES:
 - traffic scale framing: only allowed if traffic_is_high is true. If false, the angle must rest on a different true benefit (credibility with buyers, converting the visitors they do have, standing out), not on volume.
 - Be honest. If nothing is a genuinely real, attention-worthy hook, set priority to "skip".
 - Find ONE genuine positive from the data to credit later (strong copy, strong proof, clear niche, good design). If nothing is genuinely good, say "none".
+- POSITIVE FRAMING ONLY: express why_it_matters as the UPSIDE of improving (what a better version could unlock: more of their visitors converting, more of their audience connecting, a site that finally matches how good the product is). NEVER frame it as damage, loss, judgment, or something they got wrong. The writer must never make the founder feel criticised, judged, or worried.
+- MAKE why_it_matters CONCRETE, not vague. State the real business outcome. When traffic_is_high is true, build in the scale math: at their traffic, even a small lift in conversion is a large, tangible number of new signups / customers / revenue. Give the writer the actual stakes, not a soft platitude.
+- chosen_signal and signal_evidence are the specific, concrete thing the writer will anchor the message in (so the reader knows what was observed). Make them specific and factual, e.g. "real-user responsiveness 710ms = laggy on tap", not a vague label.
 - Never invent facts, numbers, percentages, or dollar amounts. Only use what's in the data.
 
 Return ONLY valid JSON:
@@ -107,7 +129,7 @@ Return ONLY valid JSON:
 "signal_category":"performance|design|content|accessibility|other|none",
 "chosen_signal":"<the one thing to write about, short>",
 "signal_evidence":"<the exact field values behind it, e.g. real_user_responsiveness_ms 710 = poor>",
-"why_it_matters":"<the business consequence in plain terms>",
+"why_it_matters":"<the UPSIDE of improving this, stated positively: what it could unlock, e.g. more of their visitors converting, a site that matches the product>",
 "use_traffic_scale":true|false,
 "genuine_positive":"<one real strength to credit, or 'none'>",
 "priority":"high|medium|low|skip",
@@ -118,34 +140,50 @@ Return ONLY valid JSON:
 # ---------------------------------------------------------------------------
 # Pass B — Writer
 # ---------------------------------------------------------------------------
-WRITER_SYSTEM_PROMPT = """You are a founder firing off a quick, genuine LinkedIn DM to another founder. You noticed something real about their site and you actually care. You are NOT filling in a template, writing marketing copy, or selling. You're just a sharp person who took a look and had a thought worth sharing. It should read like a real human typed it in one go.
+WRITER_SYSTEM_PROMPT = """You are a founder sending a warm, genuine LinkedIn DM to another founder. You looked at their site, you genuinely respect what they're building, and you're reaching out because you can see a way for them to get even MORE out of it. You are NOT selling, judging, or pointing out flaws. You're a peer sharing one positive, useful thought. It should read like a real human typed it in one go.
 
-You are GIVEN a decision: the one issue to talk about, why it matters, whether you can mention their traffic, a genuine positive, and maybe one quotable fact. Build the message around THAT, but write it like a person, not a form.
+You are GIVEN a decision: the one area to talk about, the upside of improving it, whether you can mention their traffic, a genuine strength to credit, and maybe one quotable fact. Build the message around THAT, but write it like a person, not a form.
+
+THE GOLDEN RULE (this is the entire job):
+Always frame from strength and opportunity, NEVER from criticism, surprise, disappointment, or fear. Lead with something genuinely good they've done. Then frame the improvement purely as a chance to BUILD ON that strength and unlock more of what they already want (more of their audience connecting, more visitors converting, a site that matches how good the product already is). ALWAYS end on a positive, forward-looking note. When the founder finishes reading, they should feel respected and a little excited, NEVER judged, criticised, embarrassed, or worried.
+BUT positive does NOT mean vague. The message must still be GROUNDED in a specific, real thing you noticed on their site, and must point at a CONCRETE business outcome. Kind and specific beats soft and empty every time. A line like "a clearer site could build more trust" fails: the reader cannot tell what you saw, why you're writing, or what's actually in it for them.
 
 WHAT GOOD SOUNDS LIKE (write in this spirit, do not copy these):
-- "hey {first-name}, good to connect. went down a bit of a rabbit hole on your site this week, the 40k discord you've built is no joke. one thing that bugged me though, it's pretty laggy when you tap around on mobile, and with the traffic you're pulling that's gotta be costing you signups. how are you thinking about that side of things?"
-- "{first-name}, quick one. the proof on your site is unreal, trusted by disclosure is a flex most brands would kill for. which is exactly why the site itself feels like a bit of a letdown, it's clean but reads like a template, not like a brand creators would obsess over. is a refresh anywhere on the radar, or way down the list?"
+- "hey {first-name}, good to connect. the 40k discord you've built is seriously impressive, people clearly love what you make. spent a while clicking through the site, and the part with the most headroom is the design matching that same creative energy. you're already pulling millions of visits a month, so even a small bump in how many of them sign up is a big number. is leveling up the site on your radar at all?"
+- "{first-name}, quick one. raising $6.5m in 19 minutes is wild, the demand is clearly real. was going through the site and a few spots are tricky to use for folks on screen readers. with the traffic you're pulling, making it effortless for every visitor to get through could turn a real chunk more of them into customers. curious if that's on your radar?"
 
-Notice: it flows as one natural thought. There's a point of view, a little warmth and edge. The positive and the problem are tied together, not bolted on. It sounds like a person, not a checklist.
+Notice in BOTH: a first-hand cue ("spent a while clicking through", "was going through the site") so the reader knows where you're coming from, ONE specific thing you actually noticed, the scale of their traffic, and a concrete outcome (more signups / more customers). Credit first, real observation second, concrete payoff third, forward question last. No surprise, no judgment, no loss framing.
 
-HOW TO MAKE IT FEEL HUMAN (this is the whole job):
-- Open like a real person reaching out: a quick natural greeting works ("hey {first-name}, good to connect", "{first-name}, quick one", "hey {first-name}"). Vary it. Then get into it like you're mid-thought.
-- Do NOT march through "reason -> problem -> but good thing -> question" as separate beats. Let it flow. Often the strongest move is to TIE the good and the bad together (e.g. "the proof is unreal, which is exactly why the generic site is a shame"), so it reads like one real observation, not a compliment sandwich.
-- Have a touch of personality and a point of view. A little candor or wry edge is good ("that's gotta sting", "most brands would kill for that", "no judgment, every site has one"). Sound like you mean it.
-- The question at the end should sound like something you'd actually ask a peer, casual and open ("how are you thinking about that?", "is that on the radar or way down the list?", "curious if that's bugging you too or just me?"). Never a yes/no, never "want the report?".
-- Read it back: would a smart, busy founder actually type this to someone they respect? If any sentence sounds like marketing or a template, rewrite it.
+GROUND IT IN A SPECIFIC, FIRST-HAND OBSERVATION (never skip this):
+- The reader must instantly understand WHY you're writing and that you actually looked at THEIR site. Open the point with a light first-hand cue ("spent some time on the site", "was clicking through on my phone", "went through the site this week").
+- Then name the ONE specific thing you noticed, plainly and kindly. Use chosen_signal / signal_evidence as that thing. Be concrete about the subject: the design, how it loads on mobile, text that's hard to read, links that are tough for screen readers. Stating the real thing plainly and kindly is REQUIRED and is NOT criticism, as long as you don't judge it (generic, letdown), act surprised, or frame it as loss. Then turn it straight into opportunity.
+
+MAKE THE BUSINESS OUTCOME CONCRETE (this is the actual point of the message):
+- Never leave the payoff abstract. Spell out what improving it would actually do for the business.
+- When use_traffic_scale is true, LEAD with the scale and do the math out loud: at their level of traffic, even a small lift in conversion is a large, tangible number of new signups / customers / revenue (e.g. "you're already pulling ~2m visits a month, so even nudging conversion up a little is a serious number of new signups"). Make the chain explicit: the specific thing I noticed -> at your scale, improving it means this concrete result -> that's the opportunity.
+- When use_traffic_scale is false, make the outcome concrete another way (winning more of the buyers who already land, standing out to the exact audience they're chasing). Still specific, never generic.
+
+HOW TO MAKE IT FEEL HUMAN:
+- Open like a real person: "hey {first-name}, good to connect", "{first-name}, quick one", "hey {first-name}". Vary it. Then get into it like you're mid-thought.
+- Warm, peer-to-peer, real enthusiasm for what they've built. A little personality is good, as long as it stays kind and encouraging.
+- The question at the end should sound like something you'd actually ask a peer, open and forward-looking ("is that something you're exploring?", "is a refresh on the radar?", "curious how you're thinking about that side of things?"). Never a yes/no, never "want the report?", never anything that corners them.
+- Read it back: would this make a busy founder feel good and want to reply? If any sentence reads as criticism, surprise, or pressure, rewrite it.
 
 USING THE FACTS:
-- If quotable_fact_to_use is not "none", work it in naturally, in your own words, as a real nod to what they've pulled off. Keep the actual number/name EXACT, but do not paste the fact in verbatim or robotically. ("the 40k discord you've built is no joke" not "you have a Discord community of 40K+ Members"). If "none", do not invent one.
+- If quotable_fact_to_use is not "none", work it in naturally, in your own words, as a real nod to what they've pulled off. Keep the actual number/name EXACT, but do not paste the fact in verbatim or robotically. ("the 40k discord you've built is seriously impressive" not "you have a Discord community of 40K+ Members"). If "none", do not invent one.
 
-CLOSING message: a short, no-pressure nudge sent only if they don't reply. Casual. This is where you mention you've got an internal tool you run client sites through, it flagged this (along with some stuff they're doing well), and you're happy to share what it found.
+CLOSING message: a short, no-pressure nudge sent only if they don't reply. Casual and warm. This is where you mention you've got an internal tool you run client sites through, it flagged a couple of things they're doing well plus one easy area to build on, and you're happy to share what it found.
 
 HARD RULES (non-negotiable, even while sounding natural):
+- Naming the specific thing you noticed, plainly and kindly, is REQUIRED (that is what grounds the message). What is banned is JUDGING it, acting surprised, or framing it as loss. So: NEVER call it generic, a template, a letdown, a shame, bland, dated, weak, clunky, or basic; NEVER say it "doesn't match" / "doesn't do justice" / "falls short"; NEVER pivot on "which is why i was surprised", "one thing that jumped out", "one thing though", "the catch".
+- NEVER sell with fear or loss (what they're LOSING). Banned: "costing you", "losing you", "leaving money on the table", "missing out", "a drag", "hurting", "holding you back", "turning fans away", "at risk". Instead frame the same point as gain: what improving it would WIN them.
+- ALWAYS end on a positive, forward-looking note.
+- Every message must be GROUNDED (a specific first-hand observation) and CONCRETE (a real business outcome, with traffic-scale math when use_traffic_scale is true). Vague, unanchored positivity is a failure.
 - Address them ONLY as the literal token {first-name}. NEVER invent or guess a real name.
 - NEVER use an em dash, en dash, or double hyphen. Commas or periods only.
 - All lowercase feel, like a real DM. No corporate polish, no emojis, no exclamation marks.
 - No jargon (no LCP, INP, CLS, WCAG, contrast, headers, render). Plain words only.
-- Performance wording must match the decision's metric: load = slow to load; responsiveness = laggy when you tap; layout shift = jumps around as it loads. Never call lag or shift "slow loading".
+- Performance wording must stay accurate: load = slow to load / a faster-loading site; responsiveness = laggy when you tap / responds the instant they tap; layout shift = jumps around as it loads / stays steady as it loads. You may name the issue plainly and briefly to ground it, then tie it to the upside. Never call lag or shift "slow loading", and never dwell on or pile onto the problem.
 - Only mention their traffic/scale if use_traffic_scale is true.
 - No invented numbers, percentages, or dollars. No buzzwords (cutting-edge, best-in-class, innovative, seamless, world-class, leverage, game-changing).
 - No defensive hedging ("no agenda", "no pressure", "no pitch", "just trying to help", "sorry to bother").
@@ -186,12 +224,101 @@ def sanitize(text):
     return t.strip()
 
 
-def build_prospect(row):
-    visits = _val(row, 'monthly_visits')
+def accurate_visits(row):
+    """Source-of-truth monthly visits: the fresh Apify/SimilarWeb figure.
+    The pre-filled `monthly_visits` (from Crunchbase) is stale/compromised and must
+    NOT be used. Fall back to it only if there is no Apify value at all."""
+    visits = _val(row, 'apify_monthly_visits')
+    if visits is None:
+        visits = _val(row, 'monthly_visits')
     try:
-        visits_num = int(float(visits)) if visits is not None else None
+        return int(float(visits)) if visits is not None else None
     except (TypeError, ValueError):
-        visits_num = None
+        return None
+
+
+def _flag(row, col):
+    """Return True/False/None for a 'True'/'False'-ish cell."""
+    v = _val(row, col)
+    if v is None:
+        return None
+    return str(v).strip().lower() == 'true'
+
+
+# Cookie NAME -> friendly ADVERTISING product. These are cross-site / retargeting
+# identifiers (the serious, consent-required category). Analytics-only cookies (_ga, Clarity)
+# are deliberately NOT here: too mild to call out, and a Google Consent-Mode cookieless ping
+# is already excluded upstream (it stores nothing). We cite the AD product, never "GTM".
+_AD_COOKIE_EXACT = {
+    'IDE': 'DoubleClick ads', 'fr': 'Meta ads', 'MUID': 'Microsoft Ads',
+    'personalization_id': 'X/Twitter ads',
+}
+_AD_COOKIE_PREFIX = (
+    ('_fbp', 'Meta Pixel'), ('_fbc', 'Meta Pixel'), ('_gcl', 'Google Ads'),
+    ('_uet', 'Microsoft Ads'), ('_pin', 'Pinterest ads'),
+)
+
+
+def _ad_cookie_product(name):
+    if name in _AD_COOKIE_EXACT:
+        return _AD_COOKIE_EXACT[name]
+    for pfx, prod in _AD_COOKIE_PREFIX:
+        if name.startswith(pfx):
+            return prod
+    return None
+
+
+def _cookies_before_consent(row):
+    """The actual tracking-cookie NAMES the grader recorded set before consent
+    (parsed from page_signals_issues)."""
+    issues = str(_val(row, 'page_signals_issues') or '')
+    m = re.search(r'tracking cookie\(s\) set before consent:\s*([^;]+)', issues)
+    return [c.strip() for c in m.group(1).split(',') if c.strip()] if m else []
+
+
+def build_secondary_signals(row):
+    """Genuinely 'pointable' OBJECTIVE facts beyond the main design/perf/content angle
+    (cookie-consent, security, AI-invisibility). Includes a signal ONLY when it's actually a
+    concern, so the bundle stays focused on what can truthfully be raised. {} = nothing."""
+    sec = {}
+
+    # COOKIE CONSENT: only flag when ACTUAL advertising cookies (cross-site/retargeting
+    # identifiers like Meta Pixel / Google Ads) are written before consent. We surface the
+    # real product names (not the request-tracker list, which includes exempt things like GTM).
+    if _flag(row, 'tracking_before_consent'):
+        ad_products = []
+        for ck in _cookies_before_consent(row):
+            prod = _ad_cookie_product(ck)
+            if prod and prod not in ad_products:
+                ad_products.append(prod)
+        if ad_products:
+            sec['ad_cookies_before_consent'] = ad_products
+            banner = _flag(row, 'has_consent_banner')
+            if banner is not None:
+                sec['has_consent_banner'] = banner
+
+    # SSL about to expire (concrete, time-sensitive).
+    if _flag(row, 'ssl_expires_soon'):
+        days = _val(row, 'ssl_days_to_expiry')
+        if days is not None:
+            sec['ssl_expires_in_days'] = days
+
+    # Mixed content: insecure http assets can trip browser 'not secure' warnings.
+    if _flag(row, 'mixed_content'):
+        sec['mixed_content'] = True
+
+    # AI / search invisibility: fully client-rendered => AI engines & crawlers can't
+    # read the page; robots blocking AI does the same on purpose.
+    if _flag(row, 'ssr_client_rendered'):
+        sec['ai_invisible_client_rendered'] = True
+    if _flag(row, 'robots_blocks_ai'):
+        sec['blocks_ai_crawlers'] = True
+
+    return sec
+
+
+def build_prospect(row):
+    visits_num = accurate_visits(row)
     p = {
         "name": _val(row, 'Name', 'there'),
         "what_they_do": _val(row, 'Description') or _val(row, 'content_analysis'),
@@ -222,6 +349,9 @@ def build_prospect(row):
     facts = _val(row, 'proud_facts')
     if facts:
         p["quotable_facts"] = [f.strip() for f in str(facts).split('|') if f.strip()]
+    sec = build_secondary_signals(row)
+    if sec:
+        p["secondary_signals"] = sec
     return {k: v for k, v in p.items() if v is not None}
 
 

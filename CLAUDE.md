@@ -2,9 +2,29 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Last Session Context (2026-06-18)
+> **CURRENT STATE & NEXT STEPS → see `PROJECT_STATE.md`** (canonical handoff; read it first each session).
 
-### What Was Done This Session — Apify Traffic Refresh
+## Last Session Context (2026-06-23)
+
+### What Was Done This Session — Outreach Messaging Overhaul
+Reworked how outreach messages are written and who writes them. Full detail in the new
+**"Outreach Messaging System"** section below; in brief:
+- **Generation moved off the Gemini API to Claude in-session** via a new `/generate-outreach`
+  skill (out of Gemini credits + Claude writes better). `scripts/prep_bundles.py` is the
+  data-prep/assembly plumbing.
+- **New writing philosophy: lead with an inference about the prospect's business, not flattery**
+  (modeled on a cold email the user admired). Understanding > praise. Positive/opportunity
+  framing only, grounded in the audit, with traffic-scale math. Guardrails live in the master
+  prompt, not a keyword blocklist.
+- **3-message sequence**: inference DM → case-study follow-up → short soft close.
+- **Case-study library + selection rules** built into the skill (12 studies from `Copy/`,
+  URLs `https://prismport.co/case-studies/<slug>` — slugs still need verifying, esp. Wonder
+  Phone ↔ Wondersimple).
+- **Traffic source-of-truth fix**: messages must use `apify_monthly_visits`, never the stale
+  Crunchbase `monthly_visits` (enforced by `accurate_visits()`).
+- Latest output: `data/messages_v2.csv` (first/second/third messages + case-study columns).
+
+### Prior Session (2026-06-18) — Apify Traffic Refresh
 The prefilled traffic data (copied from Crunchbase into `monthly_visits`) was found to be
 stale/wrong for many rows. Refreshed it with live SimilarWeb data via Apify.
 
@@ -63,8 +83,182 @@ signals** (black-and-white facts an outreach email can cite). Major additions:
 
 ### Next Steps (User's Priority)
 1. Apply fresh `apify_` traffic to a larger prospect set when ready (`apify_traffic_refresh.py`).
-2. Continue outreach via `message_generator.py` / `export_prospects.py`.
+2. Continue outreach via the `/generate-outreach` skill (see "Outreach Messaging System") and `export_prospects.py`. Verify case-study slugs before sending.
 3. Cloud Deployment — Railway.app + Slack (spec in `specs/cloud-deployment-spec.md`, still pending).
+
+## Outreach Messaging System (How We Write Messages)
+
+This is the canonical record of our outreach-message technique. The **operational source
+of truth is the skill** at `.claude/skills/generate-outreach/SKILL.md` (the master prompt +
+procedure + case-study library). This section explains the why and the shape so it stays saved.
+
+### 2026-07 UPDATE — bulk generation moved to the Claude API (Sonnet 5)
+After hand-authoring/subagent runs got expensive (drained API/usage credits) and couldn't run
+unattended reliably, we ran a **model-swap quality/cost test** (`scripts/model_swap_test.py`) on
+gold-reference prospects across Opus 4.8, Opus 4.8+thinking, Sonnet 5, Haiku 4.5. Findings:
+Opus 4.8+thinking best-matched in-session quality (~$16/380) but **Sonnet 5 matched the hard
+rubric calls at ~$5/380 with clean output**, so **Sonnet 5 is the chosen bulk model**. (Correct
+Opus pricing is $5/$25 per 1M, not the $15/$75 first assumed — older Opus is the same price, so
+"lower Opus" saves nothing; only Sonnet/Haiku are cheaper.) Prompt-caching + Batch API drive cost.
+- **Runner: `scripts/generate_messages_api.py`** — picks the next N unwritten gradeable prospects
+  from `data/message_bundles_all.json`, sends each with SKILL.md+data-dictionary as a **cached
+  system prompt** to Sonnet 5 (thinking disabled), applies a **deterministic brand-casing
+  backstop** (`webflow`→`Webflow`, `gdpr`→`GDPR`, sentence-case, `I`), merges into
+  `message_results.json`, runs `assemble`, writes a full-column `REVIEW_batch_XXX.csv`.
+  `--batch` uses the Message Batches API (-50%); default is realtime. Needs `ANTHROPIC_API_KEY` in `.env`.
+- **Three prompt fixes locked in (in SKILL.md HARD RULES / anatomy):** (1) **proper capitalization is
+  mandatory** (overrides the casual feel; models otherwise slip to lowercase); (2) **signal-matched
+  direct CTA** (perf→"is site speed something you're looking at?", design→"is a refresh on your
+  radar?", content→"is building out the site something you're thinking about?"); banned the vague
+  "how are you thinking about the site" openers; (3) **anti-arrogance tone guardrail** (banned
+  "evaluating you against your promise", "sizing you up", "judging you", "before they read a word").
+- **`tone_flag` column** added to `assemble` output (and review CSVs) — flags the egregious
+  arrogant framings for QA (the mild "deciding whether to trust <the process>" softie is left unflagged).
+- Model-comparison artifacts: `data/model_comparison.csv`, `data/sonnet_v2_comparison.csv`,
+  `scripts/build_comparison_csv.py`, outputs in `data/model_swap/`.
+
+#### ✅ RUN COMPLETE (2026-07-08) — all 795 gradeable prospects generated & QA-clean
+The full set is DONE. Every gradeable prospect (795; the ~204 INVALID sites are not messaged)
+has a 3-message sequence in **`data/messages_v2.csv`** (full reasoning columns + `tone_flag`).
+`python scripts/qa_check.py` (report mode, all 795) returns **0 flags** — tone, CTA, casing,
+mechanics all clean.
+- **How it ran:** the remaining 359 went through the **Batch API** (`generate_messages_api.py
+  --batch`, one `msgbatch_…` job, -50%). The local poll got killed by the runtime cap twice, but
+  the batch is cloud-side and survives — re-attach with **`scripts/finish_batch.py <batch_id>`**
+  (fetches an ENDED batch, no long poll, so it can't be killed).
+- **Batch-output quirk found & fixed deterministically (no mass regen):** Sonnet in batch mode
+  frequently (~135/359) dropped the msg2 opener ("Hey {first-name}, quick context, we're a design
+  and Webflow studio.") and sometimes capitalized case-study URL slugs (`/NewsCatcher` → a 404).
+  `qa_check.det_fix()` now restores the opener, forces every message to contain `{first-name}`,
+  lowercases all URLs, and fixes a CTA written with `.` instead of `?`. Only genuinely-vague CTAs
+  / arrogant tone get an API regen (`wants_api()`); everything structural/mechanical is free.
+- **`qa_check.py` is the standing QA tool** — `qa_check.py` (report) / `--fix` (correct), `--all`
+  or `--domains`, and it auto-runs after every batch inside the runner. Reuse it before any send.
+- **Note:** the SKILL prompt at `.claude/skills/generate-outreach/SKILL.md` is gitignored (under
+  `.claude/`), so prompt changes are NOT in version control unless force-added.
+
+### Who writes the messages (architecture)
+- **Claude writes them, in the terminal session — NOT an LLM API.** We ran out of Gemini
+  credits, and Claude's writing is better. Generation happens by invoking the
+  **`/generate-outreach` skill**, which Claude executes directly.
+- **`scripts/prep_bundles.py`** is the deterministic plumbing (no API):
+  - `dump <enriched.csv> --limit N -o data/message_bundles.json` — pulls each gradeable
+    prospect's full audit + a data dictionary into JSON for Claude to read.
+  - `assemble <enriched.csv> data/message_results.json -o data/messages_v2.csv` — merges
+    Claude's authored results back into a CSV and runs `sanitize()` (em-dash strip,
+    `{first-name}` enforcement).
+- **Flow:** `dump` → Claude reads bundles and writes `data/message_results.json` (the words
+  are Claude's; JSON is just serialization) → `assemble` → `data/messages_v2.csv`.
+- `scripts/message_generator.py` still holds the reused helpers `build_prospect`,
+  `DATA_DICTIONARY`, `sanitize`, `_val`, `accurate_visits`, plus the **legacy** Gemini
+  two-pass path (kept but not used).
+
+### Writing philosophy (hard-won from user feedback)
+1. **Lead with an INFERENCE about the prospect's business, not flattery.** The standout move
+   — modeled on a cold email the user loved ("no big sales team → growth is probably referrals").
+   Use the audit data to say something true and specific about how they grow / where the site
+   stands, as a humble hypothesis ("i'd guess most of your signups arrive warm..."). The reader
+   should think "huh, yeah." **Understanding outranks praise.**
+2. **Positive / opportunity framing only.** Never judge their site, never pivot on surprise or
+   disappointment, never sell with fear/loss. Frame every point as upside ("a faster site could
+   convert more" not "your site is slow and losing you signups"). Always end forward.
+3. **Grounded + concrete.** Positive does NOT mean vague. Name the ONE real thing from the audit
+   (kindly, factually) and tie it to a concrete business outcome. When traffic is high, do the
+   math out loud: at their scale, even a small conversion lift is a large, tangible number.
+4. **Guardrails live in the master prompt, not a code blocklist.** A keyword-blocklist filter was
+   tried and explicitly rejected by the user as "not prompt engineering." The skill's prompt
+   carries the rules.
+
+### Traffic = source of truth
+Messages must quote **`apify_monthly_visits`** (fresh SimilarWeb), never the stale Crunchbase
+`monthly_visits`. `accurate_visits(row)` (in `message_generator.py`) enforces this and is used by
+`build_prospect` and `prep_bundles`. Don't use scale framing for genuinely low traffic even if it
+trips the 10k `traffic_is_high` threshold (e.g. megaphone.xyz is really ~24k, not 3M).
+
+### The 3-message sequence
+1. **first_message** — the inference-led DM. Anatomy: a light human opener → the inference →
+   the grounded observation + concrete outcome (with scale math) → a soft, forward CTA.
+2. **second_message** — case-study follow-up (sent if no reply). Soft intro → case-study link on
+   its own line → one line on the result that maps to THEIR problem → relevance tie-back → soft
+   CTA. Modeled on a follow-up email the user liked.
+3. **third_message** — a very short, low-key soft close (sent if still no reply). "looks like this
+   isn't a priority right now, totally fair, reach out whenever it's back on your radar." This is
+   the one place light no-pressure language is welcome.
+
+### Case-study library + selection
+- Source copy lives in `Copy/` (all 12 case studies; the concise registry is `Copy/Case Study
+  Cards.md` — company, category, problem, exact headline metric).
+- The skill embeds a **registry table** (company | category | "use when" | exact result | slug)
+  and the rule: **match on the problem/signal pitched in message 1 first, then industry
+  adjacency.** Always quote the case study's real metric exactly.
+- URLs are `https://prismport.co/case-studies/<slug>`. **Slugs are derived from names and need
+  human verification** — especially Wonder Phone (file is "Wondersimple").
+
+### Hard rules (enforced by the skill prompt; `sanitize()` backstops two of them)
+`{first-name}` is the only name token; never invent numbers/funding/customers; no judgment,
+surprise, or fear framing; no buzzwords (world-class, seamless, etc.); no em/en dashes; lowercase
+DM feel; performance wording must match the metric (load vs tap-responsiveness vs layout-shift);
+only use traffic-scale framing if `traffic_is_high`; always end positive.
+
+### Files
+| Path | Role |
+|------|------|
+| `.claude/skills/generate-outreach/SKILL.md` | **Master prompt + procedure + case-study library** (source of truth for HOW we write) |
+| `scripts/prep_bundles.py` | `dump` / `assemble` plumbing (no API) |
+| `scripts/message_generator.py` | reused helpers (`build_prospect`, `accurate_visits`, `sanitize`, ...) + legacy Gemini path |
+| `Copy/` | website copy incl. all case studies (`Case Study Cards.md` = the registry source) |
+| `data/message_bundles.json` | dumped audit bundles (intermediate) |
+| `data/message_results.json` | Claude's authored messages (intermediate) |
+| `data/messages_v2.csv` | latest output: first/second/third messages + `case_study_name`/`case_study_url` |
+
+### How to run
+Say "generate outreach" (or `/generate-outreach`). Claude will `dump` → write the messages →
+`assemble`. Point it at any enriched CSV with `--limit N`. Always verify case-study slugs resolve.
+
+## Site Analysis Vertical (Deep Client Understanding)
+
+A separate use case from the bulk outreach pipeline. Given a SINGLE company URL, it
+produces an in-depth **business-analyst report** — what the business does, who it
+serves, how it makes money, how it grows, its proof points — plus a site-improvement
+audit. Used to understand a prospective client's business in depth before we engage.
+
+### Architecture (mirrors `/generate-outreach`)
+Deterministic plumbing builds a bundle; **Claude (in-session) writes the report.** No
+LLM API is used for the report writing itself (the graders still use Gemini).
+- **`scripts/site_crawler.py`** — page discovery + prioritization. Sitemap.xml (+ robots
+  + index recursion) and a single rendered-homepage Playwright link harvest; categorizes
+  by first path segment (home/about/product/pricing/customers/...), caps noisy categories
+  (blog/docs/customers), returns ~20–30 prioritized pages. No LLM.
+- **`scripts/analyze_site.py`** — orchestrator. Crawl → Jina-extract each page →
+  grade key pages (homepage + product/pricing) with the existing `capture_screenshot_and_content`
+  + `analyze_design_with_gemini` + `analyze_content_with_llm` → `detect_tech_stack` →
+  `extract_proud_facts`. Writes `data/analysis/<slug>/bundle.json` (+ per-page screenshots).
+  Resilient per-page; re-run overwrites.
+- **`.claude/skills/analyze-site/SKILL.md`** — the analyst master prompt: persona,
+  report structure (14 sections — business analysis 1–8, site audit 9, then the sales plan:
+  improvement opportunities/pitch, engagement opportunity, discovery questions, and an
+  **always-included Webflow-migration cost estimate** §13), PRICING GUIDANCE bands, and hard
+  rules (cite evidence, label inferences, quote proud_facts exactly, opportunity-framed audit,
+  **write with explanatory depth — not terse bullets**). Source of truth for HOW.
+
+### How to run
+```bash
+python scripts/site_crawler.py https://example.com           # preview the page list
+python scripts/analyze_site.py https://example.com --max-pages 25
+python scripts/analyze_site.py https://example.com --skip-grader   # fast, text-only
+```
+Then say `/analyze-site <url>` (or "analyze this site") → Claude builds the bundle,
+reads it, and writes `data/analysis/<slug>/report.md`.
+
+### Reused (do not fork)
+`extract_content`/`detect_error_page`/`analyze_content_with_llm`/`extract_proud_facts`
+(`content_extractor.py`); `capture_screenshot_and_content`/`analyze_design_with_gemini`/
+`clean_domain` (`website_grader.py`); `detect_tech_stack` (`wordpress_detector.py`).
+
+### Later (web app phase)
+The skill prompt is the seam: a future `scripts/analyze_writer.py` would send the SKILL
+prompt (as system) + `bundle.json` (as payload) to the **Claude API** to produce the
+report with no other change. Needs `ANTHROPIC_API_KEY` + `anthropic` added then. Not built yet.
 
 ## Project Overview
 
@@ -89,8 +283,10 @@ Cold outreach system for WordPress → Webflow migrations targeting SaaS/tech st
 - **Orchestrator** (`scripts/orchestrator.py`) - Runs all scripts on a CSV, outputs enriched data, supports resume from interrupted runs
 
 ### Not Yet Built
-- **Message generator** - AI-powered personalization using extracted content
 - **Data combiner** - Merge multiple enrichment runs
+
+> Note: the **Message generator is built** — now Claude-written via the `/generate-outreach`
+> skill. See the "Outreach Messaging System" section above.
 
 ### Known Limitations
 - Traffic API requires paid Apify subscription after trial (not needed if CSV already has traffic data)
