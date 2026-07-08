@@ -102,7 +102,7 @@ def main():
     msg = msg[msg["first_message"].notna() & (msg["first_message"].astype(str).str.strip() != "")]
     msg_by_dom = {r["domain"]: r for _, r in msg.iterrows()}
 
-    rows, chosen_domains = [], set()
+    rows, dropped, chosen_domains = [], [], set()
     for dom, grp in ppl.groupby("domain"):
         if dom not in msg_by_dom:
             continue  # person exists but no message for their site -> never pitch it
@@ -111,6 +111,15 @@ def main():
         others = grp.iloc[1:]
         m = msg_by_dom[dom]
         fn = first_name(best["Full Name"])
+        for rank, (_, p) in enumerate(others.iterrows(), start=2):
+            dropped.append({
+                "domain": dom, "Company Name": p.get("Company Name"),
+                "Full Name": p["Full Name"], "Title": p["Title"],
+                "Person LinkedIn": p["Person LinkedIn"], "Work Email": p.get("Work Email"),
+                "Company Headcount": p.get("Company Headcount"), "Location": p.get("Location"),
+                "selection_score": int(p["_score"]), "rank_at_company": rank,
+                "chosen_instead": f"{best['Full Name']} ({best['Title']})",
+            })
 
         def fill(x):
             return str(x).replace("{first-name}", fn) if fn else str(x)
@@ -136,6 +145,11 @@ def main():
     out = pd.DataFrame(rows).sort_values("Company Name")
     out.to_csv(ROOT / "data" / "outreach_ready.csv", index=False)
 
+    # runner-up contacts at the SAME companies we ARE reaching out to — the people we
+    # deliberately chose NOT to message (kept for reference / manual override).
+    drop_df = pd.DataFrame(dropped).sort_values(["Company Name", "rank_at_company"])
+    drop_df.to_csv(ROOT / "data" / "not_contacted.csv", index=False)
+
     # message domains with no contact at all
     no_contact = msg[~msg["domain"].isin(ppl["domain"])]
     nc = no_contact[["Domain", "Name", "signal_category", "chosen_signal",
@@ -145,6 +159,7 @@ def main():
     print(f"people (deduped): {len(ppl)} across {ppl['domain'].nunique()} domains")
     print(f"OUTREACH-READY: {len(out)} companies (one best contact + message each)")
     print(f"  -> data/outreach_ready.csv")
+    print(f"NOT-CONTACTED runner-ups at those companies: {len(drop_df)} -> data/not_contacted.csv")
     print(f"messages with NO contact yet: {len(nc)} -> data/messages_no_contact.csv")
     print(f"people on domains with no message (excluded): "
           f"{ppl[~ppl['domain'].isin(set(msg['domain']))]['domain'].nunique()}")
