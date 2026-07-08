@@ -66,9 +66,17 @@ def score_person(row):
     else:
         sen = 3
     # USER RULE: pick the marketing / website owner FIRST, at ANY seniority, over the founder.
-    # (Within marketing, seniority breaks ties; a marketing-founder still tops.)
     if is_mktg:
-        return 400 + sen + (15 if is_founder else 0)
+        # Within marketing, rank by who actually owns website/brand/design decisions:
+        #   core marketing/brand/growth  >  digital/content/web/SEO  >  comms/PR/social/press.
+        sub = 0
+        if re.search(r"\bmarketing\b|\bcmo\b|marketing officer|brand|growth|demand", t):
+            sub += 35   # core marketing/brand/growth — owns brand, website, design decisions
+        elif re.search(r"digital|\bweb\b|website|content|\bseo\b|lifecycle|audience", t):
+            sub += 22   # digital / content / web — site-adjacent owner
+        if re.search(r"communicat|public relation|\bpr\b|social media|\bpress\b|community", t):
+            sub -= 15   # external messaging, not the website itself
+        return 400 + sub + sen + (15 if is_founder else 0)
     # among the non-marketing rest, founders are preferred (reply rate + decision power).
     base = 32 if is_prod else 22 if is_sales else 12 if is_tech else 20
     return base + sen + (25 if is_founder else 0)
