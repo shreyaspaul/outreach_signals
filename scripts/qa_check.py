@@ -177,8 +177,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--domains", help="comma-separated subset; default = all written")
     ap.add_argument("--fix", action="store_true")
-    ap.add_argument("-o", "--report", default="data/qa_report.csv")
+    ap.add_argument("-o", "--report", default=None, help="report path (default: <batch>/qa_report.csv)")
     args = ap.parse_args()
+    report_path = Path(args.report) if args.report else gm.DATA / "qa_report.csv"
 
     master = json.loads(RESULTS.read_text())
     by = {r["domain"]: r for r in master}
@@ -196,8 +197,8 @@ def main():
                 need_api.append(dom)
 
     import pandas as pd
-    pd.DataFrame(report).to_csv(ROOT / args.report, index=False)
-    print(f"Scanned {len(scope)} | flagged {len(report)} -> {args.report}")
+    pd.DataFrame(report).to_csv(report_path, index=False)
+    print(f"Scanned {len(scope)} | flagged {len(report)} -> {report_path}")
     if report:
         from collections import Counter
         c = Counter(k for row in report for k in row if k != "domain")

@@ -137,6 +137,23 @@ mechanics all clean.
 - **Note:** the SKILL prompt at `.claude/skills/generate-outreach/SKILL.md` is gitignored (under
   `.claude/`), so prompt changes are NOT in version control unless force-added.
 
+#### Per-batch data layout (added 2026-07-09)
+Each batch of leads lives in its OWN folder: **`data/<batch>/`** (this run = `data/batch_01/`),
+holding that batch's sources + outputs (enriched, message_bundles_all, message_results,
+messages_v2, outreach_ready, not_contacted, messages_no_contact, lead_report, Person_details, etc.).
+`data/` root only holds `analysis/` (the site-analysis vertical) and the batch folders.
+- **Switch batches with the `LEADS_BATCH` env var** (default `batch_01`):
+  `LEADS_BATCH=batch_02 python scripts/generate_messages_api.py …`. The pipeline entry points
+  (`generate_messages_api.py`, `qa_check.py`, `finish_batch.py`, `build_outreach_list.py`,
+  `lead_report.py`) all resolve `data/<LEADS_BATCH>/` and read/write there; `ENRICHED` globs
+  `enriched_*.csv` in the batch folder so the exact filename doesn't matter.
+- **`scripts/build_outreach_list.py`** — dedup people to ONE best contact per company
+  (marketing/website-owner-first: core marketing/brand/growth > digital/content/web >
+  comms/PR/social > founders > product/tech), domain-matched to each message; writes
+  `outreach_ready.csv` (send-ready) + `not_contacted.csv` (runner-ups) + `messages_no_contact.csv`.
+- **`scripts/lead_report.py`** — per-batch funnel breakdown -> `<batch>/lead_report.csv`
+  (total -> invalid/ungraded -> gradeable -> worth-reaching -> contact-found, + by-signal, by-role).
+
 ### Who writes the messages (architecture)
 - **Claude writes them, in the terminal session — NOT an LLM API.** We ran out of Gemini
   credits, and Claude's writing is better. Generation happens by invoking the

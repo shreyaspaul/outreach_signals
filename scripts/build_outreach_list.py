@@ -17,14 +17,16 @@ Outputs (nothing deleted; new files only):
   - data/outreach_ready.csv       one row per company: chosen person + their message
   - data/messages_no_contact.csv  message domains that have NO contact yet (can't send)
 """
+import os
 import re
 import pandas as pd
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-PEOPLE = [ROOT / "Person_details_enriched0-1000_batch1.csv",
-          ROOT / "Person_details_enriched0-1000_batch2.csv"]
-MESSAGES = ROOT / "data" / "messages_v2.csv"
+# per-batch data folder: data/<batch>/ (switch with LEADS_BATCH env var)
+DATA = ROOT / "data" / os.environ.get("LEADS_BATCH", "batch_01")
+PEOPLE = sorted(DATA.glob("Person_details*.csv"))
+MESSAGES = DATA / "messages_v2.csv"
 
 
 def norm_domain(x):
@@ -151,24 +153,25 @@ def main():
         chosen_domains.add(dom)
 
     out = pd.DataFrame(rows).sort_values("Company Name")
-    out.to_csv(ROOT / "data" / "outreach_ready.csv", index=False)
+    out.to_csv(DATA / "outreach_ready.csv", index=False)
 
     # runner-up contacts at the SAME companies we ARE reaching out to — the people we
     # deliberately chose NOT to message (kept for reference / manual override).
     drop_df = pd.DataFrame(dropped).sort_values(["Company Name", "rank_at_company"])
-    drop_df.to_csv(ROOT / "data" / "not_contacted.csv", index=False)
+    drop_df.to_csv(DATA / "not_contacted.csv", index=False)
 
     # message domains with no contact at all
     no_contact = msg[~msg["domain"].isin(ppl["domain"])]
     nc = no_contact[["Domain", "Name", "signal_category", "chosen_signal",
                      "first_message", "second_message", "third_message"]]
-    nc.to_csv(ROOT / "data" / "messages_no_contact.csv", index=False)
+    nc.to_csv(DATA / "messages_no_contact.csv", index=False)
 
+    rel = DATA.relative_to(ROOT)
     print(f"people (deduped): {len(ppl)} across {ppl['domain'].nunique()} domains")
     print(f"OUTREACH-READY: {len(out)} companies (one best contact + message each)")
-    print(f"  -> data/outreach_ready.csv")
-    print(f"NOT-CONTACTED runner-ups at those companies: {len(drop_df)} -> data/not_contacted.csv")
-    print(f"messages with NO contact yet: {len(nc)} -> data/messages_no_contact.csv")
+    print(f"  -> {rel}/outreach_ready.csv")
+    print(f"NOT-CONTACTED runner-ups at those companies: {len(drop_df)} -> {rel}/not_contacted.csv")
+    print(f"messages with NO contact yet: {len(nc)} -> {rel}/messages_no_contact.csv")
     print(f"people on domains with no message (excluded): "
           f"{ppl[~ppl['domain'].isin(set(msg['domain']))]['domain'].nunique()}")
 

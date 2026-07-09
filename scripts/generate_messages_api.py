@@ -23,11 +23,15 @@ STEER = ("\n\nIMPORTANT REWRITE NOTE: your previous draft used a BANNED arrogant
          "(e.g. 'sizing you up', 'evaluating you', 'judging you', 'before they read a word'). "
          "The reader is NOT scrutinizing or judging you. Rewrite every message so no framing "
          "casts their visitors as skeptics/evaluators. Keep it warm and credit-giving.")
-BUNDLES = ROOT / "data" / "message_bundles_all.json"
+# Each batch of leads lives in its own folder: data/<batch>/ (default batch_01).
+# Switch batches with the LEADS_BATCH env var, e.g. `LEADS_BATCH=batch_02 python scripts/...`.
+BATCH = os.environ.get("LEADS_BATCH", "batch_01")
+DATA = ROOT / "data" / BATCH
+BUNDLES = DATA / "message_bundles_all.json"
 SKILL = ROOT / ".claude" / "skills" / "generate-outreach" / "SKILL.md"
-RESULTS = ROOT / "data" / "message_results.json"
-ENRICHED = ROOT / "data" / "enriched_ALL_999.csv"
-MESSAGES = ROOT / "data" / "messages_v2.csv"
+RESULTS = DATA / "message_results.json"
+ENRICHED = next(iter(sorted(DATA.glob("enriched_*.csv"))), DATA / "enriched_ALL_999.csv")
+MESSAGES = DATA / "messages_v2.csv"
 MODEL = "claude-sonnet-5"
 IN_RATE, OUT_RATE = 3e-6, 15e-6  # Sonnet 5 standard $/token
 
@@ -136,7 +140,7 @@ def finalize(obj, dom):
 
 
 def next_batch_num():
-    nums = [int(m.group(1)) for f in (ROOT / "data").glob("REVIEW_batch_*.csv")
+    nums = [int(m.group(1)) for f in DATA.glob("REVIEW_batch_*.csv")
             if (m := re.search(r"REVIEW_batch_(\d+)\.csv", f.name))]
     return (max(nums) + 1) if nums else 1
 
@@ -268,7 +272,7 @@ def main():
     order = {d: i for i, d in enumerate(doms)}
     sub["_o"] = sub["Domain"].map(order)
     sub = sub.sort_values("_o").drop(columns="_o")
-    review = ROOT / "data" / f"REVIEW_batch_{n:03d}.csv"
+    review = DATA / f"REVIEW_batch_{n:03d}.csv"
     sub[[c for c in REVIEW_COLS if c in sub.columns]].to_csv(review, index=False)
     print(f"Wrote {review.relative_to(ROOT)} ({len(sub)} rows)")
     print(f"Batch cost: ${cost:.2f}   |   written total: {len(by)}/795")

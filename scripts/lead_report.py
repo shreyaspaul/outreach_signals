@@ -9,15 +9,17 @@ Usage:
   python scripts/lead_report.py                    # uses the current default files
   python scripts/lead_report.py <enriched.csv> <messages.csv> <outreach_ready.csv>
 """
-import sys, re
+import os, sys, re
 import pandas as pd
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-ENRICHED = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / "data" / "enriched_ALL_999.csv"
-MESSAGES = Path(sys.argv[2]) if len(sys.argv) > 2 else ROOT / "data" / "messages_v2.csv"
-OUTREACH = Path(sys.argv[3]) if len(sys.argv) > 3 else ROOT / "data" / "outreach_ready.csv"
-OUT = ROOT / "data" / "lead_report.csv"
+DATA = ROOT / "data" / os.environ.get("LEADS_BATCH", "batch_01")  # per-batch folder
+_enr = next(iter(sorted(DATA.glob("enriched_*.csv"))), DATA / "enriched_ALL_999.csv")
+ENRICHED = Path(sys.argv[1]) if len(sys.argv) > 1 else _enr
+MESSAGES = Path(sys.argv[2]) if len(sys.argv) > 2 else DATA / "messages_v2.csv"
+OUTREACH = Path(sys.argv[3]) if len(sys.argv) > 3 else DATA / "outreach_ready.csv"
+OUT = DATA / "lead_report.csv"
 
 
 def role_cat(t):
@@ -48,7 +50,7 @@ def main():
     sendable = int(has_msg.sum())
 
     out = pd.read_csv(OUTREACH)
-    nc = ROOT / "data" / "messages_no_contact.csv"
+    nc = DATA / "messages_no_contact.csv"
     awaiting = len(pd.read_csv(nc)) if nc.exists() else (sendable - len(out))
 
     rows = [
