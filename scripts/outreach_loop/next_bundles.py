@@ -5,7 +5,8 @@ scripts/outreach_loop/RUN_LOOP.md.
 
 Usage:  python scripts/outreach_loop/next_bundles.py [N]
 Resolves data/<LEADS_BATCH>/ (default batch_01); reads RESULTS_FILE (default message_results_v3.json)
-to know what's already written, so it only ever shows unwritten prospects.
+to know what's already written, so it only ever shows unwritten prospects. Domains recorded in
+skipped_shutdowns.json (companies that have shut down) are excluded too, so they are never re-served.
 """
 import json, os, sys
 from pathlib import Path
@@ -15,13 +16,17 @@ BATCH = os.environ.get("LEADS_BATCH", "batch_01")
 DATA = ROOT / "data" / BATCH
 B = DATA / "message_bundles_all.json"
 R = DATA / os.environ.get("RESULTS_FILE", "message_results_v3.json")
+SKIPPED = DATA / "skipped_shutdowns.json"
 
 N = int(sys.argv[1]) if len(sys.argv) > 1 else 15
 prospects = json.loads(B.read_text())["prospects"]
 done = {r["domain"] for r in json.loads(R.read_text())} if R.exists() else set()
-todo = [p for p in prospects if p["domain"] not in done]
+skipped = {r["domain"] for r in json.loads(SKIPPED.read_text())} if SKIPPED.exists() else set()
+exclude = done | skipped
+todo = [p for p in prospects if p["domain"] not in exclude]
 
-print(f"WRITTEN: {len(done)} | REMAINING: {len(todo)} | showing next {min(N, len(todo))}")
+print(f"WRITTEN: {len(done)} | SKIPPED (shut down): {len(skipped)} | "
+      f"REMAINING: {len(todo)} | showing next {min(N, len(todo))}")
 FIELDS = ("name", "what_they_do", "tech_stack", "monthly_visits", "traffic_is_high", "industry",
           "funding", "design_score", "design_really_lacking", "content_score", "content_really_thin",
           "performance_really_poor", "desktop_speed_score", "real_user_load_seconds",

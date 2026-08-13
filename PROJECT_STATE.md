@@ -82,6 +82,45 @@ Phase 0 hygiene items below were identified but **NOT done**.
    Gemini path in `message_generator.py`, the `PILOT_*.md` files.
 6. Wrote `specs/outreach-app-plan.md` and `specs/outreach-app-plan.html`, and published the artifact.
 
+### Session log — 2026-08-13 (later) — Phase 0 DONE: everything committed, repo made hygienic
+
+Two commits. The first is a verbatim backup (**nothing had been committed since 9 Jul**), so the
+cleanup in the second cannot lose anything.
+
+1. **Backup commit `3c7fcb8`** — all uncommitted work as-is: `scripts/outreach_loop/`, 14 new
+   scripts, `Copy/`, `PROJECT_STATE.md`, `specs/outreach-app-plan.{md,html}`, and 9 modified scripts.
+   **Force-added past the `data/` gitignore because it had no backup at all:**
+   `message_results_v3.json` (the 594 hand-written messages), `messages_v3{,_complete}.csv`,
+   `outreach_ready_v3.csv`, `not_contacted_v3.csv`, `messages_no_contact_v3.csv`,
+   `skipped_shutdowns.json`, `signal_verdicts.json`, and the `PILOT_*`/`DESIGN_CHECK` review docs.
+   Excluded `screenshots_recheck/` (380MB of regenerable PNGs) and added `screenshots_*/` to
+   `.gitignore` — committing it would have bloated the repo permanently.
+2. **`SKILL.md` was already tracked**, contrary to what CLAUDE.md and memory both claimed. It was
+   force-added at some earlier point. It is in git and now committed. The "gitignored, unbacked on
+   one disk" warning is **obsolete** — do not act on it.
+3. **Hygiene commit** — see the repo layout note below. `next_bundles.py` now excludes
+   `skipped_shutdowns.json`; verified: `WRITTEN: 594 | SKIPPED: 4 | REMAINING: 195`. Also defused 5
+   fake sample credentials in `specs/cloud-deployment-spec.md` (`xoxb-1234…`, `AIzaSy…`) that were
+   tripping GitHub push protection — they were always placeholders, nothing to rotate.
+4. All live modules verified importable after the moves. (`finish_batch.py` cannot be imported, but
+   that is pre-existing: it reads `sys.argv[1]` at module level.)
+
+### Repo layout after the 2026-08-13 cleanup
+- **Root holds 4 docs only**: `README.md`, `CLAUDE.md`, `PROJECT_STATE.md`, `SIGNALS.md`.
+- **`docs/_archive/`** — 5 superseded outreach docs from 16 Jun (`MESSAGE_TEMPLATES.md`,
+  `LINKEDIN_OUTREACH_STRATEGY.md`, `OUTREACH_README.md`, `OUTREACH_SUMMARY.md`,
+  `IMPLEMENTATION_GUIDE.md`). **Do not follow them** — they describe segment templates and
+  pain-point framing, both of which current practice explicitly reverses. `docs/_archive/README.md`
+  says why, per file.
+- **`scripts/_archive/`** — 11 one-off scripts, none imported by anything, with a README explaining
+  each. `model_swap_test.py` and `build_comparison_csv.py` are in there because their conclusion
+  (Sonnet 5) was reversed.
+- **`generate_messages_api.py` stayed in `scripts/`** even though CLAUDE.md calls the path retired:
+  `qa_check.py`, `finish_batch.py`, `fix_case_studies.py` and 2 others import `load_env`,
+  `extract_json` and `backstop_case` from it. Moving it breaks QA. Do not "clean it up".
+- **`data/batch_01/_archive/`** — the 10 `.bak` intermediates, moved off the working path but kept
+  on disk (still gitignored, so they are NOT in git; that is deliberate, they are 17MB of duplicates).
+
 ## ⚠️ CURRENT WORK (now = Phase 2 of the plan) — v3 messages, loop PAUSED at 594/793
 
 The first campaign was pulled for quality. We rebuilt the whole messaging system (rules below) and
@@ -211,19 +250,19 @@ re-assemble, re-check. Can be driven manually chunk-by-chunk or via `/loop`.
 
 ### NEXT STEPS (rewritten 2026-08-13 for the productization direction)
 
-**PHASE 0 (do first, independent of the app, all three still OUTSTANDING):**
-0a. **`git add -f .claude/skills/generate-outreach/SKILL.md`.** 44.5 KB, it is the actual product, it
-    is gitignored and exists on ONE disk. Highest-risk item in the repo.
-0b. **Commit everything.** Nothing since `23f138d` (2026-07-09): ~17 modified files plus all of
-    `scripts/outreach_loop/`, `PROJECT_STATE.md`, `case_studies.py`, `analyze_site.py`,
-    `site_crawler.py`, and now `specs/outreach-app-plan.{md,html}`.
-0c. **Patch `next_bundles.py`** to exclude domains in `skipped_shutdowns.json`, or it re-serves FTX
-    and 3 shut-down companies to whoever resumes.
+**PHASE 0 — ✅ DONE 2026-08-13.** Everything committed (backup commit `3c7fcb8` + a hygiene commit),
+SKILL.md confirmed tracked and committed, `next_bundles.py` now excludes the 4 shut-down domains.
+See the "Phase 0 DONE" session log and the repo layout note above. **One item needs you:**
+the push to GitHub is blocked by push protection over a *fake* sample Slack token in the old commit
+`0a221be` (`specs/cloud-deployment-spec.md`, an "Appendix B: Sample Environment Variables" block).
+It is a placeholder, not a credential — nothing to rotate. Click the allow-secret link GitHub prints
+on the failed push, then `git push -u origin outreach-sonnet-batch-pipeline`. The working copy of
+that file has already been de-fanged so it will not recur.
 
 **THEN, decide the fork before doing more writing:**
-1. **Either** finish the remaining 199 by hand through the existing loop (see RESUME below), **or**
-   build Phase 1 + 2 of the plan and let the service generate those 199 as its proof. Do not do both.
-   Recommendation in the plan: build, because the 199 are the natural acceptance test.
+1. **Either** finish the remaining **195** by hand through the existing loop (see RESUME below),
+   **or** build Phase 1 + 2 of the plan and let the service generate those 195 as its proof. Do not
+   do both. Recommendation in the plan: build, because the 195 are the natural acceptance test.
 2. **Phase 1: schema, import, export.** Proof of correctness is a diff, not a demo: import the
    existing `batch_01` files, re-export, and confirm **zero rows differ** from `outreach_ready_v3.csv`.
 3. **Phase 2: generation service, QA, review queue.** Includes **bundle v2** (carry the customer names
@@ -241,8 +280,8 @@ case-study concentration (NewsCatcher at 52%) still wants a human eye before any
 so the 462 currently sendable can go out while the loop finishes the rest.
 
 ### The messaging system (source of truth = `.claude/skills/generate-outreach/SKILL.md` + `qa_check.py`)
-The SKILL prompt is gitignored (force-add to version it). `scripts/outreach_loop/RUN_LOOP.md` mirrors
-the operational rules. In brief:
+The SKILL prompt sits under the gitignored `.claude/` but is **force-added and tracked** (verified and
+committed 2026-08-13). `scripts/outreach_loop/RUN_LOOP.md` mirrors the operational rules. In brief:
 - **Reasoning spine** (the anatomy): `fact → so I'd guess → which means (the room to improve) → so a
   short forward CTA`. Each beat ONE short line, ~45-70 words, effortless. [[outreach-reasoning-spine]]
 - **Signal decision order:** (1) SKIP shutdowns; (2) genuinely-lacking design (read reasoning, not the

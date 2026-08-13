@@ -99,8 +99,9 @@ mechanics all clean.
   / arrogant tone get an API regen (`wants_api()`); everything structural/mechanical is free.
 - **`qa_check.py` is the standing QA tool** — `qa_check.py` (report) / `--fix` (correct), `--all`
   or `--domains`, and it auto-runs after every batch inside the runner. Reuse it before any send.
-- **Note:** the SKILL prompt at `.claude/skills/generate-outreach/SKILL.md` is gitignored (under
-  `.claude/`), so prompt changes are NOT in version control unless force-added.
+- **Note (corrected 2026-08-13):** the SKILL prompt at `.claude/skills/generate-outreach/SKILL.md`
+  sits under the gitignored `.claude/`, but it **is force-added and tracked** — prompt changes DO
+  version normally. Earlier notes claiming it was unversioned or lost were wrong.
 
 #### Per-batch data layout (added 2026-07-09)
 Each batch of leads lives in its OWN folder: **`data/<batch>/`** (this run = `data/batch_01/`),
