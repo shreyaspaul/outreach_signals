@@ -284,6 +284,27 @@ re-assemble, re-check. Can be driven manually chunk-by-chunk or via `/loop`.
 `next_bundles.py` now excludes the 4 shut-down domains. See the session logs and the repo layout note
 above. Nothing here is outstanding.
 
+**Build toolkit decided (2026-08-14):** which Claude skills we build this with is recorded in
+**`specs/build-toolkit.md`** — 5 shortlisted (`claude-api`, `skill-creator`, `frontend-design`,
+`webapp-testing`, `checkpoint`), the rejected ones with reasons, and 3 custom skills we must write
+ourselves (`stage-task`, `message-rules`, `batch-lint`). Key finding: **no existing skill anywhere
+covers durable job state / idempotent tasks / resumability**, which is the top robustness concern.
+
+**⚠️ Stage 4 root cause was MISDIAGNOSED — corrected 2026-08-14.** Both the plan (§Stage 4) and the
+[[outreach-bundle-evidence-gap]] memory say the bundle drops evidence that sits in `content_reasoning`.
+Measured against the real data, that is wrong: `content_reasoning` is filled 793/793 but is **grader
+opinion**, carrying a hard number in only **2 of 793**. The evidence is in `proof_from_site`, which is
+**already in the bundle** (782/793, median 429 chars, with real quotes). The defect is its *shape* —
+it reads as commentary about the webpage ("The content moves beyond mere naming by providing … like
+'Collectors using Aktos touch 3.5x the accounts per day'"), so the fact's grammatical subject is "the
+content", not the company. The data dictionary even instructs the model to "ignore any scoring or
+opinion framing", i.e. **we pushed an extraction job into the writing prompt** and re-ran it 793
+times. Meanwhile `proud_facts`, the clean atomic extractor that outputs exactly what we want ("trusted
+by Google, Adobe, Microsoft, Amazon, Notion, and Facebook"), ran on **13 of 1000 rows** and was never
+backfilled. **Fix:** evidence extraction becomes its own stage with typed rows
+(`{type, value, exact_quote, source_url}`) before generation. `scripts/_archive/extract_facts.py` is
+the existing backfill and needs to come back out of the archive.
+
 **THEN, decide the fork before doing more writing:**
 1. **Either** finish the remaining **195** by hand through the existing loop (see RESUME below),
    **or** build Phase 1 + 2 of the plan and let the service generate those 195 as its proof. Do not
