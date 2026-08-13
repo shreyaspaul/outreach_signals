@@ -87,7 +87,7 @@ Phase 0 hygiene items below were identified but **NOT done**.
 Two commits. The first is a verbatim backup (**nothing had been committed since 9 Jul**), so the
 cleanup in the second cannot lose anything.
 
-1. **Backup commit `3c7fcb8`** — all uncommitted work as-is: `scripts/outreach_loop/`, 14 new
+1. **Backup commit (now `db3600e` after the history rewrite below)** — all uncommitted work as-is: `scripts/outreach_loop/`, 14 new
    scripts, `Copy/`, `PROJECT_STATE.md`, `specs/outreach-app-plan.{md,html}`, and 9 modified scripts.
    **Force-added past the `data/` gitignore because it had no backup at all:**
    `message_results_v3.json` (the 594 hand-written messages), `messages_v3{,_complete}.csv`,
@@ -104,6 +104,35 @@ cleanup in the second cannot lose anything.
    tripping GitHub push protection — they were always placeholders, nothing to rotate.
 4. All live modules verified importable after the moves. (`finish_batch.py` cannot be imported, but
    that is pre-existing: it reads `sys.argv[1]` at module level.)
+
+### Session log — 2026-08-14 — history rewritten to unblock the push; everything now on GitHub
+
+GitHub push protection rejected the push over a **fake** Slack token
+(`xoxb-1234567890-1234567890123-…`) in an "Appendix B: Sample Environment Variables" block in
+`specs/cloud-deployment-spec.md`, present since commit `0a221be` (16 Jun). It was always a
+placeholder sitting next to an equally fake `AIzaSyAaBbCc…` — **no credential was ever exposed and
+nothing needed rotating.** The allow-secret link GitHub prints returned 404.
+
+Resolved by rewriting history rather than bypassing the check. **This was safe because every
+affected commit was unpushed** — `origin/main` (`f9e6e68`) is an ancestor of all 9, and no remote ref
+contained any of them, so no collaborator held those SHAs and no force-push was needed.
+
+- Took a verified full backup first: `../outreach_signals_backups/pre-rewrite-2026-08-14.bundle`
+  (26MB, `git bundle verify` reports a complete history). **Same disk — it is a rollback, not an
+  off-machine copy.** Safe to delete now that the push succeeded.
+- `git filter-branch --tree-filter` over `--all ^f9e6e68` (11 commits), replacing 5 placeholder
+  credentials with `<angle-bracket>` names. Then dropped `refs/original/`, expired the reflog and
+  gc'd, so the old objects are gone rather than merely unreferenced.
+- Verified after: zero of the 14 reachable commits contain the string; `origin/main` still an
+  ancestor of HEAD (no divergence); `message_results_v3.json` (1,307,311 bytes), `messages_v3.csv`,
+  `outreach_ready_v3.csv` and `SKILL.md` (44,587 bytes) all byte-intact in the rewritten backup commit.
+- **All local SHAs changed.** Backup commit `3c7fcb8` → `db3600e`; hygiene `0319dec` → `2145c54`;
+  `main` and `chore/cleanup-data-dirs` → `1d97e17`. Any SHA written in an older note is stale.
+- Pushed `outreach-sonnet-batch-pipeline` to origin; local and remote tips match at `2145c54`, and
+  the v3 message data, SKILL.md, RUN_LOOP.md and the plan are all confirmed present on the remote.
+- **Not done:** `main` is still 3 commits ahead of `origin/main`. It is a clean fast-forward whenever
+  you want it (`git push origin main`); left alone because those commits' content is already on the
+  remote inside this branch, so nothing is at risk.
 
 ### Repo layout after the 2026-08-13 cleanup
 - **Root holds 4 docs only**: `README.md`, `CLAUDE.md`, `PROJECT_STATE.md`, `SIGNALS.md`.
@@ -250,14 +279,10 @@ re-assemble, re-check. Can be driven manually chunk-by-chunk or via `/loop`.
 
 ### NEXT STEPS (rewritten 2026-08-13 for the productization direction)
 
-**PHASE 0 — ✅ DONE 2026-08-13.** Everything committed (backup commit `3c7fcb8` + a hygiene commit),
-SKILL.md confirmed tracked and committed, `next_bundles.py` now excludes the 4 shut-down domains.
-See the "Phase 0 DONE" session log and the repo layout note above. **One item needs you:**
-the push to GitHub is blocked by push protection over a *fake* sample Slack token in the old commit
-`0a221be` (`specs/cloud-deployment-spec.md`, an "Appendix B: Sample Environment Variables" block).
-It is a placeholder, not a credential — nothing to rotate. Click the allow-secret link GitHub prints
-on the failed push, then `git push -u origin outreach-sonnet-batch-pipeline`. The working copy of
-that file has already been de-fanged so it will not recur.
+**PHASE 0 — ✅ DONE AND PUSHED (2026-08-14).** Everything is committed and **on GitHub** at
+`origin/outreach-sonnet-batch-pipeline` (tip `2145c54`). SKILL.md confirmed tracked and pushed,
+`next_bundles.py` now excludes the 4 shut-down domains. See the session logs and the repo layout note
+above. Nothing here is outstanding.
 
 **THEN, decide the fork before doing more writing:**
 1. **Either** finish the remaining **195** by hand through the existing loop (see RESUME below),
