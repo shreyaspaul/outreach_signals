@@ -542,6 +542,10 @@ Return ONLY valid JSON (no markdown, no explanation):
     for attempt in range(MAX_LLM_RETRIES):
         try:
             response = model.generate_content(prompt)
+            try:
+                from _token_log import log_usage; log_usage('content', response)
+            except Exception:
+                pass
             response_text = response.text.strip()
             break
         except Exception as e:
@@ -661,14 +665,21 @@ def get_llm_content_ratings_v2(content: str, url: str = None, api_key: str = Non
     if truncated:
         content = content[:max_chars]
 
-    genai.configure(api_key=api_key)
-    model = genai.GenerativeModel(
-        'gemini-2.5-flash',
-        generation_config=genai.types.GenerationConfig(
-            temperature=0.0,
-            response_mime_type='application/json',
-            response_schema=CONTENT_V2_RESPONSE_SCHEMA,
-        ),
+    # THINKING OFF for content scoring (validated n=30: ~5pt scatter vs thinking-on,
+    # no systematic bias; ~72% cheaper on this step). Uses the new google-genai SDK
+    # because the legacy SDK can't disable thinking. Design + gate keep thinking ON.
+    from google import genai as _genai_new
+    from google.genai import types as _gtypes
+    # Per-request timeout (ms) so a stalled connection can't hang the whole run forever
+    # (a no-timeout call froze the 700-run for ~7h on one site). On timeout it raises ->
+    # the retry loop below catches it (retryable) and fails fast instead of hanging.
+    _client = _genai_new.Client(api_key=api_key,
+                                http_options=_gtypes.HttpOptions(timeout=90000))
+    _gen_config = _gtypes.GenerateContentConfig(
+        temperature=0.0,
+        response_mime_type='application/json',
+        response_schema=CONTENT_V2_RESPONSE_SCHEMA,
+        thinking_config=_gtypes.ThinkingConfig(thinking_budget=0),
     )
 
     word_count = len(content.split())
@@ -737,8 +748,13 @@ one-sentence overall analysis."""
     response_text = None
     for attempt in range(MAX_LLM_RETRIES):
         try:
-            response = model.generate_content(prompt)
-            response_text = response.text.strip()
+            response = _client.models.generate_content(
+                model='gemini-2.5-flash', contents=[prompt], config=_gen_config)
+            try:
+                from _token_log import log_usage; log_usage('content', response)
+            except Exception:
+                pass
+            response_text = (response.text or '').strip()
             break
         except Exception as e:
             error_msg = str(e)

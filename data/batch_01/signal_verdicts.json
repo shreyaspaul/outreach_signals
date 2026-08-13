@@ -1,0 +1,1027 @@
+{
+ "wrangle.io": {
+  "verdict": "HOLDS",
+  "reason": "The layout, purple gradient palette, hero copy with app screenshot, and logo strip are typical of generic SaaS templates with no distinctive visual identity.",
+  "visual_diff": "0.205",
+  "chosen_signal": "design blending into the generic SaaS look"
+ },
+ "jan3.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout still shows minimal product detail and the same uncurated photo gallery below the hero, just with a different featured news card.",
+  "visual_diff": "0.204",
+  "chosen_signal": "thin product detail + uncurated image gallery (42)"
+ },
+ "terrakotta.ai": {
+  "verdict": "HOLDS",
+  "reason": "The hero section, layout, and CTAs remain essentially unchanged aside from rotating headline text.",
+  "visual_diff": "0.280",
+  "chosen_signal": "shallow AI explanation and a cluttered CTA"
+ },
+ "oxen.ai": {
+  "verdict": "HOLDS",
+  "reason": "Both versions show the same customer logo bar with no added testimonials, reviews, or case studies.",
+  "visual_diff": "0.245",
+  "chosen_signal": "missing external credibility"
+ },
+ "jabali.ai": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (32)",
+  "visual_diff": "0.231",
+  "chosen_signal": "an ai games platform's traffic is people coming to play and ",
+  "mobile_now": 32
+ },
+ "joinqatch.com": {
+  "verdict": "BROKEN",
+  "reason": "The redesigned site now has a bold, distinctive editorial style with custom phone mockups and unique copy, replacing the previous generic template look.",
+  "visual_diff": "0.199",
+  "chosen_signal": "generic design / distinctiveness"
+ },
+ "quadrant.health": {
+  "verdict": "HOLDS",
+  "reason": "The two pages show identical content and structure with no added depth or new detail.",
+  "visual_diff": "0.313",
+  "chosen_signal": "already strong, room for more depth"
+ },
+ "ochy.io": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 53",
+  "visual_diff": "0.130",
+  "chosen_signal": "load speed (needs-improvement, fails Google's overall speed check)",
+  "mobile_now": 53
+ },
+ "quinengine.com": {
+  "verdict": "UNSURE",
+  "reason": "The testimonial section with the alleged error isn't visible in the second (cropped) screenshot to confirm a fix.",
+  "visual_diff": "0.173",
+  "chosen_signal": "a testimonial section with a glaring error undercutting otherwise strong proof points"
+ },
+ "traknprotect.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (36)",
+  "visual_diff": "0.232",
+  "chosen_signal": "slow first load on Wix (3.76s, needs-improvement, fails Google's speed bar)",
+  "mobile_now": 36
+ },
+ "naoma.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, hero design, and generic styling remain essentially unchanged between screenshots.",
+  "visual_diff": "0.188",
+  "chosen_signal": "polished but generic design"
+ },
+ "dexa.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, styling, and content are essentially identical between the two screenshots.",
+  "visual_diff": "0.202",
+  "chosen_signal": "design blends in (score 47)"
+ },
+ "guidenai.com": {
+  "verdict": "HOLDS",
+  "reason": "The homepage still presents two distinct products, Broxi AI and Genpio, side by side without a single clear focus.",
+  "visual_diff": "0.215",
+  "chosen_signal": "muddled clarity (two products at once)"
+ },
+ "atlas.co": {
+  "verdict": "HOLDS",
+  "reason": "Design and layout remain nearly identical, still using the same generic customer logo bar with no testimonials or metrics.",
+  "visual_diff": "0.189",
+  "chosen_signal": "design lacks a voice + no social proof (54)"
+ },
+ "granter.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, design style, and content remain essentially identical between the two versions.",
+  "visual_diff": "0.227",
+  "chosen_signal": "generic landing page not matching a distinctive product"
+ },
+ "gyandhan.com": {
+  "verdict": "HOLDS",
+  "reason": "The page layout and content are essentially unchanged, still lacking trust elements like testimonials or borrower proof.",
+  "visual_diff": "0.128",
+  "chosen_signal": "education loans run on trust, so most borrowers come through"
+ },
+ "inco.org": {
+  "verdict": "HOLDS",
+  "reason": "Layout and content are essentially identical between the two screenshots, just with a minor 'Private gaming' label added.",
+  "visual_diff": "0.547",
+  "chosen_signal": "load + layout needs-improvement",
+  "mobile_now": 64
+ },
+ "whispp.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, content, and generic design style are essentially unchanged between the two screenshots.",
+  "visual_diff": "0.330",
+  "chosen_signal": "generic design for a first-of-its-kind product"
+ },
+ "metorial.com": {
+  "verdict": "BROKEN",
+  "reason": "The plain white hero was replaced with a bold, distinctive gradient/blob-textured hero design and updated typography, giving the site a more unique visual identity.",
+  "visual_diff": "0.265",
+  "chosen_signal": "no distinctive visual voice"
+ },
+ "conapto.com": {
+  "verdict": "BROKEN",
+  "reason": "The hero now shows a fully rendered branded background image with headline and CTA instead of a broken/empty hero section.",
+  "visual_diff": "0.436",
+  "chosen_signal": "generic, safe design with an empty hero section"
+ },
+ "optimoroute.com": {
+  "verdict": "HOLDS",
+  "reason": "The homepage is essentially identical between the two screenshots, with no new sales/word-of-mouth growth features added.",
+  "visual_diff": "0.207",
+  "chosen_signal": "a logistics SaaS grows through sales and word of mouth in de"
+ },
+ "presti.ai": {
+  "verdict": "HOLDS",
+  "reason": "The overall layout, typography, and generic SaaS design pattern remain unchanged aside from the hero images now loading actual product photos.",
+  "visual_diff": "0.270",
+  "chosen_signal": "generic, competent design that undersells the product's visual category"
+ },
+ "byzantine.fi": {
+  "verdict": "HOLDS",
+  "reason": "The same placeholder-style trust logos and unattributed testimonials appear unchanged in both screenshots.",
+  "visual_diff": "0.225",
+  "chosen_signal": "placeholder testimonials undercutting credibility on a trust-heavy financial product"
+ },
+ "snorble.com": {
+  "verdict": "HOLDS",
+  "reason": "Layout, branding, and overall design language are essentially unchanged; only the hero placeholder was replaced with a product image/video.",
+  "visual_diff": "0.156",
+  "chosen_signal": "friendly but generic design (60)"
+ },
+ "noxus.ai": {
+  "verdict": "HOLDS",
+  "reason": "The 'Trusted by teams at' section shows no logos, and the benchmark chart uses generic/anonymized examples rather than named customer proof.",
+  "visual_diff": "0.130",
+  "chosen_signal": "no named customer proof undercutting credibility"
+ },
+ "textyess.com": {
+  "verdict": "HOLDS",
+  "reason": "The stats section still shows placeholder 0x/0%/0% metrics unchanged in the new screenshot.",
+  "visual_diff": "0.144",
+  "chosen_signal": "placeholder metrics undercutting proof"
+ },
+ "taketaketake.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (30)",
+  "visual_diff": "0.324",
+  "chosen_signal": "responsiveness (laggy taps)",
+  "mobile_now": 30
+ },
+ "chift.eu": {
+  "verdict": "HOLDS",
+  "reason": "The two screenshots show virtually identical layout, copy, and design elements with no added distinctiveness.",
+  "visual_diff": "0.548",
+  "chosen_signal": "design plays it safe / lacks distinctiveness"
+ },
+ "basepairtech.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (7)",
+  "visual_diff": "0.216",
+  "chosen_signal": "layout shift (page jumps around as it loads)",
+  "mobile_now": 7
+ },
+ "onesimplicity.com": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses the same generic hero-with-stacked-cards template, just with rotated content and imagery.",
+  "visual_diff": "0.140",
+  "chosen_signal": "generic / common-pattern design"
+ },
+ "getkoya.ai": {
+  "verdict": "HOLDS",
+  "reason": "The hero section is nearly empty\u2014just a glowing logo card with no headline, tagline, or value proposition text.",
+  "visual_diff": "0.364",
+  "chosen_signal": "extreme sparseness with no clear headline or value prop"
+ },
+ "compri.ai": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (41)",
+  "visual_diff": "0.379",
+  "chosen_signal": "slow load and layout shift on real users",
+  "mobile_now": 41
+ },
+ "hera.video": {
+  "verdict": "HOLDS",
+  "reason": "The hero section and layout remain essentially identical between the two screenshots, with no new indication of traffic composition change.",
+  "visual_diff": "0.476",
+  "chosen_signal": "an ai animation tool's traffic is people coming to create, s",
+  "mobile_now": 90
+ },
+ "differentkind.com": {
+  "verdict": "HOLDS",
+  "reason": "The hero uses generic stock photos of dentists/patients scattered on a plain purple background with standard fonts, showing no distinctive brand craft.",
+  "visual_diff": "0.381",
+  "chosen_signal": "generic, safe design that lacks distinctive brand craft"
+ },
+ "appflowy.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, design language, and messaging are essentially unchanged aside from a version bump and minor star count update.",
+  "visual_diff": "0.329",
+  "chosen_signal": "design + story both have room (54)"
+ },
+ "hubifi.com": {
+  "verdict": "HOLDS",
+  "reason": "A cookie consent modal is displayed prominently over the homepage, blocking the product content.",
+  "visual_diff": "0.202",
+  "chosen_signal": "site leads with a cookie page, not the product (content 38)"
+ },
+ "consio.ai": {
+  "verdict": "BROKEN",
+  "reason": "The hero now uses a distinctive custom photo and bold metrics section instead of a generic app-screenshot template, giving it a more branded, less blended-in design.",
+  "visual_diff": "0.584",
+  "chosen_signal": "design blending in for a well-proven product"
+ },
+ "stemble.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (46)",
+  "visual_diff": "0.293",
+  "chosen_signal": "edtech adoption is teacher-to-teacher and student word of mo",
+  "mobile_now": 46
+ },
+ "hexis.live": {
+  "verdict": "HOLDS",
+  "reason": "Still a generic full-bleed stock-style photo hero with no distinctive branding, just swapped imagery.",
+  "visual_diff": "0.157",
+  "chosen_signal": "generic design lacking distinctiveness for a premium athlete/nutrition brand"
+ },
+ "evalyze.ai": {
+  "verdict": "UNSURE",
+  "reason": "Both screenshots show the same CTA button design; no evidence is visible here of whether the button itself is functional or broken.",
+  "visual_diff": "0.426",
+  "chosen_signal": "a broken key call-to-action"
+ },
+ "seenapse.ai": {
+  "verdict": "BROKEN",
+  "reason": "The hero now uses a distinctive dark theme with custom animated visuals and bold typography instead of the generic blank white hero seen before.",
+  "visual_diff": "0.589",
+  "chosen_signal": "safe / undistinctive design vs creative product"
+ },
+ "tella.com": {
+  "verdict": "HOLDS",
+  "reason": "The site still centers on the same product demo/tutorial video content and messaging as before, just showing a different carousel tab example.",
+  "visual_diff": "0.167",
+  "chosen_signal": "a video-creation tool spreads through the videos people make"
+ },
+ "flowstep.ai": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (25)",
+  "visual_diff": "0.450",
+  "chosen_signal": "slow real-user load time",
+  "mobile_now": 25
+ },
+ "certus-ai.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, branding, imagery, and overall design remain essentially identical between the two screenshots.",
+  "visual_diff": "0.251",
+  "chosen_signal": "design distinctiveness"
+ },
+ "nexcade.ai": {
+  "verdict": "BROKEN",
+  "reason": "The new site replaced the stock ship/photo imagery with a distinctive bold typographic design, custom diagrams, and named client logos/metrics.",
+  "visual_diff": "0.353",
+  "chosen_signal": "generic design leaning on stock imagery"
+ },
+ "reworkd.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, template design, and overall content remain essentially unchanged between the two screenshots.",
+  "visual_diff": "0.135",
+  "chosen_signal": "template-like design + an off metric (44)"
+ },
+ "remento.co": {
+  "verdict": "HOLDS",
+  "reason": "Site still centers on the same gifting-focused memory book product with no evidence of a new growth channel strategy shown.",
+  "visual_diff": "0.372",
+  "chosen_signal": "a family-memory gift product grows through gifting and word "
+ },
+ "burjx.com": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses a generic dark background with neon-green accents and a stock-like 3D crypto graphic, typical of many crypto exchange sites.",
+  "visual_diff": "0.124",
+  "chosen_signal": "generic dark crypto design"
+ },
+ "plexe.ai": {
+  "verdict": "BROKEN",
+  "reason": "The new site adds a 'Customer stories' nav link and section, plus proof stats, though still relies on logos rather than detailed named case studies which were already partially present before\u2014now more emphasized as customer proof.",
+  "visual_diff": "0.816",
+  "chosen_signal": "no named customer proof"
+ },
+ "tornyol.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and copy are essentially unchanged between the two screenshots.",
+  "visual_diff": "0.334",
+  "chosen_signal": "template-like design for a novel device (45)"
+ },
+ "magichour.ai": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 57",
+  "visual_diff": "0.127",
+  "chosen_signal": "tap responsiveness is poor (710ms)",
+  "mobile_now": 57
+ },
+ "banana.dev": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 80",
+  "visual_diff": "0.227",
+  "chosen_signal": "slow first load on real users",
+  "mobile_now": 80
+ },
+ "sandgarden.com": {
+  "verdict": "BROKEN",
+  "reason": "The homepage now clearly describes specific shipped products (Doc Holiday, Gloria.dev) with concrete feature descriptions instead of vague generic messaging.",
+  "visual_diff": "0.337",
+  "chosen_signal": "generic, unspecific product content"
+ },
+ "lasahealth.com": {
+  "verdict": "HOLDS",
+  "reason": "The page still relies on generic illustrations and vague marketing claims without clinical data, citations, case studies, or named customer/provider proof points.",
+  "visual_diff": "0.169",
+  "chosen_signal": "content credibility and depth for clinical/B2B buyers"
+ },
+ "coreworks.ai": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (48)",
+  "visual_diff": "0.113",
+  "chosen_signal": "slow to load + laggy (LCP poor, INP needs-improvement, fails Google speed)",
+  "mobile_now": 48
+ },
+ "qeepsake.com": {
+  "verdict": "HOLDS",
+  "reason": "The same layout, testimonials, and repetitive copy appear unchanged between the two screenshots.",
+  "visual_diff": "0.196",
+  "chosen_signal": "credibility gaps from inconsistent testimonial attribution and repetitive copy"
+ },
+ "ondeckai.com": {
+  "verdict": "HOLDS",
+  "reason": "The page still has the same brief structure and CTAs (Talk to our team, About, Read how) as before, no material change in CTA presence or depth.",
+  "visual_diff": "0.124",
+  "chosen_signal": "too brief with no call to action"
+ },
+ "maesn.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (45)",
+  "visual_diff": "0.316",
+  "chosen_signal": "slow real-world load time",
+  "mobile_now": 45
+ },
+ "teralytic.com": {
+  "verdict": "BROKEN",
+  "reason": "The hero now has a bold headline, descriptive copy, and a custom product photo instead of a blank, empty background.",
+  "visual_diff": "0.292",
+  "chosen_signal": "generic, safe design with an empty, underused hero"
+ },
+ "xanderglasses.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (40)",
+  "visual_diff": "0.276",
+  "chosen_signal": "layout shifting as the page settles",
+  "mobile_now": 40
+ },
+ "humata.ai": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses the same generic hero, stock imagery, and layout with only a rotated carousel slide changed.",
+  "visual_diff": "0.175",
+  "chosen_signal": "an ai that answers questions on your documents grows through"
+ },
+ "vidocsecurity.com": {
+  "verdict": "UNSURE",
+  "reason": "A modal overlay obscures most of the page in image 2, making it impossible to verify if the underlying layout rendering issue is fixed.",
+  "visual_diff": "0.263",
+  "chosen_signal": "broken/unrendered site structure"
+ },
+ "impruver.com": {
+  "verdict": "HOLDS",
+  "reason": "The design still uses generic stock-style corporate photography, standard blue theme, and conventional layout typical of dated B2B templates.",
+  "visual_diff": "0.156",
+  "chosen_signal": "generic, dated visual design against genuinely strong content"
+ },
+ "cirkledin.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, branding style, and overall generic corporate design remain essentially unchanged between the two versions.",
+  "visual_diff": "0.258",
+  "chosen_signal": "generic design vs vibrant audience"
+ },
+ "sharewillow.com": {
+  "verdict": "HOLDS",
+  "reason": "The page content and structure are essentially unchanged, with no added depth like case studies, metrics, or detailed proof for buyer due diligence.",
+  "visual_diff": "0.298",
+  "chosen_signal": "content depth for buyer due diligence"
+ },
+ "blocks.diy": {
+  "verdict": "HOLDS",
+  "reason": "The page still uses generic office stock photography and shows no named customer logos, testimonials, or metrics as proof.",
+  "visual_diff": "0.378",
+  "chosen_signal": "solid but doesn't push + no customer proof (53)"
+ },
+ "poised.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (38)",
+  "visual_diff": "0.105",
+  "chosen_signal": "load + responsiveness ni + repeated copy",
+  "mobile_now": 38
+ },
+ "devally.com": {
+  "verdict": "HOLDS",
+  "reason": "Still only shows press logos and stats, no named customer testimonials or case studies have been added.",
+  "visual_diff": "0.574",
+  "chosen_signal": "credibility gap from missing customer proof points"
+ },
+ "inicio.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and design remain essentially identical between the two screenshots.",
+  "visual_diff": "0.336",
+  "chosen_signal": "design"
+ },
+ "skyvern.com": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses a generic dark-hero AI-SaaS template with common gradient blue accents, standard card layouts, and stock UI mockups typical of many AI startups.",
+  "visual_diff": "0.123",
+  "chosen_signal": "design leans on standard ai-saas look (58)"
+ },
+ "trymira.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, typography, and overall design language remain the same minimalist dark theme, just with the hero image loaded and a different carousel slide shown.",
+  "visual_diff": "0.415",
+  "chosen_signal": "clean but unrefined design (49)"
+ },
+ "tapouts.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, content, and design are essentially identical between the two screenshots.",
+  "visual_diff": "0.400",
+  "chosen_signal": "design polish + minor layout shift (already strong site)"
+ },
+ "mantic.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (46)",
+  "visual_diff": "0.283",
+  "chosen_signal": "slow real-user load time",
+  "mobile_now": 46
+ },
+ "audiostack.ai": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (46)",
+  "visual_diff": "0.157",
+  "chosen_signal": "laggy to respond and slow to load",
+  "mobile_now": 46
+ },
+ "inspectpoint.com": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 65",
+  "visual_diff": "0.409",
+  "chosen_signal": "slow real-user load time",
+  "mobile_now": 65
+ },
+ "sandra-ai.com": {
+  "verdict": "HOLDS",
+  "reason": "The hero section design, layout, and generic AI-car imagery remain unchanged between the two screenshots.",
+  "visual_diff": "0.317",
+  "chosen_signal": "generic / undistinctive design"
+ },
+ "guildtogether.com": {
+  "verdict": "UNSURE",
+  "reason": "The current page only shows a client-side error, so the actual site design cannot be evaluated.",
+  "visual_diff": "0.525",
+  "chosen_signal": "design blending in / not feeling distinctive"
+ },
+ "presentations.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, styling, and generic enterprise design remain essentially unchanged between the two screenshots.",
+  "visual_diff": "0.330",
+  "chosen_signal": "design can feel as enterprise-grade as the logos (already on webflow)"
+ },
+ "usebubbles.com": {
+  "verdict": "HOLDS",
+  "reason": "The homepage layout, content, and structure are essentially unchanged between the two screenshots.",
+  "visual_diff": "0.146",
+  "chosen_signal": "a collaboration tool spreads team to team, so a slow first l",
+  "mobile_now": 90
+ },
+ "twain.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, content, and generic dark-theme design are essentially unchanged between the two screenshots.",
+  "visual_diff": "0.161",
+  "chosen_signal": "undistinctive design despite good assets"
+ },
+ "allus.ai": {
+  "verdict": "HOLDS",
+  "reason": "The hero image, layout, and overall generic design remain essentially unchanged aside from a minor status percentage update.",
+  "visual_diff": "0.168",
+  "chosen_signal": "design distinctiveness"
+ },
+ "tribexr.com": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 65",
+  "visual_diff": "0.127",
+  "chosen_signal": "laggy to respond when you tap",
+  "mobile_now": 65
+ },
+ "foxy.ai": {
+  "verdict": "HOLDS",
+  "reason": "Both screenshots show the same email popup and empty 'Trusted by Top' section with no creator results or testimonials visible.",
+  "visual_diff": "0.321",
+  "chosen_signal": "a creator ai tool grows through creators showing their resul"
+ },
+ "c64.ai": {
+  "verdict": "HOLDS",
+  "reason": "The positioning, layout, and messaging remain essentially unchanged aside from a rotated hero panel and reordered logos.",
+  "visual_diff": "0.200",
+  "chosen_signal": "clarity and depth of positioning for a technically dense product"
+ },
+ "shelfcycle.com": {
+  "verdict": "BROKEN",
+  "reason": "The redesign uses distinctive, detailed product-specific sticky-note collage visuals and sharper copy, replacing the generic dashboard hero of the old design.",
+  "visual_diff": "0.324",
+  "chosen_signal": "design plays it safe, no distinctive brand voice"
+ },
+ "zapia.com": {
+  "verdict": "HOLDS",
+  "reason": "Site still centers on the same WhatsApp-based consumer AI assistant messaging, just with restyled hero visuals.",
+  "visual_diff": "0.132",
+  "chosen_signal": "a consumer ai assistant in latam spreads virally on whatsapp",
+  "mobile_now": 62
+ },
+ "kotcha.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and design style are essentially identical between the two screenshots.",
+  "visual_diff": "0.139",
+  "chosen_signal": "conventional sports-brand design"
+ },
+ "allia.health": {
+  "verdict": "BROKEN",
+  "reason": "The new site has a bold dark themed design with real imagery, testimonial, and no empty placeholder blocks.",
+  "visual_diff": "0.509",
+  "chosen_signal": "bland design with large empty placeholder areas"
+ },
+ "topk.io": {
+  "verdict": "HOLDS",
+  "reason": "The redesign still uses a generic dark gradient hero, stock-style icons, and standard SaaS layout typical of tech-startup templates.",
+  "visual_diff": "0.567",
+  "chosen_signal": "generic tech-startup design"
+ },
+ "atmio.com": {
+  "verdict": "UNSURE",
+  "reason": "The new page shows a redesigned typographic style but most content isn't loaded/visible, making it impossible to fully judge the visual identity.",
+  "visual_diff": "0.364",
+  "chosen_signal": "generic, template-like visual identity"
+ },
+ "hubble.social": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and content are essentially identical between the two screenshots.",
+  "visual_diff": "0.306",
+  "chosen_signal": "template design (56)"
+ },
+ "usemassive.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (40)",
+  "visual_diff": "0.103",
+  "chosen_signal": "real-user layout shift poor (0.38)",
+  "mobile_now": 40
+ },
+ "neuphonic.com": {
+  "verdict": "HOLDS",
+  "reason": "The design, layout, cookie banner, and overall generic style remain essentially unchanged between the two screenshots.",
+  "visual_diff": "0.143",
+  "chosen_signal": "generic craft not matching a distinctive product"
+ },
+ "pickleheads.com": {
+  "verdict": "HOLDS",
+  "reason": "The site content and layout for finding courts/games remains materially unchanged aside from updated counts and dates.",
+  "visual_diff": "0.242",
+  "chosen_signal": "pickleball is exploding and you're how players find courts, "
+ },
+ "solreader.com": {
+  "verdict": "HOLDS",
+  "reason": "The page shows press logos (Forbes, TechCrunch, Good E-Reader) but no named customers, testimonials, or verifiable customer proof.",
+  "visual_diff": "0.127",
+  "chosen_signal": "credibility gap in the content (no verifiable customer proof for a genuinely novel product)"
+ },
+ "swept.ai": {
+  "verdict": "HOLDS",
+  "reason": "Messaging is still broad, generic AI-governance copy without concrete audience specificity or added depth beyond restructured headlines and card layout.",
+  "visual_diff": "0.268",
+  "chosen_signal": "inconsistent clarity on audience and thin depth"
+ },
+ "cobrand.com": {
+  "verdict": "HOLDS",
+  "reason": "The hero, imagery, and layout remain essentially identical between the two screenshots, so the site's creative feel is unchanged.",
+  "visual_diff": "0.145",
+  "chosen_signal": "brand can feel as creative as the artists"
+ },
+ "hookdeck.com": {
+  "verdict": "HOLDS",
+  "reason": "The site uses a clean but generic SaaS layout with standard typography, whitespace, and diagram cards typical of many developer tool sites, lacking a strong distinctive identity.",
+  "visual_diff": "0.200",
+  "chosen_signal": "competent but undistinctive design"
+ },
+ "flynavi.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (36)",
+  "visual_diff": "0.275",
+  "chosen_signal": "slow real-user load time",
+  "mobile_now": 36
+ },
+ "scindo.bio": {
+  "verdict": "HOLDS",
+  "reason": "No customer names, testimonials, or metrics are shown, and the only CTAs are generic 'Explore the technology' and 'Proprietary data' buttons.",
+  "visual_diff": "0.229",
+  "chosen_signal": "missing proof points and a strong CTA"
+ },
+ "opennode.com": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 54",
+  "visual_diff": "0.191",
+  "chosen_signal": "layout shift (page jumps around as it loads)",
+  "mobile_now": 54
+ },
+ "dataforgelabs.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, copy, and design are essentially identical between the two screenshots, still using generic B2B styling.",
+  "visual_diff": "0.486",
+  "chosen_signal": "safe / generic B2B design"
+ },
+ "quickads.ai": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (31)",
+  "visual_diff": "0.230",
+  "chosen_signal": "real-user load poor (6.7s)",
+  "mobile_now": 31
+ },
+ "reveng.ai": {
+  "verdict": "BROKEN",
+  "reason": "The new site adds specific metrics, threat analysis detail, and technical differentiators (stripped binaries, on-prem/VPC, SDK/API/plugin support) that address depth-for-technical-buyer concerns.",
+  "visual_diff": "0.418",
+  "chosen_signal": "content depth for a technical buyer"
+ },
+ "appliedxl.com": {
+  "verdict": "HOLDS",
+  "reason": "The redesign still shows only client logos and abstract data visuals without concrete metrics, case studies, or testimonials.",
+  "visual_diff": "0.326",
+  "chosen_signal": "thin substance / proof"
+ },
+ "lighttable.ai": {
+  "verdict": "HOLDS",
+  "reason": "Layout, typography, and overall generic SaaS design remain unchanged, only the hero photo and demo callout swapped.",
+  "visual_diff": "0.137",
+  "chosen_signal": "design feels safe and generic rather than distinctive"
+ },
+ "movedot.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and design style remain essentially unchanged, just minor content rearrangement.",
+  "visual_diff": "0.146",
+  "chosen_signal": "generic, safe design for a specialized technical product"
+ },
+ "authsignal.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (43)",
+  "visual_diff": "0.210",
+  "chosen_signal": "a drop-in auth platform sells to developers, so a slow, half",
+  "mobile_now": 43
+ },
+ "invopop.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (34)",
+  "visual_diff": "0.224",
+  "chosen_signal": "slow initial load",
+  "mobile_now": 34
+ },
+ "bliro.io": {
+  "verdict": "HOLDS",
+  "reason": "The hero copy, layout, and content structure are essentially identical between the two screenshots.",
+  "visual_diff": "0.298",
+  "chosen_signal": "content clarity"
+ },
+ "reeplayer.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (46)",
+  "visual_diff": "0.224",
+  "chosen_signal": "layout shifting as the page settles",
+  "mobile_now": 46
+ },
+ "trytemelio.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout uses a generic dark navy hero with standard sans-serif typography and a plain three-column feature list, a common SaaS template pattern with no distinctive visual identity.",
+  "visual_diff": "0.385",
+  "chosen_signal": "design plays it safe / template-like for a well-funded, well-proven product"
+ },
+ "openroll.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and design language are identical between the two screenshots; only minor viewport differences exist.",
+  "visual_diff": "0.223",
+  "chosen_signal": "generic design"
+ },
+ "simplyblock.io": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (46)",
+  "visual_diff": "0.341",
+  "chosen_signal": "slow to load (LCP needs-improvement, fails Google speed)",
+  "mobile_now": 46
+ },
+ "clovyr.io": {
+  "verdict": "HOLDS",
+  "reason": "The page layout, copy, and content depth are essentially identical between the two screenshots.",
+  "visual_diff": "0.161",
+  "chosen_signal": "thin content and evaluation depth"
+ },
+ "olyv.co.in": {
+  "verdict": "HOLDS",
+  "reason": "The site still lacks testimonials, reviews, or trust-building proof elements in both versions.",
+  "visual_diff": "0.119",
+  "chosen_signal": "lending in india runs on trust, so growth leans on word of m"
+ },
+ "saas-capital.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout uses generic corporate stock photography, standard geometric shapes, and a conventional two-column template that doesn't convey any specialized lending expertise.",
+  "visual_diff": "0.102",
+  "chosen_signal": "generic, safe design that doesn't match how specialized the lending product actually is"
+ },
+ "glaut.com": {
+  "verdict": "HOLDS",
+  "reason": "Cookie popup is visible and the hero demo shows placeholder text like 'your logo here', consistent with the criticism.",
+  "visual_diff": "0.126",
+  "chosen_signal": "placeholder + cookie popup + generic design (44)"
+ },
+ "courtroom5.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout uses generic stock photography, a common teal/orange color scheme, and standard stat blocks typical of undistinctive template-style design.",
+  "visual_diff": "0.171",
+  "chosen_signal": "generic, forgettable visual design"
+ },
+ "citibot.io": {
+  "verdict": "UNSURE",
+  "reason": "The two static screenshots show essentially identical layout and content, giving no information about tap responsiveness or performance changes.",
+  "visual_diff": "0.257",
+  "chosen_signal": "site responsiveness (laggy taps) undersells genuinely strong, proof-heavy copy"
+ },
+ "textla.com": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses bold, mismatched typography sizes and inconsistent spacing across sections, giving an unrefined feel.",
+  "visual_diff": "0.236",
+  "chosen_signal": "bold but unrefined typography/spacing (52)"
+ },
+ "reacherapp.com": {
+  "verdict": "HOLDS",
+  "reason": "Still only shows brand logos, no named customer testimonials or case studies with attribution.",
+  "visual_diff": "0.244",
+  "chosen_signal": "no named customer proof"
+ },
+ "privasea.ai": {
+  "verdict": "HOLDS",
+  "reason": "The hero uses generic silhouette photography and stock-like 3D verification card graphics rather than a distinctive custom visual identity.",
+  "visual_diff": "0.402",
+  "chosen_signal": "generic visual design leaning entirely on stock-feeling 3D graphics"
+ },
+ "annovisbio.com": {
+  "verdict": "HOLDS",
+  "reason": "The hero shows a generic stock neuron image with no text or content, followed by a large empty white space, indicating an unbalanced layout with no clear visual system.",
+  "visual_diff": "0.321",
+  "chosen_signal": "generic, unbalanced layout with a lot of empty space and no visual system"
+ },
+ "humaniz.io": {
+  "verdict": "HOLDS",
+  "reason": "The hero section and content appear essentially unchanged between the two screenshots.",
+  "visual_diff": "0.130",
+  "chosen_signal": "content depth for buyer due diligence"
+ },
+ "geosimple.ai": {
+  "verdict": "HOLDS",
+  "reason": "The page layout, content, and design remain essentially identical between the two screenshots.",
+  "visual_diff": "0.176",
+  "chosen_signal": "generic marketing page design vs. a genuinely complex, AI-driven product"
+ },
+ "manglai.io": {
+  "verdict": "HOLDS",
+  "reason": "Copy and structure are essentially identical; if anything the stats now show 0% (a bug) rather than added depth or proof.",
+  "visual_diff": "0.110",
+  "chosen_signal": "persuasiveness and depth of copy for serious buyers"
+ },
+ "desktopcommander.app": {
+  "verdict": "HOLDS",
+  "reason": "The layout, styling, and generic dev-tool dark theme are essentially unchanged between the two versions.",
+  "visual_diff": "0.176",
+  "chosen_signal": "design lacks distinctiveness for a dev-tool product"
+ },
+ "eino.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, copy, and visual design remain essentially identical between the two screenshots.",
+  "visual_diff": "0.322",
+  "chosen_signal": "generic, safe design that doesn't match a well-funded AI infrastructure play"
+ },
+ "pixleyai.com": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (31)",
+  "visual_diff": "0.271",
+  "chosen_signal": "severely slow to load (LCP 9.3s poor, INP poor, fails Google speed)",
+  "mobile_now": 31
+ },
+ "mindra.co": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (48)",
+  "visual_diff": "0.273",
+  "chosen_signal": "laggy to respond and slow to load",
+  "mobile_now": 48
+ },
+ "cerpro.io": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses generic stock photos and a conventional card-based layout with no distinctive visual identity.",
+  "visual_diff": "0.270",
+  "chosen_signal": "generic, competent-but-safe design on WordPress"
+ },
+ "latent-technology.com": {
+  "verdict": "HOLDS",
+  "reason": "The page still shows only the same hero animation demo with no added testimonials, metrics, or proof content.",
+  "visual_diff": "0.246",
+  "chosen_signal": "content depth and proof"
+ },
+ "beyondpresence.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, colors, and overall generic dark-themed design remain essentially unchanged between the two versions.",
+  "visual_diff": "0.217",
+  "chosen_signal": "design too safe for a cutting-edge product (49)"
+ },
+ "sweetspot.so": {
+  "verdict": "HOLDS",
+  "reason": "Layout, branding, colors, and overall generic SaaS design remain essentially unchanged aside from minor feature-card updates.",
+  "visual_diff": "0.595",
+  "chosen_signal": "safe / undistinctive design"
+ },
+ "waveful.com": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 79",
+  "visual_diff": "0.257",
+  "chosen_signal": "laggy to respond when you tap",
+  "mobile_now": 79
+ },
+ "almanax.ai": {
+  "verdict": "HOLDS",
+  "reason": "Page is essentially unchanged aside from a new top banner announcing an acquisition; content depth is the same.",
+  "visual_diff": "0.144",
+  "chosen_signal": "already strong, room for more depth"
+ },
+ "chip-in.asia": {
+  "verdict": "HOLDS",
+  "reason": "still slow on mobile (40)",
+  "visual_diff": "0.239",
+  "chosen_signal": "a fintech for MSMEs grows through partnerships and referrals",
+  "mobile_now": 40
+ },
+ "franzy.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, branding, and generic design style remain essentially unchanged, only the displayed franchise cards differ.",
+  "visual_diff": "0.141",
+  "chosen_signal": "generic design (48)"
+ },
+ "geviwind.com": {
+  "verdict": "HOLDS",
+  "reason": "The pages are essentially identical, still lacking testimonials, case studies, or third-party validation.",
+  "visual_diff": "0.322",
+  "chosen_signal": "content depth and external validation"
+ },
+ "tryrisotto.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, color palette, and overall generic SaaS design language remain essentially unchanged.",
+  "visual_diff": "0.247",
+  "chosen_signal": "generic, safe visual design despite strong content"
+ },
+ "aktos.ai": {
+  "verdict": "HOLDS",
+  "reason": "The current screenshot still shows no named customers or case studies, and the missing hero content suggests the page still loads with visible layout shifts.",
+  "visual_diff": "0.236",
+  "chosen_signal": "missing credibility markers (no named customers or case studies) plus a page that jumps around as it loads"
+ },
+ "senecio-robotics.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout uses standard stock-style photo blocks, generic sans-serif headers, and template button styling typical of common website builders.",
+  "visual_diff": "0.148",
+  "chosen_signal": "generic, template-like visual presentation"
+ },
+ "rownd.com": {
+  "verdict": "BROKEN",
+  "reason": "The thin migration-announcement page has been replaced with a full, detailed product marketing site for Rownd AI Enterprise.",
+  "visual_diff": "0.801",
+  "chosen_signal": "announcement page thin for new prospects"
+ },
+ "stereo.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, cookie banner, yellow accent bar, and generic card-based design remain essentially unchanged.",
+  "visual_diff": "0.126",
+  "chosen_signal": "generic patterns + tacked-on accent colours (41)"
+ },
+ "rideyelo.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout, imagery, and generic press-logo section are essentially unchanged, still lacking distinctive brand expression.",
+  "visual_diff": "0.235",
+  "chosen_signal": "template-feeling design with no brand expression"
+ },
+ "programmatic-app.com": {
+  "verdict": "HOLDS",
+  "reason": "The chat demo proof element is now missing/broken, and the rest of the page (stats, logos) is unchanged from before.",
+  "visual_diff": "0.137",
+  "chosen_signal": "content lacks proof points/credibility"
+ },
+ "nala.earth": {
+  "verdict": "HOLDS",
+  "reason": "The redesign is still a generic gradient-hero SaaS layout with the same stock-feeling visual language, just restyled.",
+  "visual_diff": "0.281",
+  "chosen_signal": "polished but generic design"
+ },
+ "hooragames.com": {
+  "verdict": "BROKEN",
+  "reason": "The site now shows a distinctive in-app game interface with custom game art and social/engagement UI rather than the generic template landing page seen before.",
+  "visual_diff": "0.599",
+  "chosen_signal": "generic, template-like design for a visual mobile-gaming product"
+ },
+ "azumuta.com": {
+  "verdict": "HOLDS",
+  "reason": "The layout uses standard hero text/image, generic logo strip, and conventional B2B section format typical of category norms.",
+  "visual_diff": "0.226",
+  "chosen_signal": "generic, safe B2B design that plays it very close to category convention"
+ },
+ "simplex.chat": {
+  "verdict": "HOLDS",
+  "reason": "The homepage content and messaging strategy are essentially unchanged between the two screenshots.",
+  "visual_diff": "0.213",
+  "chosen_signal": "a privacy-first messenger spreads through privacy-conscious "
+ },
+ "korl.co": {
+  "verdict": "HOLDS",
+  "reason": "The two screenshots are essentially identical, still showing no testimonials, logos, or metrics beyond the same mock demo screen.",
+  "visual_diff": "0.243",
+  "chosen_signal": "missing customer proof and depth"
+ },
+ "outrove.ai": {
+  "verdict": "HOLDS",
+  "reason": "The page shows only stylized hero imagery and taglines with no customer proof, testimonials, logos, or metrics.",
+  "visual_diff": "0.910",
+  "chosen_signal": "content depth and proof"
+ },
+ "twinknowledge.com": {
+  "verdict": "HOLDS",
+  "reason": "The site still uses a conventional blue/white B2B layout with standard stock-like UI screenshots and generic card sections.",
+  "visual_diff": "0.185",
+  "chosen_signal": "generic B2B design"
+ },
+ "albahealth.com": {
+  "verdict": "HOLDS",
+  "reason": "The lower page layout, imagery, and overall design remain unchanged; only a popup email capture overlay differs.",
+  "visual_diff": "0.103",
+  "chosen_signal": "generic, non-distinctive design for a trust-sensitive health product"
+ },
+ "cloverleaf.ai": {
+  "verdict": "BROKEN",
+  "reason": "The new site adds a customer testimonial with named quote, concrete metrics (ROI, revenue, pipeline), and bolder editorial typography, making it more distinctive than the generic before version.",
+  "visual_diff": "0.319",
+  "chosen_signal": "generic, forgettable visual design"
+ },
+ "argil.ai": {
+  "verdict": "HOLDS",
+  "reason": "The hero section still lacks creator-shared results, showing only the same neon-mic image and generic CTA as before.",
+  "visual_diff": "0.156",
+  "chosen_signal": "an ai avatar video tool grows through creators sharing resul"
+ },
+ "ressiosoftware.com": {
+  "verdict": "HOLDS",
+  "reason": "The new hero still relies on generic badges and a stock-style photo without added customer proof points, case studies, or metrics.",
+  "visual_diff": "0.322",
+  "chosen_signal": "content depth and proof"
+ },
+ "classcompanion.com": {
+  "verdict": "HOLDS",
+  "reason": "The homepage layout, content, and messaging remain essentially unchanged between the two screenshots.",
+  "visual_diff": "0.227",
+  "chosen_signal": "an ai feedback tool spreads teacher to teacher, so the site "
+ },
+ "claybird.com": {
+  "verdict": "HOLDS",
+  "reason": "The site is essentially identical between both screenshots, no changes made.",
+  "visual_diff": "0.317",
+  "chosen_signal": "already excellent site; extend/polish opportunity (68/81)"
+ },
+ "otishealth.net": {
+  "verdict": "HOLDS",
+  "reason": "Homepage still centers on consumer/family messaging ('Your Family's Healthcare', 'Join Now', 'Free to everyone') rather than B2B buyer language.",
+  "visual_diff": "0.217",
+  "chosen_signal": "the site speaks consumer, not B2B buyer"
+ },
+ "verahealth.ai": {
+  "verdict": "HOLDS",
+  "reason": "The layout, dark theme, and generic design are essentially unchanged between the two screenshots.",
+  "visual_diff": "0.148",
+  "chosen_signal": "design too safe for an authority pitch (53)"
+ },
+ "ontik.io": {
+  "verdict": "HOLDS",
+  "reason": "The new design is more distinctive but still relies on generic stat callouts and logo lists without deeper proof like case studies or testimonials.",
+  "visual_diff": "0.309",
+  "chosen_signal": "thin proof/depth in the content for a B2B payments platform"
+ },
+ "needle.app": {
+  "verdict": "BROKEN",
+  "reason": "no longer slow: mobile is now 56",
+  "visual_diff": "0.361",
+  "chosen_signal": "responsiveness (laggy when you tap/interact)",
+  "mobile_now": 56
+ },
+ "confighub.com": {
+  "verdict": "HOLDS",
+  "reason": "The page layout, testimonial, benefits, and level of product detail/proof remain essentially unchanged between the two versions.",
+  "visual_diff": "0.258",
+  "chosen_signal": "thin product detail / proof"
+ }
+}

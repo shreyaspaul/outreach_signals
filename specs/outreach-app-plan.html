@@ -1,0 +1,807 @@
+<title>From Scripts to Send File</title>
+
+<style>
+  :root {
+    --ground:      #F5F7F6;
+    --surface:     #FFFFFF;
+    --surface-alt: #EDF1EF;
+    --ink:         #14201E;
+    --ink-soft:    #56635F;
+    --ink-faint:   #808D89;
+    --rule:        #D9E0DD;
+    --rule-strong: #B9C5C1;
+    --accent:      #0B6B5D;
+    --accent-ink:  #06463D;
+    --accent-wash: #E2EFEC;
+    --warn:        #9A5C15;
+    --warn-wash:   #F6EBDA;
+    --alert:       #9E3324;
+    --alert-wash:  #F7E6E3;
+    --shadow:      0 1px 2px rgba(20,32,30,.05), 0 8px 24px -16px rgba(20,32,30,.28);
+
+    --display: ui-sans-serif, system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --body: Charter, "Bitstream Charter", "Iowan Old Style", "Source Serif Pro", Georgia, "Times New Roman", serif;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:      #0E1513;
+      --surface:     #151E1B;
+      --surface-alt: #1B2622;
+      --ink:         #E4ECE9;
+      --ink-soft:    #9AA8A4;
+      --ink-faint:   #74827E;
+      --rule:        #26322E;
+      --rule-strong: #38473F;
+      --accent:      #4FC3AC;
+      --accent-ink:  #7FD8C6;
+      --accent-wash: #14302A;
+      --warn:        #D69A50;
+      --warn-wash:   #2C2418;
+      --alert:       #E08272;
+      --alert-wash:  #2E1C19;
+      --shadow:      0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --ground:      #0E1513;
+    --surface:     #151E1B;
+    --surface-alt: #1B2622;
+    --ink:         #E4ECE9;
+    --ink-soft:    #9AA8A4;
+    --ink-faint:   #74827E;
+    --rule:        #26322E;
+    --rule-strong: #38473F;
+    --accent:      #4FC3AC;
+    --accent-ink:  #7FD8C6;
+    --accent-wash: #14302A;
+    --warn:        #D69A50;
+    --warn-wash:   #2C2418;
+    --alert:       #E08272;
+    --alert-wash:  #2E1C19;
+    --shadow:      0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 17px;
+    line-height: 1.62;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px 120px;
+  }
+
+  /* ---------- masthead ---------- */
+
+  .masthead {
+    padding: 72px 0 40px;
+    border-bottom: 2px solid var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0;
+  }
+  h1 {
+    font-family: var(--display);
+    font-weight: 800;
+    font-size: clamp(38px, 6.2vw, 66px);
+    line-height: 1.02;
+    letter-spacing: -.032em;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .standfirst {
+    font-size: 20px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  /* ---------- decisions bar ---------- */
+
+  .decisions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 40px 0 0;
+  }
+  .decision {
+    background: var(--surface);
+    padding: 20px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .decision dt {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .decision dd {
+    margin: 0;
+    font-family: var(--display);
+    font-weight: 650;
+    font-size: 17px;
+    letter-spacing: -.012em;
+    line-height: 1.3;
+  }
+
+  /* ---------- sections ---------- */
+
+  section { margin-top: 76px; }
+
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid var(--rule-strong);
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+  }
+  .sec-num {
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: .06em;
+    flex: none;
+  }
+  h2 {
+    font-family: var(--display);
+    font-weight: 750;
+    font-size: clamp(24px, 3.2vw, 33px);
+    letter-spacing: -.022em;
+    line-height: 1.15;
+    margin: 0;
+    text-wrap: balance;
+  }
+  h3 {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -.012em;
+    margin: 40px 0 12px;
+    text-wrap: balance;
+  }
+  h4 {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin: 32px 0 10px;
+    font-weight: 600;
+  }
+
+  p { margin: 0 0 16px; max-width: 68ch; }
+  .lede { font-size: 18.5px; color: var(--ink-soft); max-width: 64ch; }
+
+  ul, ol { margin: 0 0 16px; padding-left: 22px; max-width: 68ch; }
+  li { margin-bottom: 7px; }
+  li::marker { color: var(--ink-faint); }
+
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  a:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  strong { font-weight: 700; }
+  em.q { font-style: italic; color: var(--ink); }
+
+  code {
+    font-family: var(--mono);
+    font-size: .855em;
+    background: var(--surface-alt);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: .08em .34em;
+    color: var(--ink);
+  }
+
+  pre {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.62;
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 18px 20px;
+    overflow-x: auto;
+    margin: 0 0 20px;
+    color: var(--ink);
+  }
+  pre code { background: none; border: none; padding: 0; font-size: inherit; }
+  .cmt { color: var(--ink-faint); }
+
+  /* ---------- tables ---------- */
+
+  .tw { overflow-x: auto; margin: 0 0 22px; border: 1px solid var(--rule); background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 520px; }
+  thead th {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .11em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-align: left;
+    font-weight: 600;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--rule-strong);
+    background: var(--surface-alt);
+    white-space: nowrap;
+  }
+  tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    line-height: 1.45;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.num, th.num { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.mono { font-family: var(--mono); font-size: 13px; white-space: nowrap; }
+  tfoot td {
+    padding: 12px 16px;
+    border-top: 2px solid var(--ink);
+    font-weight: 700;
+    font-family: var(--display);
+  }
+
+  /* ---------- stage list ---------- */
+
+  .stages { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .stage {
+    background: var(--surface);
+    display: grid;
+    grid-template-columns: 62px 1fr;
+    gap: 0 18px;
+    padding: 18px 20px;
+    align-items: start;
+  }
+  .stage-id {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--accent);
+    padding-top: 3px;
+  }
+  .stage-body h3 { margin: 0 0 6px; font-size: 17px; }
+  .stage-body p { margin: 0; font-size: 15px; color: var(--ink-soft); max-width: 72ch; }
+  .stage-body p + p { margin-top: 8px; }
+  .stage.dead .stage-id { color: var(--ink-faint); }
+
+  /* ---------- callouts ---------- */
+
+  .note {
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--warn);
+    background: var(--warn-wash);
+    padding: 16px 20px;
+    margin: 0 0 22px;
+  }
+  .note p { margin: 0; max-width: 70ch; }
+  .note .tag {
+    display: block;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--warn);
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .note.key { border-left-color: var(--accent); background: var(--accent-wash); }
+  .note.key .tag { color: var(--accent-ink); }
+
+  /* ---------- blockers ---------- */
+
+  .blockers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; }
+  .blocker {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--alert);
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .blocker .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--alert);
+    font-weight: 600;
+  }
+  .blocker h3 { margin: 0; font-size: 18px; }
+  .blocker p { margin: 0; font-size: 15px; color: var(--ink-soft); }
+
+  /* ---------- screens ---------- */
+
+  .screens { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .screen {
+    border: 1px solid var(--rule);
+    background: var(--surface);
+    padding: 18px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+  .screen .n {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    color: var(--ink-faint);
+  }
+  .screen h3 { margin: 0; font-size: 17px; }
+  .screen p { margin: 0; font-size: 14.5px; color: var(--ink-soft); }
+  .screen.primary { border-color: var(--accent); background: var(--accent-wash); }
+  .screen.primary .n { color: var(--accent-ink); }
+
+  /* ---------- phases ---------- */
+
+  .phases { display: flex; flex-direction: column; gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+  .phase {
+    background: var(--surface);
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: 92px 1fr;
+    gap: 0 20px;
+    align-items: start;
+  }
+  .phase-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 600;
+    padding-top: 4px;
+  }
+  .phase h3 { margin: 0 0 6px; font-size: 18px; }
+  .phase p { margin: 0; font-size: 15px; color: var(--ink-soft); max-width: 72ch; }
+  .phase .proof {
+    margin-top: 10px;
+    font-size: 14.5px;
+    padding: 9px 13px;
+    background: var(--surface-alt);
+    border-left: 2px solid var(--accent);
+    color: var(--ink);
+  }
+  .phase.now { background: var(--accent-wash); }
+
+  /* ---------- misc ---------- */
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin: 0 0 24px;
+  }
+  .stat { background: var(--surface); padding: 18px 20px; }
+  .stat .v {
+    font-family: var(--display);
+    font-weight: 750;
+    font-size: 30px;
+    letter-spacing: -.028em;
+    font-variant-numeric: tabular-nums;
+    display: block;
+    line-height: 1.1;
+  }
+  .stat .k {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 6px;
+    display: block;
+  }
+  .stat.warn .v { color: var(--alert); }
+
+  hr.soft { border: none; border-top: 1px solid var(--rule); margin: 36px 0; }
+
+  footer {
+    margin-top: 84px;
+    padding-top: 22px;
+    border-top: 2px solid var(--ink);
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--ink-faint);
+    letter-spacing: .04em;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 26px;
+  }
+
+  @media (max-width: 620px) {
+    body { font-size: 16px; }
+    .page { padding: 0 18px 80px; }
+    .masthead { padding-top: 48px; }
+    .stage, .phase { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <p class="eyebrow">Outreach Signals &middot; Productization Plan &middot; 13 Aug 2026</p>
+    <h1>From Scripts to Send File</h1>
+    <p class="standfirst">Forty-nine scripts, one 219-column CSV, and a message-writing step that only works when a human is sitting in the terminal. Here is the whole pipeline, what actually blocks the handoff, and how it becomes an app a VA can run alone.</p>
+  </header>
+
+  <dl class="decisions">
+    <div class="decision"><dt>Scope</dt><dd>Full pipeline — upload to send file</dd></div>
+    <div class="decision"><dt>Hosting</dt><dd>Deployed web app</dd></div>
+    <div class="decision"><dt>Send path</dt><dd>Export CSV, send elsewhere</dd></div>
+    <div class="decision"><dt>Writing model</dt><dd>Opus 5, batch + review queue</dd></div>
+  </dl>
+
+  <!-- ================= 1 ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>What we actually built</h2></div>
+    <p class="lede">Ten stages, reconstructed from the repo rather than from memory. Six are production, three are archaeology, and one — Stage&nbsp;0 — has never existed in code at all.</p>
+
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-id">00</div>
+        <div class="stage-body">
+          <h3>Source acquisition</h3>
+          <p>Two independent inputs joined later on domain: a Crunchbase company export (999 rows — domain, name, industry, description, founder, funding, stale traffic) and a people file with names, titles, LinkedIn URLs and emails. Nothing in the codebase produces either, so the app starts with two uploads on one screen.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">01</div>
+        <div class="stage-body">
+          <h3>Normalize</h3>
+          <p><code>column_utils.py</code> auto-detects website, company and traffic columns across CSV shapes. Domain normalization is reimplemented in three separate files — one canonical normalizer, one canonical key.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">02</div>
+        <div class="stage-body">
+          <h3>Enrichment fan-out — all the cost, all the flakiness</h3>
+          <p>Eleven modules per company: tech stack, PageSpeed lab <em class="q">and</em> CrUX field data, fresh SimilarWeb traffic, Jina content extraction plus LLM scoring, Playwright screenshot plus Gemini Vision, AI-readiness, SSL and mixed content, consent-before-cookies, accessibility violations, page gating, and twenty-odd data-quality flags.</p>
+          <p><code>orchestrator.py</code> runs it sequentially, one company at a time, 1.5s apart, saving every fifth row behind an interactive resume prompt. 999 rows took days and several hand-driven repair passes.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">03</div>
+        <div class="stage-body">
+          <h3>Grade and gate</h3>
+          <p>999 rows in; 795 graded, 155 invalid, 49 dead — a gradeable pool of <strong>793</strong>. Priority flags, a batch report, and a funnel CSV come out the other side.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">04</div>
+        <div class="stage-body">
+          <h3>Evidence bundles</h3>
+          <p>Per-prospect audit bundle plus a shared data dictionary; median bundle 2,194 characters; a first name for 631 of 793.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">05</div>
+        <div class="stage-body">
+          <h3>Message generation — the stage with no automation story</h3>
+          <p><strong>v1</strong> Gemini two-pass, abandoned on quality. <strong>v2</strong> Sonnet 5 via the Batch API — all 795 generated, zero QA flags, campaign pulled anyway; it also silently dropped the message-2 opener on ~135 of 359 and capitalized case-study slugs into 404s. <strong>v3</strong> Claude writing in the terminal, sixteen prospects a cycle: <strong>594 of 793 written, paused since 21 July</strong>.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">06</div>
+        <div class="stage-body">
+          <h3>QA</h3>
+          <p>About twelve regex rule families — niche openers, placeholder stats, scale framing, the banned CTA, speed words in a non-performance message, funding amounts, brand casing, mechanics, tone, case-study validity, the performance gate. Flags split into deterministically fixable and needs-regeneration. Standing rule: never <code>--fix</code>, that path spends money.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">07</div>
+        <div class="stage-body">
+          <h3>Contact resolution</h3>
+          <p>Join people on normalized domain, rank with a three-tier scorer (marketing owner &gt; founder &gt; everyone else, role affinity inside each tier), pick one contact per company, substitute the real first name, then a hard completeness gate.</p>
+        </div>
+      </div>
+      <div class="stage">
+        <div class="stage-id">08</div>
+        <div class="stage-body">
+          <h3>Export</h3>
+          <p>462 sendable rows of 594 written. <strong>132 — 22% — have no contact at all.</strong></p>
+        </div>
+      </div>
+      <div class="stage dead">
+        <div class="stage-id">09</div>
+        <div class="stage-body">
+          <h3>Post-hoc verification</h3>
+          <p>Case-study metrics traced back to real studies, live signal re-checks, and site-change detection for prospects audited months before the send.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="note">
+      <span class="tag">Known defect, already diagnosed</span>
+      <p>The bundle feeds the model grader <em class="q">opinion</em> — design score, design reasoning — and drops the <em class="q">evidence</em>: named customers and hard metrics that sit fully populated in <code>content_reasoning</code>. This is the recorded root cause of weak, repetitive messages. Fixing the bundle is probably worth more than any model choice.</p>
+    </div>
+  </section>
+
+  <!-- ================= 2 ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Why it can't be handed over as-is</h2></div>
+    <p class="lede">Four structural blockers. Each has already caused a real incident in this project — these aren't hypotheticals.</p>
+
+    <div class="blockers">
+      <div class="blocker">
+        <span class="tag">Blocker 1</span>
+        <h3>A 219-column CSV is the database</h3>
+        <p>Every stage rewrites the whole file. That produced: a script silently overwriting the live campaign until it was parameterized; eleven <code>.bak</code> files serving as version control; 256 of 594 rows missing review columns because assembly never enforced its schema; and four deleted dead rows resurrecting themselves, because "already written" is derived from presence in a file rather than a status column. Not logic bugs — the absence of a primary key.</p>
+      </div>
+      <div class="blocker">
+        <span class="tag">Blocker 2</span>
+        <h3>Operations are env vars, and mistakes are destructive</h3>
+        <p>The working command carries three environment variables, and the documented consequence of forgetting one is overwriting the live campaign. A separate flag spends money. That is not a surface you hand to someone else.</p>
+      </div>
+      <div class="blocker">
+        <span class="tag">Blocker 3</span>
+        <h3>Generation is a person in a terminal</h3>
+        <p>594 messages exist because Claude wrote them sixteen at a time across two sessions, with corrections landing mid-run — the CTA ban arrived at message 412 and needed a 420-instance find-and-replace afterwards. There is no unattended path to message 595.</p>
+      </div>
+      <div class="blocker">
+        <span class="tag">Blocker 4</span>
+        <h3>The prompt isn't in version control</h3>
+        <p>The 44.5 KB master prompt — the actual product — is gitignored and lives on one disk. The same rules are restated in the run playbook and re-encoded as regexes in the QA script: three copies that can drift, one of them unbacked.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 3 ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>Target architecture</h2></div>
+
+    <h3>What the VA sees</h3>
+    <div class="screens">
+      <div class="screen">
+        <span class="n">Screen 1</span>
+        <h3>Batches</h3>
+        <p>Campaigns, status, counts, cost to date. One button: new batch.</p>
+      </div>
+      <div class="screen">
+        <span class="n">Screen 2</span>
+        <h3>Run</h3>
+        <p>Upload both CSVs, then a stage board — normalize, enrich, grade, generate, QA, contacts, export — with live counts, failures, and a running cost meter.</p>
+      </div>
+      <div class="screen primary">
+        <span class="n">Screen 3 — the one that matters</span>
+        <h3>Review queue</h3>
+        <p>One card per prospect: evidence on the left, three messages on the right, QA flags inline. Approve, edit, regenerate, skip.</p>
+      </div>
+      <div class="screen">
+        <span class="n">Screen 4</span>
+        <h3>Export</h3>
+        <p>Send file plus exclusion lists, with a one-screen summary: sendable, no contact, rejected, skipped.</p>
+      </div>
+    </div>
+
+    <h3>What runs behind it</h3>
+    <p>FastAPI, Postgres and a Redis-backed worker, deployed, with keys in server environment rather than on anyone's laptop. Every stage becomes an <strong>idempotent per-company task</strong> keyed on batch, domain and stage, with its own status row — resume stops being a hand-written feature and becomes a property of the system. Per-provider token buckets throttle Gemini, Jina, PageSpeed and Apify, and a bounded pool caps concurrent browsers.</p>
+
+    <h4>Data model</h4>
+<pre><code>batches      (id, name, created_at, status)
+companies    (id, batch_id, domain, name, source_row jsonb)   <span class="cmt">-- UNIQUE(batch_id, domain)</span>
+enrichment   (company_id, stage, status, payload jsonb, error, cost_cents, updated_at)
+people       (id, batch_id, domain, full_name, title, linkedin, email, raw jsonb)
+messages     (id, company_id, version, m1, m2, m3, signal_category, chosen_signal,
+              reasoning jsonb, model, prompt_version, status, qa_flags jsonb)
+contacts     (company_id, person_id, rank_score, chosen bool)
+prompts      (id, name, version, body, created_at)
+exports      (id, batch_id, created_at, row_count, file_path)</code></pre>
+
+    <p><code>messages.status</code> is one of draft, flagged, approved, rejected — and <strong>nothing exports without approved</strong>. The 219 columns collapse to roughly 25 typed ones (everything downstream code actually reads) plus jsonb for the remainder.</p>
+
+    <h4>Reuse, rewrite, retire</h4>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Disposition</th><th>What</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Reuse unchanged</strong></td>
+            <td>Every grader module, the case-study registry, and <code>qa_check.check()</code>. Also <code>score_person()</code> <strong>verbatim</strong> — a scoring change once silently swapped 45 CEOs for CTOs, so it moves as-is, with its tests.</td>
+          </tr>
+          <tr>
+            <td><strong>Rewrite</strong></td>
+            <td><code>orchestrator.py</code> (the queue replaces it), all CSV I/O, bundle prep (becomes a DB query), the file-emitting half of the outreach list builder, and the API generation runner.</td>
+          </tr>
+          <tr>
+            <td><strong>Retire</strong></td>
+            <td>Batch-reattach, model-swap tests, comparison builders, one-off repair scripts, the dead Gemini path, and the pilot markdown files.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= 4 ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>The generation service</h2></div>
+    <p class="lede">This is the crux, and it is not simply "call the API instead of typing." What made the in-session writing good was four things, and each needs its own mechanism or the app regresses straight back to v2 — which was QA-clean and still got pulled.</p>
+
+    <div class="tw">
+      <table>
+        <thead><tr><th>What worked in-session</th><th>Mechanism in the service</th></tr></thead>
+        <tbody>
+          <tr><td>Deep per-prospect reasoning through the signal decision order</td><td>Opus 5, adaptive thinking, effort <code>high</code></td></tr>
+          <tr><td>Rich evidence in the input</td><td><strong>Bundle v2</strong> — carry customer names and hard metrics, not just grader opinion</td></tr>
+          <tr><td>Seeing the <em class="q">whole batch</em>: that 412 of 594 messages closed identically, that one case study carried 52% of second messages</td><td><strong>Diversity budget and batch lint.</strong> This is precisely what a stateless per-prospect call cannot do — and precisely what v2 got wrong</td></tr>
+          <tr><td>Correcting the rules mid-run</td><td><strong>Versioned prompts</strong> plus regenerate-affected-subset</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Request shape</h3>
+<pre><code>system = [
+  { SKILL.md body,      cache_control: ephemeral, ttl "1h" },   <span class="cmt">// ~11k tokens</span>
+  { data dictionary,    cache_control: ephemeral            },   <span class="cmt">//  ~2k tokens</span>
+  { case-study registry },                                       <span class="cmt">// ~1.5k tokens</span>
+]
+messages = [
+  { role: "user", content: prospect bundle + diversity constraints }   <span class="cmt">// ~700 tokens</span>
+]
+model         = "claude-opus-5"
+thinking      = { type: "adaptive" }
+output_config = { effort: "high", format: json_schema(&lt;18-field result&gt;) }</code></pre>
+
+    <p>Three things this buys. <strong>Structured outputs</strong> replace the "return only valid JSON" prose and the parse-retry loop, killing a whole class of v2 failures at the source. <strong>The cached prefix stays byte-identical</strong> across the batch, so every call after the first reads it at a tenth of the price — volatile content goes after the last breakpoint, and a batch ID must never be interpolated into the system prompt. And <strong>every message records its <code>prompt_version</code></strong>, so "the rule changed, regenerate everything written under v3" becomes a query rather than a find-and-replace.</p>
+
+    <h3>Solving statelessness</h3>
+    <ul>
+      <li><strong>Diversity budget, injected per request.</strong> Before each call the service computes, from the batch so far, which closing phrasings are saturated and which case studies are at quota, and passes a short constraint block in the user turn. Cheap, leaves the cache intact, aimed directly at the observed failure.</li>
+      <li><strong>Case-study quota as a hard post-check.</strong> Eight studies in the registry; no single one above roughly 30% of a batch. Deterministic — the model isn't involved.</li>
+      <li><strong>Batch-level lint after generation.</strong> N-gram frequency across closing lines and openers, plus case-study and signal-category distribution. Anything above threshold gets a repetition flag into the review queue. This is what a person reading 594 messages does, and it automates cleanly.</li>
+    </ul>
+
+    <h3>Post-processing and the QA gate</h3>
+    <p>Per result, all deterministic and free: sanitize, brand-casing backstop, lowercase URLs, restore the message-2 opener, then run the QA rules. Mechanical and case-study flags are auto-fixed. Anything else gets <strong>one bounded regeneration</strong> with the failed rule appended as a steer, capped at two attempts. Still flagged after that, it goes to the review queue — never straight to export.</p>
+
+    <div class="note key">
+      <span class="tag">The review queue is not optional</span>
+      <p>The v2 lesson is exact: <strong>795 messages, zero QA flags, campaign pulled.</strong> Regex QA proves the absence of banned patterns; it cannot prove a message is good. So nothing exports without approval. Give the VA an approve-all for clean pages, but flagged messages get handled one at a time — and track approve, edit and reject rates per prompt version, because that becomes the quality signal for every future prompt change.</p>
+    </div>
+
+    <h3>Model choice and cost</h3>
+    <p>Measured from this repo — master prompt 44,587 characters, data dictionary 7,625, median bundle 2,194.</p>
+
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>Component</th><th class="num">Tokens</th><th>Rate</th><th class="num">Per prospect</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Cached system prefix</td><td class="num">14,500</td><td class="mono">$0.50/MTok read</td><td class="num">$0.007</td></tr>
+          <tr><td>Fresh input — bundle + constraints</td><td class="num">700</td><td class="mono">$5/MTok</td><td class="num">$0.004</td></tr>
+          <tr><td>Output + adaptive thinking</td><td class="num">2,000</td><td class="mono">$25/MTok</td><td class="num">$0.050</td></tr>
+        </tbody>
+        <tfoot>
+          <tr><td colspan="3">Opus 5, per prospect</td><td class="num">≈ $0.06</td></tr>
+        </tfoot>
+      </table>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat"><span class="v">$48</span><span class="k">800-lead batch, realtime</span></div>
+      <div class="stat"><span class="v">$24</span><span class="k">Same batch, Batch API</span></div>
+      <div class="stat"><span class="v">$0.09</span><span class="k">Cache writes, per hour</span></div>
+    </div>
+
+    <p><strong>Recommendation: Opus 5 at <code>high</code> effort with adaptive thinking and structured outputs — Batch API for the bulk pass, realtime for single regenerations out of the review queue.</strong></p>
+
+    <p>Not Sonnet. The earlier Sonnet-versus-Opus comparison was run while the org was out of credits and cost dominated the decision. At twenty-four to forty-eight dollars a campaign against ten-to-twenty-thousand-dollar deals, cost is not a real constraint — and the pulled v2 campaign is direct evidence the cheaper path lost money rather than saving it. Keep Sonnet configurable for a "draft everything cheaply, curate hard" mode if that's ever wanted.</p>
+
+    <div class="note">
+      <span class="tag">Two Batch API caveats to build around</span>
+      <p>Results come back <strong>out of order</strong> — key on the custom ID, never on position. And the server-side fallback parameter is <strong>rejected on Batches</strong>, so handle a refusal stop reason yourself and requeue those on the realtime path.</p>
+    </div>
+
+    <h3>The prompt becomes a first-class object</h3>
+    <p>The master prompt moves into the <code>prompts</code> table — and gets force-added to git <em class="q">today</em>, before any app code exists. Every message records the version that wrote it, so the app can eventually offer: "412 messages were written under v3, the rule changed, regenerate them." That's the operation we last performed by hand.</p>
+  </section>
+
+  <!-- ================= 5 ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Build order</h2></div>
+
+    <div class="phases">
+      <div class="phase now">
+        <div class="phase-tag">Phase 0<br>this week</div>
+        <div>
+          <h3>Three things that don't wait for the app</h3>
+          <p>Force-add the master prompt to git — 44.5 KB of product currently on one disk, unbacked. Commit the seventeen modified files and the whole outreach-loop directory; nothing has been committed since 9 July. Patch the bundle server to exclude the shut-down domains, or the loop will hand you FTX and three dead startups to write to.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-tag">Phase 1</div>
+        <div>
+          <h3>Schema, import, export — the spine</h3>
+          <p>Postgres schema, importers for both file types, the contact scorer ported verbatim, and an export endpoint.</p>
+          <p class="proof"><strong>Proof:</strong> import the existing batch, re-export, diff against today's send file — <strong>zero rows changed.</strong> That diff is the migration test.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-tag">Phase 2</div>
+        <div>
+          <h3>Generation service, QA, review queue</h3>
+          <p>Bundle v2 with the evidence fields, the Anthropic client with cached prefix and structured outputs, the diversity budget, deterministic post-processing, QA as a library, and the review UI.</p>
+          <p class="proof"><strong>Proof:</strong> generate the remaining 199 prospects unattended; approve rate matches or beats the hand-written run.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-tag">Phase 3</div>
+        <div>
+          <h3>Enrichment as jobs</h3>
+          <p>Wrap the existing grader modules as tasks; per-provider rate limiters; retries with terminal states; cost meter; resume for free.</p>
+          <p class="proof"><strong>Proof:</strong> re-enrich a 50-row slice and match the existing column values.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-tag">Phase 4</div>
+        <div>
+          <h3>The VA shell</h3>
+          <p>Auth, batch dashboard, progress board, run history, legible error surfacing. Deploy.</p>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="phase-tag">Phase 5<br>optional</div>
+        <div>
+          <h3>Reply tracking and the analysis vertical</h3>
+          <p>Ingest a status file back to make it a light CRM; bring the single-company deep-analysis report behind the same UI, reusing the same job infrastructure.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 6 ================= -->
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>Risks and open items</h2></div>
+
+    <div class="note">
+      <span class="tag">The biggest one isn't messaging</span>
+      <p><strong>Contact sourcing is the real bottleneck.</strong> 132 of 594 written messages can't be sent because the people file has nobody at that domain, and the contact mix is 383 founders to 38 marketers because only about twenty marketing titles exist in the entire dataset. More writing does not fix this. The app should surface it per batch, but the actual fix is a people-enrichment step — worth slotting around Phase 3.</p>
+    </div>
+
+    <ul>
+      <li><strong>Gemini's free tier is 20 requests a day</strong>, which throttles grading to roughly ten sites daily. Enrichment can't be a self-serve button until that account is on paid billing.</li>
+      <li><strong>Some sites never grade.</strong> Cloudflare and bot detection need a terminal "couldn't grade" state, not an infinite retry loop.</li>
+      <li><strong>Signal freshness.</strong> A site audited in June may have relaunched by August — there's already a change-detection script because this bit us. Every message should carry an audit date, and export should warn when the evidence is stale.</li>
+      <li><strong>LinkedIn terms of service.</strong> Export-only is the right call. Keep it that way.</li>
+      <li><strong>The rules live in three places</strong> — prompt prose, run playbook, QA regexes. Phase 2 should make the prompt the single source and cross-check the QA rules against it.</li>
+    </ul>
+  </section>
+
+  <footer>
+    <span>Outreach Signals</span>
+    <span>Plan drafted 13 Aug 2026</span>
+    <span>Source: specs/outreach-app-plan.md</span>
+  </footer>
+
+</div>

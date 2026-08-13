@@ -1,0 +1,1981 @@
+Domain,Name,signal_category,chosen_signal,first_message,second_message,third_message
+feedcoyote.com,Feedcoyote,performance,site speed (real-user load 6.87s),"Hey {first-name}, came across Feedcoyote while looking at creator tools.
+
+You're pulling around 46k visits a month, so I'd guess plenty of new freelancers are landing on the site and deciding fast whether to sign up.
+
+I ran a quick speed test and it came back over 6 seconds to load. At that kind of traffic, a faster first load means more of them stick around long enough to join.
+
+Have you thought about a rebuild to speed it up?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Flatable, a proptech platform with two very different audiences, on a similar challenge to yours.
+
+https://prismport.co/case-studies/flatable
+
+We rebuilt it to hit 95 on PageSpeed, with two clear journeys through the site.
+
+Also, quick heads up, your cookie banner shows but the Meta Pixel cookie is already set before anyone clicks accept, so it's not really gating it yet. I'm assuming you'll have EU visitors at your traffic, so that part just needs to be GDPR compliant. Quick to sort though.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+nca.org/,National Cryptocurrency Association,content,"content depth (education-first, thin 49)","Hey {first-name}, came across the National Cryptocurrency Association while looking at crypto tools.
+
+Your whole job is making crypto make sense to everyday people, so I'd guess most of them land wanting to genuinely understand it.
+
+Which means the depth of what you publish is really the product. And there's room for the site to grow into the go-to resource people keep coming back to.
+
+Have you thought about building it out that way?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical content company, on a similar challenge, turning a site people skimmed into one they actually stayed and read.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, quick heads up, your cookie banner shows but the Meta Pixel and Microsoft Ads cookies are already set before anyone clicks accept. I'm assuming you'll have EU visitors at your traffic, so that side just needs to be GDPR compliant. Quick to sort though.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.pin.com,Pin,other,strong precinct (4.8/5 across 27 G2 reviews),"Hey {first-name}, came across Pin while looking at AI tools.
+
+You've pulled a 4.8 across 27 verified reviews on G2, so I'd guess a lot of new business comes from recruiters hearing about you and looking you up.
+
+Which means the site is doing the convincing when they land to check you out. And there's room for it to feel as sharp as the reviews make you sound.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical API company, on a similar challenge, getting the people evaluating a strong product to actually engage with the site.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got Meta Pixel and Google Ads cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+gobeheard.com,BeHeard Labs,other,"strong precinct (CMO testimonials, Cover Genius etc.)","Hey {first-name}, came across BeHeard while looking at AI tools.
+
+You've got CMOs at companies like Cover Genius vouching for you, so I'd guess most new business comes through people hearing results from someone they trust.
+
+Which means the site is where a warm lead confirms you're worth a real conversation. And there's room for it to feel as sharp as the outcomes your customers describe.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning strong interest into visitors who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+mindy.com,Mindy,performance,"site speed (desktop 48, real-user load 6.53s)","Hey {first-name}, came across Mindy while looking at AI tools.
+
+You're pulling around 40k visits a month, so I'd guess a lot of people are landing to see if it'll actually save them time.
+
+I ran a quick speed test and it came back over 6 seconds to load. At that kind of traffic, a faster first load means more of those visitors stick around to try it.
+
+Have you thought about a rebuild to speed it up?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product a lot like yours, on a similar challenge, making a heavy site load fast and keep people around.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+megaphone.xyz/,"Contribution Labs, Inc.",other,strong precinct (Head of Base at Coinbase etc.),"Hey {first-name}, came across Megaphone while looking at crypto tools.
+
+You've got names like the Head of Base at Coinbase backing what you do, so I'd guess most growth comes from being trusted inside tight crypto circles.
+
+Which means the site is where a new team decides you're the real thing. And there's room for it to feel as credible as the names already behind you.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around a passionate creator community, on a similar challenge to yours, giving a community-driven brand a site as compelling as the momentum behind it.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with Megaphone, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+www.thelegionai.com/,Legion AI,design,soft refresh (product-tone inference),"Hey {first-name}, came across Legion while looking at AI tools.
+
+You're selling teams a way to respond to leads in under a minute, so I'd guess your buyers care a lot about how sharp and polished the tools they pick feel.
+
+Which means the site sets the tone before they ever book a demo. And there's room for it to feel as sharp as the product you're selling.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.fallcall.com,"FallCall Solutions, LLC",other,strong precinct (patented background fall detection),"Hey {first-name}, came across FallCall while looking at health tools.
+
+You've patented fall detection that runs quietly in the background of a smartwatch, so I'd guess most trust comes from families and partners who see it genuinely works.
+
+Which means the site is where a worried caregiver decides you're the one to rely on. And there's room for it to feel as reassuring as the product is.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a company in a careful, evidence-heavy health space, on a similar challenge, building a site as credible as the work behind it.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Felt close to what you're working through with FallCall, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+salmonrun.ai,Salmon Labs,content,content depth (room to show proof),"Hey {first-name}, came across Salmon while looking at AI tools.
+
+You explain the how-it-works clearly, so I'd guess the people landing already get the idea and are weighing whether to trust it with real growth work.
+
+Which means the next thing they look for is proof. And there's room for the site to show more of the results behind the process.
+
+Have you thought about building that part out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, giving a strong product the depth to convince careful buyers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Salmon, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.delphina.ai/,Delphina,other,"strong precinct (Substack, LATAM Airlines using them)","Hey {first-name}, came across Delphina while looking at AI tools.
+
+You've got teams like Substack using you to move faster, so I'd guess data leaders find you through peers who've seen it work.
+
+Which means the site is where a new data team decides you're worth trusting with real work. And there's room for it to feel as capable as the customers you're landing.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Delphina, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+copley.com,Copley,other,strong precinct (customer ROAS up 50%),"Hey {first-name}, came across Copley while looking at marketing tools.
+
+You've had a customer push ROAS up 50% with you, so I'd guess performance marketers spread the word fast when something actually moves numbers.
+
+Which means the site is where a curious marketer decides you're worth testing. And there's room for it to feel as sharp as the results you're posting.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning strong results into visitors who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+getmentum.com,Mentum,design,soft refresh (technical fintech-API tone),"Hey {first-name}, came across Mentum while looking at fintech tools.
+
+You're offering fintech teams investment services through an API, so I'd guess your buyers are technical and weigh you partly on how clear and solid everything feels.
+
+Which means the site does real work before anyone talks to sales. And there's room for it to feel as polished as the product underneath.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical API company, on a similar challenge, getting a developer product to land fast with the engineers evaluating it.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+rellingsystems.com,Relling,other,team-pedigree precinct (SpaceX/NASA background),"Hey {first-name}, came across Relling while looking at engineering tools.
+
+You've got a team out of SpaceX and NASA building this, so I'd guess early trust comes from that pedigree and word between serious engineering circles.
+
+Which means the site is where a new team decides you're credible enough to test critical systems. And there's room for it to feel as rigorous as the people behind it.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making serious engineering work land clearly with a careful audience.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Relling, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+mountainprotocol.com,Mountain Protocol,other,strong precinct (OpenZeppelin audit),"Hey {first-name}, came across Mountain Protocol while looking at crypto tools.
+
+You've been audited by OpenZeppelin, so I'd guess trust and regulation are the whole reason people pick you over riskier options.
+
+Which means the site is where a cautious institution decides you're safe to use. And there's room for it to feel as secure and regulated as you actually are.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to earn trust with careful, technical buyers, on a similar challenge to yours.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Mountain Protocol, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+trials.ai/,Trials.ai,other,strong precinct (100+ life science companies served),"Hey {first-name}, came across Trials.ai while looking at health tools.
+
+You've served over 100 life science companies optimizing trial protocols, so I'd guess most new business comes through a tight world of clinical and regulatory people.
+
+Which means the site is where a new sponsor decides you're proven enough to trust with a trial. And there's room for it to feel as established as that track record.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a life sciences company in a heavily regulated space, on a similar challenge, building a credible site their own team could keep expanding.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Felt close to what you're working through with Trials.ai, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.herdora.com/,Wafer,other,strong precinct (top-benchmarked inference),"Hey {first-name}, came across Wafer while looking at AI tools.
+
+You're benchmarking as the fastest inference option out there, so I'd guess developers find you by comparing numbers and picking the top one.
+
+Which means the site is where a technical buyer confirms you're the real deal. And there's room for it to feel as sharp as your benchmarks are.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Wafer, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+ascentralabs.ai/,Ascentra Labs,content,content depth / proof (design already strong),"Hey {first-name}, came across Ascentra while looking at AI tools.
+
+You explain the product cleanly and the site already looks sharp, so I'd guess the people landing get it fast and are mostly weighing whether to trust it with real PE work.
+
+Which means the next thing they want is proof. And there's room to back it with named results and go a level deeper.
+
+Have you thought about building that part out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, giving a strong product the depth and proof to convince careful buyers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one quick thing I noticed, your SSL certificate looks set to expire in about 27 days, worth a renew before it lapses.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+taholabs.com,TAHO,design,soft refresh (crediting a strong data-backed argument),"Hey {first-name}, came across TAHO while looking at dev tools.
+
+You make a genuinely sharp, data-backed case for the GPU utilization problem, so I'd guess the engineers landing take you seriously fast.
+
+Which means the site is already doing real convincing. And there's room for the design to feel as rigorous as the argument you're making.
+
+Have you thought about a refresh?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got Microsoft Ads and X ad cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+zettatech.sa.com,Zetta Technologies,design,soft refresh (unfamiliar-model trust inference),"Hey {first-name}, came across Zetta while looking at IT tools.
+
+You're offering device-as-a-service with a genuinely different model, so I'd guess a lot of businesses land curious but needing to trust something unfamiliar.
+
+Which means the site has to make an unusual model feel safe and clear. And there's room for it to feel as polished as the offer is smart.
+
+Would a refresh be worth exploring?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to make an unfamiliar product feel clear and credible, on a similar challenge to yours.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+loon.finance,Loon,other,"trust precinct (reserves at ATB Financial, attested)","Hey {first-name}, came across Loon while looking at fintech tools.
+
+You hold your reserves at ATB Financial and publish attestations, so I'd guess trust and transparency are exactly how you win against riskier stablecoins.
+
+Which means the site is where a cautious partner decides you're the credible, regulated option. And there's room for it to feel as trustworthy as your setup actually is.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to earn trust with careful, technical buyers, on a similar challenge to yours.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Loon, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+www.nursesbnb.com/,Nursesbnb,other,niche community + two-sided marketplace,"Hey {first-name}, came across Nursesbnb while looking at marketplace tools.
+
+You built mid-term housing specifically by a healthcare pro for healthcare pros, so I'd guess most traction comes from nurses trusting one of their own and spreading the word.
+
+Which means the site is where a traveling nurse decides you actually get them. And there's room for it to feel as tailored as the idea behind it.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Flatable, a housing marketplace with two very different audiences, on a similar challenge to yours.
+
+https://prismport.co/case-studies/flatable
+
+We rebuilt it to hit 95 on PageSpeed, with two clear journeys through the site.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+ariga.io,Ariga Technologies,content,OSS precinct (Ent in Linux Foundation) + thin content,"Hey {first-name}, came across Ariga while looking at dev tools.
+
+Your work on Ent made it into the Linux Foundation, so I'd guess a lot of trust comes from the open-source engineers who already know the project.
+
+Which means the site is where a new team decides the commercial side is worth it. And there's room for it to explain a lot more than it does today.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, turning a thin site into one that actually explains the product and holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.stackfix.com/,Stackfix,design,soft refresh (independence/trust inference),"Hey {first-name}, came across Stackfix while looking at SaaS tools.
+
+You're helping buyers compare software honestly, so I'd guess your whole value rests on people trusting your reviews are unbiased.
+
+Which means the site itself has to feel credible and independent at a glance. And there's room for it to carry that trust more strongly.
+
+Have you thought about a refresh?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, giving a credibility-first product the polish to convince careful buyers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Stackfix, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+nexus.olaxbt.xyz/,OlaXBT,content,content proof (design already strong),"Hey {first-name}, came across OlaXBT while looking at crypto tools.
+
+The site already looks sharp and you explain the tech well, so I'd guess people land intrigued and then start looking for proof it delivers real signals.
+
+Which means credibility is the next thing they want. And there's room to bring named results and partners front and center.
+
+Have you thought about building that out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, giving a strong product the proof and depth to convince careful buyers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also worth checking, your robots setup is currently blocking the AI crawlers, so tools like ChatGPT can't see the site, which matters more for getting found these days.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+cardiomo.com/,Cardiomo,other,"traction precinct (1,600+ pre-orders)","Hey {first-name}, came across Cardiomo while looking at health tools.
+
+You've pulled over 1,600 pre-orders for the cardiac wearable, so I'd guess there's real demand from people who want reassurance about their heart health.
+
+Which means the site is where that interest turns into trust and a purchase. And there's room for it to feel as reassuring and clinical as the device is.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a company in a careful, regulated health space, on a similar challenge, building a site as credible as the work behind it.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.adviceanalytics.com,"Advice Analytics, Inc.",other,strong precinct (known advisor-world names vouching),"Hey {first-name}, came across Advice Analytics while looking at fintech tools.
+
+You've got known names in the advisor world vouching for you, so I'd guess most traction comes through financial advisors trusting a peer's recommendation.
+
+Which means the site is where a new advisor decides you're worth adopting. And there's room for it to feel as credible as those endorsements.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, getting the people evaluating a strong product to actually engage with the site.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.thunderbirds.me,Thunderbirds,design,"genuinely lacking design (27, early-draft/amateurish)","Hey {first-name}, came across Thunderbirds while looking at AR and VR tools.
+
+You're working across some genuinely cutting-edge areas, so I'd guess the site is people's first read on whether you're a serious team.
+
+Which means right now it's selling you short. And there's real room to make it look and read like the ambition behind it.
+
+Have you thought about a proper rebuild?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform that had to show off something visual and distinctive, on a similar challenge to yours.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.doorlist.app,DoorList,other,differentiator (keep 100% of ticket sales) + scale,"Hey {first-name}, came across DoorList while looking at event tools.
+
+You let organizers keep 100% of their ticket sales, which is a real differentiator, so I'd guess growth spreads fast as hosts tell other hosts.
+
+With nearly 30k visits a month, the site is where a lot of new organizers decide to trust you. And there's room for it to feel as sharp as that pitch is.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around a social community, on a similar challenge to yours, giving it a site as lively as the events it powers.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Also, worth flagging, you've got a Google Ads cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+sherloqdata.io,Sherloq,other,strong precinct (analysts at Taboola) + scale,"Hey {first-name}, came across Sherloq while looking at data tools.
+
+You've got analysts at places like Taboola using you for their SQL work, so I'd guess growth comes from data people recommending you to their teams.
+
+With 12k visits a month, the site is where a lot of new analysts decide to try you. And there's room for it to feel as sharp as the product.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious tool to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got Meta Pixel and Google Ads cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+rulebase.co/,Rulebase,other,"strong precinct (95% fewer manual reviews, regulated)","Hey {first-name}, came across Rulebase while looking at AI tools.
+
+You've cut manual reviews by 95% for teams in regulated environments, so I'd guess results like that carry weight fast with compliance-minded buyers.
+
+Which means the site is where a new team decides you're proven and safe. And there's room for it to feel as sharp as those results.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a company in a heavily regulated, compliance-heavy space, on a similar challenge, building a credible site their own team could keep expanding.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Felt close to what you're working through with Rulebase, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+fullyramped.com,FullyRamped,performance,site speed (desktop 35),"Hey {first-name}, came across FullyRamped while looking at AI tools.
+
+You're selling reps a way to ramp faster, so I'd guess a snappy site is part of proving you practice what you preach.
+
+I ran a quick speed test and it scored 35 on desktop, which is slower than you'd want for that first impression. A quicker site would back up the pitch.
+
+Have you thought about a rebuild to speed it up?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge, making a heavy site load fast and keep people around.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got Meta Pixel and Google Ads cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+microfactory.com,MicroFactory,content,"content build-out (waitlist-thin, 32)","Hey {first-name}, came across MicroFactory while looking at robotics tools.
+
+You're building robotic workstations for precision automation, which is genuinely interesting, so I'd guess anyone landing wants to understand what it actually does.
+
+Right now the site is mostly a waitlist. And there's real room to turn it into something that tells the full story.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, turning a thin site into one people actually stayed and read.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with MicroFactory, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+mobiusindustry.com/,Möbius Industries,content,"content depth (design good, content 51)","Hey {first-name}, came across Möbius while looking at climate tools.
+
+You're refining materials from urban waste with robotics, which is genuinely ambitious, so I'd guess partners want to understand the process deeply before they buy in.
+
+The site already looks clean, and there's room for it to explain and prove a lot more of how it works.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, giving an ambitious product the depth to convince careful buyers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Möbius, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+threatcaptain.com,ThreatCaptain,other,precinct (MSPs like DS Tech),"Hey {first-name}, came across ThreatCaptain while looking at security tools.
+
+You've got MSPs like DS Tech backing you, so I'd guess growth spreads through the tight channel world where partners trade recommendations.
+
+Which means the site is where a new MSP decides you're worth adopting. And there's room for it to feel as sharp as those endorsements.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with ThreatCaptain, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+satlayer.xyz,SatLayer,other,precinct ($200M total value locked),"Hey {first-name}, came across SatLayer while looking at crypto tools.
+
+You've already got $200M in total value locked, so I'd guess trust and credibility in the Bitcoin world are your biggest assets.
+
+Which means the site is where a new partner or user decides you're the real thing. And there's room for it to feel as substantial as those numbers.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making complex work land clearly with a careful audience.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with SatLayer, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.subbb.me/,Subbb,other,"precinct (2,000+ creators)","Hey {first-name}, came across Subbb while looking at creator tools.
+
+You've got 2,000+ creators monetizing their communities through you, so I'd guess growth comes from creators seeing peers succeed and joining in.
+
+Which means the site is where a new creator decides you're worth building on. And there's room for it to feel as vibrant as the communities you power.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around creators, on a similar challenge to yours, giving it a site as vibrant as the community it serves.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Also, worth flagging, you've got Meta Pixel and Google Ads cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+resourcly.com,resourcly,other,precinct (Sandvik as customer),"Hey {first-name}, came across resourcly while looking at supply chain tools.
+
+You've got manufacturers like Sandvik using you to free up working capital, so I'd guess growth comes through procurement leaders recommending you to peers.
+
+Which means the site is where a new manufacturer decides you're credible. And there's room for it to feel as capable as those customers suggest.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with resourcly, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+noble.xyz,Noble XYZ,other,precinct (Circle building alongside them),"Hey {first-name}, came across Noble while looking at crypto tools.
+
+You've got names like Circle building alongside you, so I'd guess credibility with serious crypto institutions is what drives adoption.
+
+Which means the site is where a new partner confirms you're the real thing. And there's room for it to feel as substantial as that company.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making complex work land clearly with a careful audience.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Noble, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+go.cityrow.com/,Cityrow Go,other,community precinct (rowers raving in reviews),"Hey {first-name}, came across CityRow while looking at fitness tools.
+
+You've got rowers logging hundreds of thousands of meters and raving in the reviews, so I'd guess a lot of growth comes from members telling other people who row.
+
+Which means the site is where a curious rower decides to try it. And there's room for it to feel as energetic as the workouts.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around a passionate community, on a similar challenge to yours, giving it a site as lively as the people it serves.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with CityRow, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.appclose.com,AppClose,other,"precinct (66,000+ five-star reviews) + scale","Hey {first-name}, came across AppClose while looking at consumer apps.
+
+You've earned over 66,000 five-star reviews from co-parents, so I'd guess growth comes largely from word of mouth between families who've found real peace of mind.
+
+With 88k visits a month, the site is where a lot of new parents decide to trust you. And there's room for it to feel as warm and reassuring as the product.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around a passionate community, on a similar challenge to yours, giving it a site as warm and alive as the people it serves.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Also, worth flagging, you've got a Google Ads cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+s-tud.io,Studio,content,"content build-out (strong design, content 20)","Hey {first-name}, came across Studio while looking at creative tools.
+
+Your site has a genuinely strong, deliberate aesthetic, so I'd guess design matters a lot to how you want to be seen.
+
+Right now it says very little about what you actually build though. And there's room to add that story without losing the vibe.
+
+Ever thought about building it out a bit?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a design-forward creative platform, on a similar challenge to yours, pairing real craft with a fuller story.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with Studio, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.highlight.io/,Highlight,design,soft refresh (open-source community inference) + scale,"Hey {first-name}, came across Highlight while looking at dev tools.
+
+You're open-source and full-stack, so I'd guess a lot of developers find you through the community and then check the site to see if it's production-ready.
+
+With 34k visits a month, the site is doing real convincing. And there's room for it to feel as sharp as the tooling.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious tool to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one quick thing I noticed, your SSL certificate looks set to expire in about 18 days, worth a renew before it lapses.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+bounti.co/,Bounti,other,precinct (customer lifted upselling 23%) + scale,"Hey {first-name}, came across Bounti while looking at workforce tools.
+
+You've helped a customer lift upselling 23% at their busiest locations, so I'd guess results like that travel fast among frontline operators.
+
+With 27k visits a month, the site is where a lot of new teams decide you're proven. And there's room for it to feel as sharp as those numbers.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Bounti, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.inner.world,Innerworld,other,precinct (Vanderbilt researchers behind it) + scale,"Hey {first-name}, came across Innerworld while looking at health tools.
+
+You've got researchers from places like Vanderbilt behind your approach to CBT, so I'd guess academic credibility is central to how people come to trust you.
+
+With 16k visits a month, the site is where a lot of new members decide you're legit. And there's room for it to feel as considered as the science.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a company in a careful, evidence-heavy space, on a similar challenge, building a site as credible as the research behind it.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Also, worth flagging, you've got Meta Pixel and DoubleClick cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+predictionguard.com,Prediction Guard,other,precinct (300% faster AI deployments),"Hey {first-name}, came across Prediction Guard while looking at AI tools.
+
+You're helping teams deploy secure GenAI 300% faster, so I'd guess results like that get attention fast from engineering leaders.
+
+Which means the site is where a new team decides you're worth trying. And there's room for it to feel as sharp as those numbers.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Prediction Guard, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+oasysnow.com,OASYS NOW,other,precinct (European hospitals using them),"Hey {first-name}, came across OASYS while looking at health tools.
+
+You've got leading hospitals across Europe using you for trial recruitment, so I'd guess credibility with research institutions is central to how you grow.
+
+Which means the site is where a new center decides you're proven. And there's room for it to feel as serious as that client base.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a life sciences company in a heavily regulated space, on a similar challenge, building a credible site their own team could keep expanding.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Felt close to what you're working through with OASYS, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+www.tradehounds.com/,Trade Hounds,other,"community precinct (450,000+ tradespeople)","Hey {first-name}, came across Trade Hounds while looking at community tools.
+
+You've got over 450,000 tradespeople on the app, so I'd guess growth spreads worker to worker as people invite their crews.
+
+Which means the site is where a curious tradesperson decides to join. And there's room for it to feel as sharp and real as the community.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around a passionate community, on a similar challenge to yours, giving it a site as lively as the people it serves.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with Trade Hounds, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+glass.xyz,Glass,content,"content depth (buzzword-thin, 21)","Hey {first-name}, came across Glass while looking at creator tools.
+
+You're letting creators earn from decentralized video, which is an interesting idea, so I'd guess people land curious but not yet sure how it actually works.
+
+Which means the site needs to ground the pitch in something concrete. And there's room for it to explain the how instead of the vibe.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform for creators, on a similar challenge to yours, giving a creative product a site that shows it off instead of just describing it.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+joinaxe.ai,Axe,other,precinct (94% of calls handled automatically),"Hey {first-name}, came across Axe while looking at AI tools.
+
+You're handling 94% of a customer's calls automatically, so I'd guess results like that spread fast among operations teams drowning in phone work.
+
+Which means the site is where a new team decides you're proven. And there's room for it to feel as sharp as those numbers.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning strong results into visitors who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Axe, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+getaltitudeai.com,Altitude AI,other,precinct (50%+ time saved for industrial teams),"Hey {first-name}, came across Altitude while looking at AI tools.
+
+You're helping industrial teams cut over 50% of the time they spend on documents and code, so I'd guess results like that resonate fast with system integrators.
+
+Which means the site is where a new team decides you're worth trying. And there's room for it to feel as capable as those numbers.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also worth checking, your robots setup is currently blocking the AI crawlers, so tools like ChatGPT can't see the site, which matters more for getting found these days.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+museapp.com/,MuseApp,other,precinct (App Store Editor's Choice) + scale,"Hey {first-name}, came across Muse while looking at creative tools.
+
+You've earned an App Store Editor's Choice award, so I'd guess creatives find you through word of mouth and Apple's own spotlight.
+
+With 26k visits a month, the site is where a lot of them decide to try it. And there's room for it to feel as considered as the app.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a design-forward creative platform, on a similar challenge to yours, pairing real craft with a fuller story.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with Muse, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+confident.security/,Confident Security,design,"soft refresh (security-credibility inference, design good)","Hey {first-name}, came across Confident while looking at AI tools.
+
+You're wrapping encryption around foundation models, which is exactly the kind of thing security buyers vet closely, so I'd guess credibility is everything for you.
+
+The site already looks sharp, and there's room for it to carry even more of that technical trust.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Confident, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+flowmusic.app,Flow (ex-Riffusion),performance,site speed (real-user load 4.89s) + scale,"Hey {first-name}, came across Flow while looking at AI tools.
+
+You're letting people make music with AI, and pulling millions of visits doing it, so I'd guess a snappy first experience really matters at that scale.
+
+I ran a quick speed test and it came back nearly 5 seconds to load. At your traffic, a faster first load would keep a lot more of those creators around.
+
+Have you thought about a rebuild to speed it up?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product with a heavy, animation-rich site, on a similar challenge to yours.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also worth checking, your robots setup is currently blocking the AI crawlers, so tools like ChatGPT can't see the site, which matters more for getting found these days.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.designarena.ai,Design Arena,content,precinct (4.5M users) + content build-out,"Hey {first-name}, came across Design Arena while looking at AI tools.
+
+You've pulled 4.5 million users voting on AI design across 190+ countries, so I'd guess that crowd is exactly what makes your benchmark credible.
+
+With over a million visits a month, the site could explain the how a lot more than it does. And there's room to match the scale you've hit.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a design-forward platform, on a similar challenge to yours, pairing real craft with a fuller story.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Also, worth flagging, you've got a Google Ads cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+recall.it,Recall,other,"precinct (500,000+ professionals) + scale","Hey {first-name}, came across Recall while looking at AI tools.
+
+You've got 500,000+ professionals using you to manage what they learn, so I'd guess growth comes from people sharing it once it clicks for them.
+
+With nearly half a million visits a month, the site is where a lot of them decide to try it. And there's room for it to feel as sharp as the product.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got Meta Pixel and Google Ads cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+encore.dev,Encore,other,precinct (Groupon building on them) + scale,"Hey {first-name}, came across Encore while looking at dev tools.
+
+You've got teams like Groupon building on your platform, so I'd guess growth is mostly engineers recommending it to other engineers.
+
+With 140k+ visits a month, the site is where a lot of them decide you're solid enough to build on. And there's room for it to feel as sharp as the product.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious tool to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.catalyzex.com,CatalyzeX,other,"precinct (700,000+ engineers) + scale","Hey {first-name}, came across CatalyzeX while looking at AI tools.
+
+You've got 700,000+ engineers and researchers using you, so I'd guess growth is mostly technical people sharing it with peers.
+
+With 100k+ visits a month, the site is the front door for that wave. And there's room for it to feel as sharp as that community.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with CatalyzeX, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+stormy.ai/,Stormy,other,precinct (real payouts to creators) + scale,"Hey {first-name}, came across Stormy while looking at AI tools.
+
+You've paid out real money to creators running campaigns through you, so I'd guess word spreads fast as creators see peers getting paid.
+
+With 80k visits a month, the site is where a lot of them decide to jump in. And there's room for it to feel as sharp as the results.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around creators, on a similar challenge to yours, giving it a site as vibrant as the community it serves.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with Stormy, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+prophetic.com,Prophetic,design,soft refresh (novel-science trust inference) + scale,"Hey {first-name}, came across Prophetic while looking at neurotech.
+
+You're building a device to induce lucid dreaming, which is bold and genuinely novel, so I'd guess people land fascinated but wanting proof the science holds up.
+
+With 60k visits a month, the site is where a lot of them decide to believe it. And there's room for it to feel as credible as the research behind it.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Amalia, a company in a careful, evidence-heavy space, on a similar challenge, building a site as credible as the research behind it.
+
+https://prismport.co/case-studies/amalia-tech
+
+By the end, 25 of the 44 pages were built by their own team.
+
+Also, worth flagging, you've got Meta Pixel and X ad cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors at your traffic, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+www.playrole.com/,Role,other,differentiator (creators keep 75%) + scale,"Hey {first-name}, came across Role while looking at gaming tools.
+
+You let creators keep 75% of every sale, which is unusually generous, so I'd guess word spreads fast through tight tabletop communities.
+
+With 30k visits a month, the site is the first taste a lot of new players get. And there's room for it to feel as adventurous as the games.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with YourCulture, a platform built around a passionate creator community, on a similar challenge to yours, giving it a site as lively as the work it showcases.
+
+https://prismport.co/case-studies/your-culture
+
+We built it into a motion-rich site that scored 97 on Lighthouse.
+
+Felt close to what you're working through with Role, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+sweep.dev,Sweep,other,precinct (engineers at Ramp) + scale,"Hey {first-name}, came across Sweep while looking at dev tools.
+
+You've got engineers at places like Ramp using you inside JetBrains, so I'd guess growth is mostly developers recommending it to their teams.
+
+With 26k visits a month, the site is where a lot of them decide to try it. And there's room for it to feel as sharp as the product.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious tool to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Sweep, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+openmeter.io/,OpenMeter,other,precinct (leaders at Google Cloud) + scale,"Hey {first-name}, came across OpenMeter while looking at dev tools.
+
+You've got engineering leaders at places like Google Cloud using you for usage-based billing, so I'd guess growth is mostly developers recommending it to peers.
+
+With 17k visits a month, the site is where a lot of them decide to try it. And there's room for it to feel as sharp as the product.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious tool to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with OpenMeter, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+nori.ai,Nori,design,soft refresh (personal-health trust inference) + scale,"Hey {first-name}, came across Nori while looking at health tools.
+
+You're pulling wearable and fitness data into one AI health coach, so I'd guess people land wanting to trust it with something personal before they commit.
+
+With 16k visits a month, the site shapes that first impression. And there's room for it to feel as considered as the product.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Wondersimple, a consumer product on a similar challenge to yours, giving it a site that turned first-time visitors into buyers.
+
+https://prismport.co/case-studies/wondersimple
+
+After the launch, sales went up over 50%.
+
+Felt close to what you're working through with Nori, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+aside.com,Aside,other,precinct (#1 on browser-agent benchmarks),"Hey {first-name}, came across Aside while looking at AI tools.
+
+You've ranked #1 across multiple browser-agent benchmarks, ahead of the big labs, so I'd guess technical buyers who compare notes take you seriously fast.
+
+Which means the site is where they decide you're the real thing. And there's room for it to feel as sharp as those results.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning strong results into visitors who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Aside, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+lutra.ai,Lutra AI,other,precinct (teams at Samsung),"Hey {first-name}, came across Lutra while looking at AI tools.
+
+You've got teams at places like Samsung automating work through you, so I'd guess growth comes from people recommending it once it saves them real time.
+
+Which means the site is where a new team decides to try it. And there's room for it to feel as sharp as the product.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Lutra, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.kurtosis.com/,Kurtosis,other,OSS precinct (Ethereum sponsor) + content build-out,"Hey {first-name}, came across Kurtosis while looking at dev tools.
+
+You've got Ethereum among your open-source sponsors, so I'd guess a lot of trust comes from the engineers who already know the project.
+
+Which means the site is where a new developer decides it's worth adopting. And there's room for it to explain a lot more than it does today.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, turning a thin site into one that actually explains the product and holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Kurtosis, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.grit.io,Grit,content,"content build-out (thin, 47)","Hey {first-name}, came across Grit while looking at dev tools.
+
+You're putting code migrations and refactoring on autopilot, which is genuinely useful, so I'd guess the engineers landing want real detail on how it actually works before they trust it.
+
+Right now the site keeps things pretty light. And there's room for it to explain and prove a lot more.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, turning a thin site into one that actually explains the product and holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Grit, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.3jane.xyz/,3Jane Protocol,other,"precinct (real closed deals, $8.5M whole-loan)","Hey {first-name}, came across 3Jane while looking at crypto tools.
+
+You've closed real deals like an $8.5M whole-loan purchase, so I'd guess credibility with serious credit and DeFi players is exactly what drives your growth.
+
+Which means the site is where a new partner decides you're the real thing. And there's room for it to feel as substantial as those deals.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with 3Jane, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+defog.ai,Defog,other,precinct (Hugging Face CEO praise),"Hey {first-name}, came across Defog while looking at AI tools.
+
+You've got the CEO of Hugging Face praising your work on SQLCoder, so I'd guess credibility in the AI community is a big part of how you grow.
+
+Which means the site is where a new team decides you're the real thing. And there's room for it to feel as sharp as that endorsement.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Defog, happy to show you how we'd approach yours.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+www.starboard.biz/,Starboard,other,precinct (forwarders like UWL),"Hey {first-name}, came across Starboard while looking at logistics tools.
+
+You've got freight forwarders like UWL using you to turn requests into quotes fast, so I'd guess growth comes through a tight forwarding world where operators talk.
+
+Which means the site is where a new forwarder decides you're worth trying. And there's room for it to feel as sharp as the product.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Starboard, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+lovelace.ai,Lovelace,other,"precinct (founder credibility, ex-CMU dean / Google Cloud AI)","Hey {first-name}, came across Lovelace while looking at AI companies.
+
+Your founder ran Google Cloud AI and was the computer-science dean at Carnegie Mellon, so I'd guess a lot of doors open on that credibility alone.
+
+Which means the site is where that trust either carries or gets diluted. And there's room for it to feel as serious as the work.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making serious work land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Lovelace, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+www.tryminerva.ai,Minerva Intelligence,content,"content build-out (thin, 44; design already good at 70)","Hey {first-name}, came across Minerva while looking at fintech tools.
+
+You're automating bookkeeping, tax prep, and reporting in one place, so I'd guess the firms landing want real detail before they hand over their books.
+
+The site already looks the part, it just keeps things brief. And there's room for it to explain the depth and build real confidence.
+
+Is building the site out on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to earn trust with careful buyers, on a similar challenge, giving a light site the depth to convince.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Minerva, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+riffanalytics.ai/,Riff Analytics,design,soft refresh (AI-search-visibility product inference),"Hey {first-name}, came across Riff while looking at AI tools.
+
+You're tracking where brands show up in AI search results, which is exactly what marketers are scrambling to understand right now, so I'd guess interest is well ahead of how much the site explains.
+
+Which means the site has real momentum to capture. And there's room for it to feel as sharp as the timing.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one quick thing I noticed, your SSL certificate looks set to expire in about 28 days, worth a renew before it lapses.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+blacktag.com,Blacktag,other,"precinct (Amex, Coca-Cola, Paramount partners + 988 creators)","Hey {first-name}, came across Blacktag while looking at creator platforms.
+
+You've got brands like American Express and Coca-Cola on one side and hundreds of creators on the other, so I'd guess growth is about keeping both sides feeling like this is the place to be.
+
+Which means the site has to speak to a brand and a creator at once. And there's room for it to feel as bold as the identity you've already built.
+
+Is a refresh on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Flatable, a platform with two very different audiences, on a similar challenge to yours.
+
+https://prismport.co/case-studies/flatable
+
+We rebuilt it to hit 95 on PageSpeed, with two clear journeys through the site.
+
+Felt close to what you're working through with Blacktag, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+rileyapp.com/,Riley,other,precinct (clinical advisory board of named doctors),"Hey {first-name}, came across Riley while looking at parenting tech.
+
+You've built a clinical advisory board with named doctors behind the guidance, so I'd guess trust is the whole game when parents decide whether to rely on you.
+
+Which means the site is where an anxious parent decides you're credible. And there's room for it to feel as reassuring as that backing.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+schemata.com/,Schemata,other,"precinct (NAVSEA, the Air Force, Northeastern)","Hey {first-name}, came across Schemata while looking at 3D training tech.
+
+You've got groups like NAVSEA and the Air Force training on your systems, so I'd guess credibility with serious institutions is exactly what opens the next door.
+
+Which means the site is where a new buyer decides you're the real thing. And there's room for it to feel as sharp as that client list.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Schemata, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+raycaster.ai,Raycaster,design,soft refresh (technical-sales buyer inference),"Hey {first-name}, came across Raycaster while looking at AI sales tools.
+
+You're automating the research grind for teams selling technical products, so I'd guess the buyers landing want to feel you truly understand how hard that specific job is.
+
+Which means the site is where a sales lead decides you get their world. And there's room for it to feel as sharp as the product.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Raycaster, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.flashnet.xyz/,Flashnet,other,"precinct (Tether, Trust Wallet, MoonPay building on them)","Hey {first-name}, came across Flashnet while looking at crypto infra.
+
+You've got names like Tether, Trust Wallet, and MoonPay building on you, so I'd guess growth runs on serious crypto teams trusting your rails and telling others.
+
+Which means the site is where a new team decides you're solid enough to route real money through. And there's room for it to feel as sharp as those partners.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got a Google Ads cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+www.tanbii.com,Tanbii,design,soft refresh (game-experience inference),"Hey {first-name}, came across Tanbii while looking at gaming projects.
+
+You're blending a real game with environmental impact, so I'd guess players land wanting to feel the fun first, not read a whitepaper.
+
+Which means the site has to make the experience feel alive. And there's room for it to feel as playful as the game itself.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one urgent heads up, your SSL certificate looks set to expire in about 6 days, worth renewing right away so the site doesn't throw a security warning.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+bangjamin.com/,Bang Jamin,design,soft refresh (insurance-trust inference),"Hey {first-name}, came across Bang Jamin while looking at insurtech.
+
+You're making buying insurance and filing claims genuinely simple, and insurance is a trust business, so I'd guess people land wanting to feel they're in safe, honest hands.
+
+Which means the site does a lot of that reassuring. And there's room for it to feel as sharp as the product.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Bang Jamin, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+www.scritchai.com,Scritch,other,precinct (vets like Julio Lopez cutting call volume roughly in half),"Hey {first-name}, came across Scritch while looking at AI voice tools.
+
+You've got vets like Julio Lopez cutting their call volume roughly in half with you, so I'd guess growth spreads through practice owners telling other practice owners.
+
+Which means the site is where a new clinic decides to trust you with their front desk. And there's room for it to feel as sharp as those results.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Scritch, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.everlyn.ai/,Everlyn,design,soft refresh (speed-metric product inference),"Hey {first-name}, came across Everlyn while looking at AI video tools.
+
+You're generating video in about 15 seconds instead of the usual five minutes, which is a genuinely striking number, so I'd guess interest arrives fast but the site has to make it believable.
+
+Which means the site has to carry that proof. And there's room for it to feel as sharp as the claim.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+freepress.ai/,Freepress.ai,design,soft refresh (reader-clarity inference),"Hey {first-name}, came across Freepress while looking at news tools.
+
+You're turning world news into clear, bite-sized stories in someone's own language, so I'd guess the whole appeal is how effortless it feels the moment they land.
+
+Which means the site is basically the product demo. And there's room for it to feel as clean as the idea.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company in the news space, on a similar challenge, making the experience land fast and hold attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Freepress, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+foodini.co,Foodini,design,soft refresh (data-buyer trust inference; desktop 55 NOT led because real-user load is a fine 2.82s),"Hey {first-name}, came across Foodini while looking at food-data tools.
+
+You're tagging menu data down to the single ingredient across any source, so I'd guess the restaurants and platforms landing want to trust that data is genuinely accurate before they rely on it.
+
+Which means the site is where that confidence has to come through. And there's room for it to feel as sharp as the engine.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+www.dexari.com,Dexari,other,precinct (MoonPay CEO endorsement + Hyperliquid/TradingView partners); desktop 47 NOT led (no real-user field data),"Hey {first-name}, came across Dexari while looking at crypto apps.
+
+You've got MoonPay's CEO endorsing you and partners like Hyperliquid and TradingView behind the product, so I'd guess serious traders take you seriously because the names around you are.
+
+Which means the site is where a trader decides you're legit enough to move real money through. And there's room for it to feel as sharp as those partners.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got Google and X ad cookies loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+www.famished.io,Famished,other,"precinct (restaurants saving $4K+/month, thousands more direct orders)","Hey {first-name}, came across Famished while looking at restaurant tech.
+
+You've got restaurants like Victory Caffe saving over $4,000 a month and pulling thousands more direct orders with you, so I'd guess growth spreads through owners telling other owners.
+
+Which means the site is where a new restaurant decides you're worth switching to. And there's room for it to feel as sharp as those results.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Famished, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+alpha.melee.markets/,Melee,content,"content build-out (very thin, 23)","Hey {first-name}, came across Melee while looking at prediction markets.
+
+You're letting anyone create and trade markets on any topic, which is a genuinely fun idea, so I'd guess people land curious but with no real sense of how it works or why to jump in.
+
+Right now the site says very little. And there's room to show the experience so that curiosity turns into a first trade.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to make an idea click fast, on a similar challenge, turning a thin site into one that holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+rangerx.ai,Ranger AI,content,"content build-out (thin, 48)","Hey {first-name}, came across Ranger while looking at manufacturing tech.
+
+You're helping manufacturers respond to bids faster and win more of them, which is a concrete, money-on-the-table problem, so I'd guess buyers land wanting to see exactly how it works on their quotes.
+
+Right now the site keeps things brief. And there's room to show the workflow so a manufacturer trusts it with real bids.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, turning a thin site into one that actually explains the product and holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Ranger, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+docs.vocode.dev/,Vocode,design,soft refresh (open-source developer inference),"Hey {first-name}, came across Vocode while looking at voice AI tools.
+
+You're open-source for building voice apps, so I'd guess developers arrive ready to build but wanting to feel the project is mature and well-supported before they commit.
+
+Which means the site is where a developer decides you're worth adopting. And there's room for it to feel as sharp as the library.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Vocode, happy to show you how we'd approach yours.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+movethechain.com,Move the Chain,other,precinct (leaders at SitusAMC and Prove),"Hey {first-name}, came across Move the Chain while looking at HR tools.
+
+You've got leaders at companies like SitusAMC vouching for you, so I'd guess those named references do a lot of the convincing when an HR team is weighing you.
+
+Which means the site is where a new buyer decides you're worth rolling out company-wide. And there's room for it to feel as sharp as that proof.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got a Meta Pixel cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+entendre.ai,Entendre Finance,design,soft refresh (crypto-accounting trust inference),"Hey {first-name}, came across Entendre while looking at crypto finance tools.
+
+You're automating accounting for crypto and digital-asset transactions, which is famously messy to get right, so I'd guess finance teams land wanting to trust the numbers will actually hold up.
+
+Which means the site is where a finance buyer decides you're accurate enough to close their books on. And there's room for it to feel as sharp as the product.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, your current settings block AI crawlers, so tools like ChatGPT can't read the site, which matters more as buyers start there.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+studdyai.com,Studdy,design,soft refresh (student-experience inference); real-user load 3.82s is fine so speed NOT led,"Hey {first-name}, came across Studdy while looking at edtech tools.
+
+You're turning a student's own materials into a custom lesson they can interact with, so I'd guess the whole appeal is how quickly it feels genuinely helpful the moment they try it.
+
+Which means the site is where a student decides to actually upload their work. And there's room for it to make that leap feel easy.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got a Google Ads cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.iframe.ai,iFrame,other,"precinct (partners NVIDIA, Samsung, Dell)","Hey {first-name}, came across iFrame while looking at healthcare AI.
+
+You've got infrastructure partners like NVIDIA, Samsung, and Dell behind your engine, so I'd guess that supply chain is a real part of why serious buyers trust your performance claims.
+
+Which means the site is where a technical buyer decides you're credible. And there's room for it to feel as sharp as those partners.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with iFrame, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+coolant.earth,Coolant,design,soft refresh (novel-method credibility inference),"Hey {first-name}, came across Coolant while looking at climate tech.
+
+You're measuring the carbon stored in trees with drones and computer vision, which is a genuinely cool approach, so I'd guess people land intrigued but wanting proof the numbers are trustworthy.
+
+Which means the site is where a buyer decides your measurements are credible. And there's room for it to feel as sharp as the method.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Coolant, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.findmodality.com/,Modality,content,"content build-out (thin, 34)","Hey {first-name}, came across Modality while looking at health tech.
+
+You're building the infrastructure behind mental and behavioral health paraprofessionals, which is a genuinely meaningful gap to fill, so I'd guess buyers land wanting to understand exactly how it improves care.
+
+Right now the site lists the benefits without the how. And there's room to show the substance a healthcare buyer needs.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, giving a light site the depth to convince and turning visitors into believers.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Modality, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.curatelabs.ai,Curate Labs,content,"content build-out (thin, 46)","Hey {first-name}, came across Curate Labs while looking at field-service tools.
+
+You're putting an AI assistant right in the hands of HVAC and solar techs over text, which is a smart way to meet them where they work, so I'd guess buyers land wanting to see exactly how it cuts reworks.
+
+Right now the site stays fairly generic. And there's room to show the workflow so an operations lead trusts it in the field.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, giving a light site the depth to convince and turning visitors into believers.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Curate Labs, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+business.tartle.co,TARTLE,other,precinct (companies like Centene and Dynata),"Hey {first-name}, came across TARTLE while looking at data platforms.
+
+You've got companies like Centene and Dynata on your marketplace, so I'd guess that named trust is exactly what convinces the next enterprise it's safe to buy and sell data with you.
+
+Which means the site is where a new enterprise decides your model is credible. And there's room for it to feel as sharp as that trust.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with TARTLE, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+atomscale.ws,Atomscale,design,soft refresh (materials-science credibility inference),"Hey {first-name}, came across Atomscale while looking at materials AI.
+
+You're bringing AI and data science to nanomaterials development, which is deeply specialized, so I'd guess the researchers landing want to feel you truly understand their domain.
+
+Which means the site is where a technical buyer decides you're credible. And there's room for it to feel as sharp as the science.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making complex work land clearly with a careful audience.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, your current settings block AI crawlers, so tools like ChatGPT can't read the site, which matters more as buyers start there.","Hey {first-name}, I'll stop here so I'm not crowding your inbox. Whenever the timing's right for a quick chat, I'm around and happy to help."
+hybrd.com,HYBRD,other,precinct (athletes like Dave Scanlan backing it),"Hey {first-name}, came across HYBRD while looking at fitness apps.
+
+You've got hybrid athletes like Dave Scanlan backing you, so I'd guess growth spreads through a tight community where a respected athlete's word carries real weight.
+
+Which means the site is where a new athlete decides you're worth centering their training on. And there's room for it to feel as sharp as that crowd.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one quick thing I noticed, your SSL certificate looks set to expire in about 29 days, worth a renew before it lapses.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+quadrata.com/,Quadrata,design,soft refresh (DeFi-compliance trust inference),"Hey {first-name}, came across Quadrata while looking at Web3 infra.
+
+You're bringing an identity and compliance layer to DeFi, exactly what serious institutions need before they'll touch it, so I'd guess buyers land wanting to feel you're genuinely rigorous.
+
+Which means the site is where a cautious buyer decides you're credible. And there's room for it to feel as sharp as the product.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Quadrata, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+valyu.ai,Valyu,other,"precinct (institutions like Cambridge, MIT, Gov.UK)","Hey {first-name}, came across Valyu while looking at AI data tools.
+
+You've got institutions like Cambridge, MIT, and Gov.UK associated with you, so I'd guess that caliber of name is a big part of why AI teams trust your data.
+
+Which means the site is where a new team decides your data is safe to train on. And there's room for it to feel as sharp as those names.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Valyu, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+omniinstrument.com/,Omni Instrument,content,"content build-out (placeholder-level, content 22 / design 28)","Hey {first-name}, came across Omni Instrument while looking at manufacturing AI.
+
+You're backed by real investors and building AI tools for manufacturing, so I'd guess there's a serious company here that the current page barely hints at.
+
+Right now the site barely says anything about it. And there's real room to turn it into something that shows what you're building.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, turning a thin site into one that actually explains the product and holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to where you are with Omni Instrument, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.abcxchange.com,ABCXchange,design,soft refresh (fundraising-platform trust inference); desktop 48 NOT led (no field data),"Hey {first-name}, came across ABCXchange while looking at fundraising tools.
+
+You're matching startups with investors using AI, and both sides are careful, high-stakes audiences, so I'd guess each lands wanting to feel the platform is genuinely credible.
+
+Which means the site is where a founder or investor decides you're serious. And there's room for it to feel as sharp as the product.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with ABCXchange, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+mosaic.so,Mosaic,other,precinct (NewsUK running it across talkSPORT),"Hey {first-name}, came across Mosaic while looking at AI video tools.
+
+You've got NewsUK running your editor across talkSPORT, so I'd guess a big-name media proof point like that opens a lot of the next doors.
+
+Which means the site is where a new media team decides you're proven enough to trust. And there's room for it to feel as sharp as the product.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+hud.ai,hud,other,precinct (DoorDash and UiPath as customers),"Hey {first-name}, came across hud while looking at AI eval tools.
+
+You've got names like DoorDash and UiPath using you to evaluate their agents, so I'd guess that caliber of customer is a big part of why serious AI teams trust your evals.
+
+Which means the site is where a new team decides you're the standard to measure against. And there's room for it to feel as sharp as those names.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with hud, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+pangolin.net,Pangolin,other,"precinct (1M+ deployments, 21k+ GitHub stars)","Hey {first-name}, came across Pangolin while looking at devops tools.
+
+You're past a million deployments and 21,000 GitHub stars, so I'd guess word spreads on its own through a self-hosting community that trusts open source it can actually see.
+
+Which means the site is where a new team decides to run you on their infrastructure. And there's room for it to feel as sharp as that adoption.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+news.agpt.co,AutoGPT,other,precinct (Andrej Karpathy and Replit's CEO praising it),"Hey {first-name}, came across AutoGPT while looking at agent tools.
+
+You've got people like Andrej Karpathy and Replit's CEO talking about you, so I'd guess that kind of endorsement is a huge part of how you keep pulling developers in.
+
+Which means the site is where all that attention turns into someone actually building an agent. And there's room for it to feel as sharp as the buzz.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with AutoGPT, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.califixcompliance.com/,Califix Compliance,other,"precinct (BHP, SQM, Glencore trust them)","Hey {first-name}, came across Califix while looking at compliance tools.
+
+You've got names like BHP and Glencore trusting you to automate their contractor audits, so I'd guess that heavyweight proof is exactly what opens the next mining or energy account.
+
+Which means the site is where a large operator decides you're rigorous enough. And there's room for it to feel as sharp as that client list.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Califix, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+vetano.com,Vetano,performance,"site speed (real-user load 5.36s, confirmed poor)","Hey {first-name}, came across Vetano while looking at hiring tools.
+
+You're a marketplace where both employers and candidates show up, so I'd guess a slow first load quietly costs you people on both sides before they even see the idea.
+
+I ran a quick speed test and it came back over 5 seconds to load. With real traffic arriving, a faster load would keep more of them around to get it.
+
+Have you thought about a rebuild to speed it up?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product with a heavy site, on a similar challenge, making it load fast and keep people around.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got Google and DoubleClick ad cookies loading before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant too. Not a big job.","Hey {first-name}, totally understand if this isn't top of mind right now. It'll keep, so reach out whenever you'd like to dig into it."
+warmwind.com,warmwind,design,"soft refresh (product-clarity inference); field load 4.16s borderline + desktop 86 contradicts, so speed NOT led","Hey {first-name}, came across warmwind while looking at automation tools.
+
+You're pitching an AI operating system for visual process automation, which is a big, abstract idea, so I'd guess people land intrigued but wanting to see concretely what it does for them.
+
+Which means the site is where a curious buyer decides the idea is real. And there's room for it to make that concrete fast.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+corethink.ai/,CoreThink,other,"precinct (open benchmarks vs GPT-5, Gemini, Claude)","Hey {first-name}, came across CoreThink while looking at AI infra.
+
+You publish real benchmarks putting your reasoning layer up against GPT-5, Gemini, and Claude, so I'd guess technical buyers respect that you'll show your work out in the open.
+
+Which means the site is where a demanding buyer decides you're credible. And there's room for it to feel as sharp as those numbers.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, the site renders entirely in the browser, so ChatGPT and Google's AI overviews basically can't read it right now, which only matters more for getting found.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+markprompt.com/,Markprompt,design,soft refresh (support-buyer trust inference),"Hey {first-name}, came across Markprompt while looking at AI support tools.
+
+You're handling support across email, chat, and voice from one AI layer, so I'd guess support leaders land wanting to trust it won't drop the ball with their customers.
+
+Which means the site is where a leader decides you're reliable enough to put in front of customers. And there's room for it to feel as sharp as the product.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Markprompt, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+dodo.ai,Dodo,other,precinct (1 in 3 of the largest ER vet clinics run on Dodo); real-user load 3.79s is fine so speed NOT led,"Hey {first-name}, came across Dodo while looking at vet tech.
+
+One in three of the largest veterinary emergency clinics run on Dodo, so I'd guess that kind of penetration is exactly what makes the next clinic feel safe saying yes.
+
+Which means the site is where a new clinic decides to trust you with their calls. And there's room for it to feel as sharp as that footprint.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got Google and DoubleClick ad cookies loading before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+solfart.io,Solfart,design,"design refresh (design genuinely lacking at 29, real exchange listings behind it)","Hey {first-name}, came across Solfart while looking at crypto projects.
+
+You've actually got real listings lined up on exchanges like MEXC and Biconomy, so I'd guess the project has more substance than the current page lets on.
+
+Which means the site is underselling what you've secured. And there's room for it to look as legit as those listings.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless on a similar challenge, giving a project the polished look its substance deserved.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to where you are with Solfart, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.pods.finance/,Pods,other,"precinct (trusted by crypto teams, $10M+ volume processed)","Hey {first-name}, came across Pods while looking at DeFi tools.
+
+You've processed over $10 million in volume with leading crypto teams building on you, so I'd guess trust in your rails is exactly what turns a curious developer into an integration.
+
+Which means the site is where a new team decides you're safe to build on. And there's room for it to feel as sharp as the product.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got a Google Ads cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+herheadquarters.app/,HerHeadquarters,content,"content build-out (thin taglines only, 24)","Hey {first-name}, came across HerHeadquarters while looking at community platforms.
+
+You're building a business-partnership platform for women entrepreneurs, which is a genuinely useful idea, so I'd guess people land intrigued but leave without knowing how it actually works.
+
+Right now the page is all taglines. And there's room to show what members actually do so interest turns into signups.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, giving a light site the depth to convince and turning visitors into believers.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with HerHeadquarters, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.dedw3n.com,Dedw3n,design,"design refresh (design genuinely lacking at 35, site reads unfinished)","Hey {first-name}, came across Dedw3n while looking at new apps.
+
+There's clearly real work behind it, but the current page reads as half-finished, with a big empty hero up top, so I'd guess it undersells what you're actually building.
+
+Which means the site gets in the way of the substance. And there's room for the look to catch up to the idea.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless on a similar challenge, giving a project the polished look its substance deserved.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one separate thing, your current settings block AI crawlers, so tools like ChatGPT can't read the site, which matters more for getting found.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.totemlabs.com,Totem Labs,content,"content build-out (thin, transactional-only page at 39; desktop 28 NOT led, field load fine at 1.17s)","Hey {first-name}, came across Totem while looking at AI products.
+
+You've got real traffic arriving, but the page is mostly bundle deals and shipping notices, so I'd guess plenty land without ever learning what Totem actually does.
+
+There's real traffic hitting a page that barely explains the product. And there's room to turn that into genuine interest.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to make an idea click fast, on a similar challenge, turning a thin site into one that holds attention.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Totem, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.neurosity.co/,Neurosity,other,precinct (named developers reporting real focus gains),"Hey {first-name}, came across Neurosity while looking at focus tools.
+
+You've got named developers reporting real jumps in focus using the Crown, so I'd guess that first-hand proof from people like your buyers is exactly what earns the next one.
+
+Which means the site is where a skeptic decides it's actually worth it. And there's room for it to feel as sharp as those voices.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got Google and DoubleClick ad cookies loading before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+talli.me/,Talli,other,"precinct (4.9 across 3,300+ ratings)","Hey {first-name}, came across Talli while looking at care apps.
+
+You've got a 4.9 across more than 3,000 ratings, so I'd guess word spreads through parents and caregivers telling each other what genuinely made their day easier.
+
+Which means the site is where a new caregiver decides you're worth building in. And there's room for it to feel as sharp as that rating.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got Google and Microsoft ad cookies loading before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+mentraglass.com,Mentra,design,soft refresh (developer/enterprise trust inference),"Hey {first-name}, came across Mentra while looking at AR hardware.
+
+You're building camera-enabled smart glasses with an open-source SDK for enterprise and developers, so I'd guess the people landing want to feel it's a genuine platform they can build on.
+
+Which means the site is where a serious buyer decides you're a real platform. And there's room for it to feel as sharp as the product.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, one separate thing, your current settings block AI crawlers, so tools like ChatGPT can't read the site, which matters more as buyers start there.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.byosaz.com,OSAZ Skin,other,precinct (named customer before-and-afters); design already strong,"Hey {first-name}, came across OSAZ while looking at beauty tech.
+
+You've got customers like Erica showing real before-and-afters from your custom formulations, so I'd guess that visible proof is exactly what turns a skeptical shopper into a believer.
+
+Which means the site is where someone decides personalized skincare from a selfie is legit. And there's room for it to feel as sharp as those results.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, worth flagging, you've got a Meta Pixel cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.moberdelivery.com/,Mober Technology,other,"precinct (Nestlé, Nespresso, IKEA)","Hey {first-name}, came across Mober while looking at logistics companies.
+
+You've got brands like Nestlé and IKEA running sustainable deliveries with you, so I'd guess those names do a lot of the convincing when a new enterprise is weighing a greener partner.
+
+Which means the site is where a new brand decides you're proven. And there's room for it to feel as sharp as that client list.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company selling to careful buyers, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Mober, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.endora.app,Endora Technologies,design,soft refresh (nostalgia-delight inference),"Hey {first-name}, came across Endora while looking at consumer apps.
+
+You're turning people's own photos into games that resurface forgotten memories, which is a genuinely delightful idea, so I'd guess the whole appeal is how it feels the first time it surprises someone.
+
+Which means the site is where someone decides to try it. And there's room for it to make that payoff feel real.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Felt close to what you're working through with Endora, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+empidream.com,EMPI DREAM,other,"precinct (Dr. Antonio Zadra, 30 years in dream science)","Hey {first-name}, came across EMPI DREAM while looking at wellness apps.
+
+You've got Dr. Antonio Zadra, with 30 years in dream science, behind the platform, so I'd guess that credibility is exactly what makes people trust something as personal as their dreams to you.
+
+Which means the site is where someone decides this is real science. And there's room for it to feel as sharp as that backing.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, turning first-time visitors into people who actually convert.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one quick thing I noticed, some of the site loads over insecure HTTP, which can trip browser security warnings. Easy to clean up.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.deegtal.ai/,Deegtal,content,"content build-out (thin, 42; one strong named endorsement to build on)","Hey {first-name}, came across Deegtal while looking at clinical AI.
+
+You've got the head of a major hospital's epilepsy unit vouching for you, so I'd guess there's real substance here that the current site barely conveys.
+
+Right now it says little beyond that endorsement. And there's room to show the depth a clinical buyer needs to trust it.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with Webless, an AI product, on a similar challenge to yours, giving a light site the depth to convince and turning visitors into believers.
+
+https://prismport.co/case-studies/webless-ai
+
+After the rebuild, bounce dropped 20%, the animations loaded 70% faster, and time on page went up 32%.
+
+Also, one quick thing I noticed, some of the site loads over insecure HTTP, which can trip browser security warnings. Easy to clean up.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.vytek-it.com/,VyTek,content,"content build-out (thin + abstract, 47)","Hey {first-name}, came across VyTek while looking at AI platforms.
+
+You're pitching something genuinely ambitious with the Civilization Stack, so I'd guess people land intrigued by the vision but leave without a concrete sense of what it does for them.
+
+Right now the language stays abstract. And there's room to ground it in something a buyer can actually picture using.
+
+Have you thought about building the site out?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a company that had to make a big idea click fast, on a similar challenge, turning an abstract site into one that lands clearly.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with VyTek, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+www.cambercloud.com/,Camber,design,soft refresh (scientist-buyer trust inference),"Hey {first-name}, came across Camber while looking at research AI.
+
+You're building AI for science with unlimited compute and no infrastructure to manage, so I'd guess researchers land wanting to feel it genuinely fits how they actually work.
+
+Which means the site is where a scientist decides it's worth adopting. And there's room for it to feel as sharp as the platform.
+
+Have you thought about giving it a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a deeply technical company, on a similar challenge, making complex work land clearly with a careful audience.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, worth flagging, you've got a Meta Pixel cookie loading the second someone lands, before any consent. I'm assuming you'll have EU visitors, so worth getting that side GDPR compliant. Not a big job.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+quiltt.io,Quiltt,design,soft refresh (fintech-dev trust inference),"Hey {first-name}, came across Quiltt while looking at fintech APIs.
+
+You're giving developers one clean API across the best open-banking data providers, so I'd guess the engineers landing want to feel it's genuinely reliable before they build banking features on it.
+
+Which means the site is where a fintech team decides you're solid enough to depend on. And there's room for it to feel as sharp as the product.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Quiltt, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+peerdb.io/,PeerDB,other,"precinct (CTOs migrating 35,000 tables, 2TB; ClickHouse acquisition)","Hey {first-name}, came across PeerDB while looking at data tools.
+
+You've got CTOs migrating 35,000 tables onto you, and ClickHouse acquired you, so I'd guess that level of trust and technical proof is exactly what wins the next data team.
+
+Which means the site is where a new team decides you're proven enough to move their replication onto. And there's room for it to feel as sharp as those results.
+
+Have you thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with PeerDB, happy to show you how we'd approach yours.","Hey {first-name}, I'll leave this with you for now. Whenever it feels like the right time, I'd be glad to talk through how we'd approach it."
+www.keephq.dev/,Keep,design,soft refresh (open-source ops-buyer inference),"Hey {first-name}, came across Keep while looking at ops tools.
+
+You're open-source AIOps that ties alerts to real automation across MySQL, Jira, and Python, so I'd guess the ops engineers landing want to feel it's mature enough to trust in production.
+
+Which means the site is where an engineer decides you're worth adopting. And there's room for it to feel as sharp as the product.
+
+Is a refresh to match on your radar?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical developer-facing company, on a similar challenge, getting a serious product to land fast with engineers.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Felt close to what you're working through with Keep, happy to show you how we'd approach yours.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."
+palettehq.com/en,Palette,other,"precinct (RevOps teams at Contentfly, Nextech AR); design already strong","Hey {first-name}, came across Palette while looking at sales tools.
+
+You've got RevOps teams at companies like Contentfly and Nextech AR running their commissions on you, so I'd guess those references are exactly what win over the next finance and ops team.
+
+Which means the site is where a new company decides to trust you with sales comp. And there's room for it to feel as sharp as those names.
+
+Ever thought about a refresh to match?","Hey {first-name}, quick context, we're a design and Webflow studio.
+
+We recently worked with NewsCatcher, a technical company, on a similar challenge, making a serious product land as credibly as it deserves.
+
+https://prismport.co/case-studies/newscatcher
+
+After the rebuild, engagement went up 3,600%, with sessions going from around 20 seconds to over 3 minutes.
+
+Also, quick heads up, your cookie banner shows but a Google Ads cookie is already set before anyone clicks accept, so it's not really gating it yet. Worth getting that side GDPR compliant.","Hey {first-name}, no rush on this at all. If it ever moves up your list, I'm happy to jump on a quick call and show you what we'd do."

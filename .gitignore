@@ -33,3 +33,6 @@ Thumbs.db
 data/
 logs/
 screenshots/
+
+# Regenerable screenshot output (380MB of PNGs)
+screenshots_*/

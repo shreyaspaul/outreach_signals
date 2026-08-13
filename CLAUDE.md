@@ -3,88 +3,42 @@
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 > **CURRENT STATE & NEXT STEPS → see `PROJECT_STATE.md`** (canonical handoff; read it first each session).
+>
+> **DIRECTION (set 2026-08-13): this pipeline is being productized into a deployed web app a VA can
+> run end to end (upload CSV → download send file). The plan is `specs/outreach-app-plan.md`. Read it
+> before building anything new.** Message generation is planned to move back onto the Claude API, on
+> **Opus 5** (not Sonnet), which supersedes the Sonnet-5 bulk-model finding recorded below.
 
-## Last Session Context (2026-06-23)
+## Current State (2026-08-08, direction updated 2026-08-13)
 
-### What Was Done This Session — Outreach Messaging Overhaul
-Reworked how outreach messages are written and who writes them. Full detail in the new
-**"Outreach Messaging System"** section below; in brief:
-- **Generation moved off the Gemini API to Claude in-session** via a new `/generate-outreach`
-  skill (out of Gemini credits + Claude writes better). `scripts/prep_bundles.py` is the
-  data-prep/assembly plumbing.
-- **New writing philosophy: lead with an inference about the prospect's business, not flattery**
-  (modeled on a cold email the user admired). Understanding > praise. Positive/opportunity
-  framing only, grounded in the audit, with traffic-scale math. Guardrails live in the master
-  prompt, not a keyword blocklist.
-- **3-message sequence**: inference DM → case-study follow-up → short soft close.
-- **Case-study library + selection rules** built into the skill (12 studies from `Copy/`,
-  URLs `https://prismport.co/case-studies/<slug>` — slugs still need verifying, esp. Wonder
-  Phone ↔ Wondersimple).
-- **Traffic source-of-truth fix**: messages must use `apify_monthly_visits`, never the stale
-  Crunchbase `monthly_visits` (enforced by `accurate_visits()`).
-- Latest output: `data/messages_v2.csv` (first/second/third messages + case-study columns).
+**`PROJECT_STATE.md` is the canonical, current handoff — read it first each session** (it holds the
+in-session message-regeneration status: 594/793 written, how to resume, which files, and the current
+OPEN ISSUES list). This section is just a pointer + durable reference; the dated per-session logs that
+used to live here were removed.
 
-### Prior Session (2026-06-18) — Apify Traffic Refresh
-The prefilled traffic data (copied from Crunchbase into `monthly_visits`) was found to be
-stale/wrong for many rows. Refreshed it with live SimilarWeb data via Apify.
-
-1. **New script `scripts/apify_traffic_refresh.py`** — fetches fresh SimilarWeb data via the
-   `curious_coder/similarweb-scraper` Apify actor and writes it back into an enriched CSV as
-   **new `apify_`-prefixed columns** (originals left untouched, side-by-side for diffing).
-   Writes a `.bak` backup first; idempotent (drops/re-adds `apify_` cols on re-run).
-   - Usage: `python scripts/apify_traffic_refresh.py data/enriched_<ts>.csv`
-   - Built against the **current** actor schema — note `trafficSources` changed: `Search`/`Social`
-     are now split into `SearchOrganic`/`SearchPaid`/`SocialOrganic`/`SocialPaid`, `Paid Referrals`
-     is gone, and there are new sources incl. `GenAi`, `DisplayAds`, `Affiliate`. The old
-     `traffic_checker.extract_traffic_metrics()` mapping is stale for search/social — do not reuse it.
-2. **Ran it on `data/enriched_20260616_023344.csv`** (latest fully-enriched file, 100 real rows).
-   - 100/100 domains returned data, 0 failures. Added 27 `apify_` columns (now 216 cols total).
-   - Confirmed Crunchbase figures were badly off (e.g. megaphone.xyz: 3.47M → 24K actual).
-3. **Wrote descriptions into the legend row** for all 27 new columns (see grader_fields note below).
-
-### Apify gotchas (for next time)
-- The actor needs a **one-time permission approval** in the Apify Console before the API will run it
-  (`?approvePermissions=true` link), separate from "renting" it. A new account must do both.
-- The orchestrator does **not** call Apify per-entry; it only ever reads traffic from the CSV. Only
-  `traffic_checker.py` / `apify_traffic_refresh.py` actually hit the API. So to refresh, run the
-  script first, then enrichment.
-- `apify_error` column logs per-row fetch failures (`no_url` / `no_data_returned`); blank = success.
-- `apify_country_rank` / `apify_country_rank_country` come back empty in batch mode (actor limitation).
-
-### Recent Work From Prior Sessions (was undocumented here)
-The grading pivoted from subjective content/design scoring toward **objective, deterministic
-signals** (black-and-white facts an outreach email can cite). Major additions:
-- **`scripts/ai_readiness.py`** — bot/AI-engine readiness signals (robots/llms.txt, JSON-LD schema,
-  SSR vs client-rendered content ratio, sitemaps). No LLM; every check is a verifiable fact.
-- **`scripts/security_check.py`** — security-header score, HSTS/CSP/etc., SSL validity/expiry,
-  TLS version, mixed content. Pure `requests` + stdlib `ssl`/`socket`.
-- **`scripts/page_signals.py`** — network-pass signals (page/image weight, request count, trackers,
-  cookies, consent banner, tracking-before-consent) derived from the existing Playwright capture.
-- **`scripts/accessibility.py`** — axe-core a11y violations (critical/serious/moderate/minor,
-  WCAG tags, lawsuit-risk flag).
-- **`scripts/page_gate.py`** — validity gate that runs BEFORE quality scoring to weed out
-  parked/blank/blocked pages (`site_status`, `detected_platform`).
-- **`scripts/grader_fields.py`** — **this is what creates the legend/description row** (row 0, just
-  under the header) mapping terse internal names to human-readable descriptions. When adding new
-  columns, add their descriptions to this row.
-- **`scripts/message_generator.py`** — two-pass LinkedIn message generator (Analyst picks the angle
-  from the audit, Writer drafts; re-verifies stale a11y flags live before citing).
-- **`scripts/extract_facts.py`** — backfills quotable "proud facts" onto an enriched CSV.
-- **`scripts/export_prospects.py`** — exports top prospects by segment for outreach.
-- These added many columns to the enriched CSV (seo/accessibility/best_practices scores, CrUX Core
-  Web Vitals fields, `ai_readiness_*`, `a11y_*`, `sec_header_*`/`ssl_*`, `page_weight_*`,
-  `proud_facts*`, etc.). Specs in `specs/grader-v2-implementation.md`, `specs/proud-facts-plan.md`,
-  `specs/message-generator-plan.md`.
-
-### Current State
-- Latest fully-enriched file: **`data/enriched_20260616_023344.csv`** (100 rows + legend row, 216
-  cols incl. fresh `apify_` traffic). Backup: `.bak` alongside it.
-- Note: grading uses `overall_grade` (A+–F / INVALID), not the older `letter_grade`.
-
-### Next Steps (User's Priority)
-1. Apply fresh `apify_` traffic to a larger prospect set when ready (`apify_traffic_refresh.py`).
-2. Continue outreach via the `/generate-outreach` skill (see "Outreach Messaging System") and `export_prospects.py`. Verify case-study slugs before sending.
-3. Cloud Deployment — Railway.app + Slack (spec in `specs/cloud-deployment-spec.md`, still pending).
+- **Outreach message generation is CLAUDE-IN-SESSION today (no API — the org was out of credits), but
+  this is now a transitional state, not the target.** Per the 2026-08-13 plan it moves to the Claude
+  API on `claude-opus-5` (cached system prefix + structured outputs + Batch API) behind a human review
+  queue. Costed at ~$0.06/prospect, ~$24-48 per 800-lead batch. See `specs/outreach-app-plan.md` §4.
+  The old
+  `scripts/generate_messages_api.py` (Sonnet/Opus Batch API) path is RETIRED. The loop that replaced
+  it lives in **`scripts/outreach_loop/`** (`RUN_LOOP.md` = the playbook, `next_bundles.py`,
+  `merge_results.py`, `export_complete.py`). Output: `data/batch_01/message_results_v3.json` +
+  `messages_v3.csv` (full review) + `messages_v3_complete.csv` (lean send-ready export).
+  `scripts/qa_check.py` is the standing safety net — **run report-only, never `--fix`** (its regen
+  path calls the paid API).
+- **`build_outreach_list.py` is now file-parameterized** (fixed 2026-08-08; it used to hardcode
+  `messages_v2.csv` and overwrite the live v2 outputs). Env: `MESSAGES_FILE` picks the input,
+  **`OUT_SUFFIX` names the outputs** — the defaults still reproduce (and overwrite) the v2 run, so
+  **always pass a suffix for v3**:
+  `LEADS_BATCH=batch_01 MESSAGES_FILE=messages_v3.csv OUT_SUFFIX=_v3 python scripts/build_outreach_list.py`
+  → `outreach_ready_v3.csv` (**the actual send file**: one contact per company, name/title/LinkedIn/
+  email, `{first-name}` filled in) + `not_contacted_v3.csv` + `messages_no_contact_v3.csv`.
+- **Dataset:** `data/batch_01/enriched_ALL_999.csv` (999 rows, ~219 cols, fresh `apify_*` traffic).
+  Grading uses `overall_grade` (A+-F / INVALID). Objective-signal graders:
+  `scripts/{ai_readiness,security_check,page_signals,accessibility,page_gate,grader_fields}.py`.
+- **Traffic:** `scripts/apify_traffic_refresh.py` refreshes stale Crunchbase figures into `apify_*`
+  columns (SimilarWeb via Apify). Messages must quote `apify_monthly_visits`, never `monthly_visits`.
 
 ## Outreach Messaging System (How We Write Messages)
 
@@ -92,7 +46,18 @@ This is the canonical record of our outreach-message technique. The **operationa
 of truth is the skill** at `.claude/skills/generate-outreach/SKILL.md` (the master prompt +
 procedure + case-study library). This section explains the why and the shape so it stays saved.
 
-### 2026-07 UPDATE — bulk generation moved to the Claude API (Sonnet 5)
+### ⚠️ SUPERSEDED TWICE. Read this before trusting anything in the subsection below.
+1. **2026-08-08:** this Claude-API path was retired (org out of credits); generation moved in-session
+   via `scripts/outreach_loop/`.
+2. **2026-08-13:** the API path is coming BACK, but **on `claude-opus-5`, not Sonnet 5**, behind a
+   human review queue. **The "Sonnet 5 is the chosen bulk model" conclusion below is dead.** That test
+   ran while cost dominated the decision; at ~$24-48 per 800-lead batch against $10-20K deals cost is
+   noise, and the Sonnet v2 campaign was pulled for quality despite passing QA with 0 flags, so the
+   cheap path lost money. See `specs/outreach-app-plan.md` §4.6 for the costing and the reasoning.
+
+Kept below for history (the three prompt fixes and the `tone_flag` work are still live and correct).
+
+### 2026-07 (historical) — bulk generation on the Claude API (Sonnet 5)
 After hand-authoring/subagent runs got expensive (drained API/usage credits) and couldn't run
 unattended reliably, we ran a **model-swap quality/cost test** (`scripts/model_swap_test.py`) on
 gold-reference prospects across Opus 4.8, Opus 4.8+thinking, Sonnet 5, Haiku 4.5. Findings:
@@ -147,10 +112,15 @@ messages_v2, outreach_ready, not_contacted, messages_no_contact, lead_report, Pe
   (`generate_messages_api.py`, `qa_check.py`, `finish_batch.py`, `build_outreach_list.py`,
   `lead_report.py`) all resolve `data/<LEADS_BATCH>/` and read/write there; `ENRICHED` globs
   `enriched_*.csv` in the batch folder so the exact filename doesn't matter.
-- **`scripts/build_outreach_list.py`** — dedup people to ONE best contact per company
-  (marketing/website-owner-first: core marketing/brand/growth > digital/content/web >
-  comms/PR/social > founders > product/tech), domain-matched to each message; writes
-  `outreach_ready.csv` (send-ready) + `not_contacted.csv` (runner-ups) + `messages_no_contact.csv`.
+- **`scripts/build_outreach_list.py`** — dedup people to ONE best contact per company,
+  domain-matched to each message; writes `outreach_ready.csv` (send-ready) + `not_contacted.csv`
+  (runner-ups) + `messages_no_contact.csv` (+ `outreach_incomplete.csv` if any row fails the gate).
+  **Ranking (user rule, revised 2026-08-08) — three strict tiers that cannot interleave:**
+  1. **marketing / website owner** (core marketing/brand/growth > digital/content/web/SEO), at ANY
+     seniority, ahead of the founder; 2. **founders**; 3. **everyone else** — product/design > sales >
+     comms/PR/social > tech. Comms/PR/social used to sit in tier 1; it is now tier 3.
+  Within tiers 2 and 3 the same role-affinity term applies, so a CEO still outranks a CTO.
+  **A LinkedIn URL is required** to be eligible (it's the outreach channel); a work email is not.
 - **`scripts/lead_report.py`** — per-batch funnel breakdown -> `<batch>/lead_report.csv`
   (total -> invalid/ungraded -> gradeable -> worth-reaching -> contact-found, + by-signal, by-role).
 

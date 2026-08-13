@@ -20,6 +20,7 @@ Usage:
 """
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -31,10 +32,40 @@ from message_generator import build_prospect, DATA_DICTIONARY, sanitize, _val, a
 # Extra context fields useful for the INFERENCE move, beyond what build_prospect carries.
 EXTRA_DICT = {
     "industry": "Their industry / category.",
-    "funding_total": "Total equity funding raised (signals stage & expectations).",
-    "funding_last": "Most recent funding round amount.",
+    "funding_total": "Total equity funding raised — CONTEXT ONLY for reading their stage. NEVER cite a funding amount in the message ('you've raised $5M' is banned — it has nothing to do with a redesign pitch).",
+    "funding_last": "Most recent funding round — context only. NEVER cite the amount in the message.",
     "all_tech": "Everything detected in their stack (e.g. wordpress + old plugins).",
+    "first_name": "The real first name of a contact at this company (from Person_details), shown for "
+                  "context/review. ALWAYS write the literal {first-name} token in the message anyway — "
+                  "it is substituted with the authoritative best-contact name when the outreach list is "
+                  "built. Never hard-write a real name into the message text.",
 }
+
+
+def _norm_domain(x):
+    x = re.sub(r'^https?://', '', str(x).strip().lower())
+    x = re.sub(r'^www\.', '', x)
+    return x.split('/')[0].strip()
+
+
+def _load_contact_first_names(folder):
+    """domain -> real first name, from the batch's Person_details_*.csv files (first contact per domain)."""
+    out = {}
+    for f in sorted(Path(folder).glob('Person_details_*.csv')):
+        try:
+            df = pd.read_csv(f)
+        except Exception:
+            continue
+        if 'Website' not in df.columns or 'Full Name' not in df.columns:
+            continue
+        for _, r in df.iterrows():
+            dom = _norm_domain(r.get('Website'))
+            toks = str(r.get('Full Name', '')).strip().split()
+            if dom and toks and dom not in out:
+                nm = re.sub(r"[^A-Za-z'\-]", "", toks[0])
+                if nm:
+                    out[dom] = nm[:1].upper() + nm[1:]
+    return out
 
 
 def _gradeable(input_path):
@@ -59,6 +90,11 @@ def cmd_dump(args):
         gradeable = gradeable.sort_values(
             'tech_stack', key=lambda s: s.astype(str).str.lower(), kind='stable')
 
+    # Map each domain to a real contact first name (from Person_details), so the bundle carries the
+    # actual name. The MESSAGE still uses the {first-name} token (build_outreach_list.py substitutes
+    # the authoritative best-contact name per company); this value is for reference + realistic review.
+    name_by_domain = _load_contact_first_names(Path(args.input).parent)
+
     prospects = []
     for _, row in gradeable.iterrows():
         bundle = build_prospect(row)
@@ -67,6 +103,9 @@ def cmd_dump(args):
             v = _val(row, col)
             if v is not None:
                 bundle[key] = v
+        fn = name_by_domain.get(_norm_domain(_val(row, 'Domain')))
+        if fn:
+            bundle["first_name"] = fn
         prospects.append({
             "domain": _val(row, 'Domain'),
             "name": _val(row, 'Name', 'there'),

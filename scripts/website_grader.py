@@ -30,22 +30,26 @@ project_root = Path(__file__).parent.parent
 load_dotenv(project_root / '.env')
 
 # Configuration
+from _token_log import log_usage
 DEFAULT_SCREENSHOT_DIR = project_root / 'screenshots'
 DEFAULT_VIEWPORT = {'width': 1366, 'height': 900}
 # Cap design screenshots to a clean top crop (~4 viewport-heights). Full-page
 # screenshots of very long pages get downsampled by the vision model, degrading
 # the typography/spacing/polish detail the design grader is asked to judge.
-MAX_SCREENSHOT_HEIGHT = 3600  # 4 x 900px
+MAX_SCREENSHOT_HEIGHT = 1800  # 2 x 900px (cost: ~half the image tokens; hero + 1-2 sections is enough to judge design)
 DEFAULT_TIMEOUT = 60000  # 60 seconds (increased from 30)
 DEFAULT_DELAY = 1.0  # Seconds between batches
 MAX_CONCURRENT_BROWSERS = 5
 DEFAULT_PERFORMANCE_SCORE = 50  # If pagespeed_mobile missing
 MAX_NAVIGATION_RETRIES = 3  # Number of retries for navigation failures
+# Capture-health: a real site renders SOME post-JS text. Below this, the SPA likely
+# hasn't hydrated yet -> we render harder before trusting a "blank/coming-soon" verdict.
+MIN_HEALTHY_WORDS = 25
 
 # Design-score ensemble: run the design call N times and average, recording the
 # spread so wobbly screenshots surface during manual review. 2 during the
 # calibration phase (mean of 2; median needs 3); set to 1 for production.
-DESIGN_ENSEMBLE_RUNS = 2
+DESIGN_ENSEMBLE_RUNS = 1
 DESIGN_VARIANCE_FLAG_THRESHOLD = 8  # spread above this is flagged high-variance
 
 # Page validity gate toggle (DNS + redirect + vision LLM). Disable to fall back
@@ -315,6 +319,7 @@ async def capture_screenshot_and_content(url: str, screenshot_dir: Path, semapho
         'page_text': '',      # full JS-rendered text (real browser sees what Jina can't)
         'final_url': '',      # URL after all redirects (for the page validity gate)
         'http_status': None,  # HTTP status of the final navigation
+        'capture_healthy': None,  # True/False: did the page actually render (screenshot + post-JS text)?
         **accessibility_defaults(),  # axe-core WCAG fields (filled while page is live)
         **page_signals_defaults(),   # network-pass fields (page weight, trackers, cookies)
         'error': None
@@ -541,6 +546,34 @@ async def capture_screenshot_and_content(url: str, screenshot_dir: Path, semapho
                         result['paragraph_count'] = metrics.get('paragraphCount', 0)
                         result['nav_links'] = metrics.get('navLinks', {})
 
+                        # --- Capture health: a real site renders BOTH a non-blank screenshot
+                        # AND some post-JS text. If either is missing, the SPA likely hasn't
+                        # hydrated yet (e.g. bytez rendered blank with empty text). Wait longer,
+                        # scroll to trigger lazy content, and re-render ONCE before we ever trust
+                        # a blank/coming-soon verdict, then re-extract the post-JS text.
+                        def _capture_unhealthy():
+                            sp = result['screenshot_path']
+                            blank = bool(sp) and Path(sp).exists() and is_blank_screenshot(sp).get('blank')
+                            return blank or (result['word_count'] or 0) < MIN_HEALTHY_WORDS
+                        if _capture_unhealthy():
+                            try:
+                                await page.wait_for_timeout(6000)
+                                await page.evaluate('async () => { const s=ms=>new Promise(r=>setTimeout(r,ms));'
+                                                    ' const h=document.body.scrollHeight;'
+                                                    ' for(let y=0;y<h;y+=window.innerHeight){window.scrollTo(0,y); await s(150);}'
+                                                    ' window.scrollTo(0,0); await s(400); }')
+                                await page.evaluate('() => document.fonts && document.fonts.ready')
+                                await _retake()
+                                m2 = await page.evaluate("() => { const t=(document.body&&document.body.innerText)||'';"
+                                                         " return {wc: t.split(/\\s+/).filter(w=>w.length>0).length,"
+                                                         " text: t.slice(0,60000)}; }")
+                                if (m2.get('wc') or 0) > (result['word_count'] or 0):
+                                    result['word_count'] = m2.get('wc', 0)
+                                    result['page_text'] = m2.get('text', '')
+                            except Exception:
+                                pass
+                        result['capture_healthy'] = not _capture_unhealthy()
+
                         # Accessibility scan (axe-core) while the page is still live —
                         # piggybacks on this browser pass, no extra launch. Never raises.
                         axe_fields = await run_axe_on_page(page)
@@ -728,6 +761,7 @@ def analyze_design_with_gemini(screenshot_path: str, url: str, api_key: str, max
                 prompt,
                 {'mime_type': 'image/png', 'data': image_data}
             ])
+            log_usage('design', response)
             response_text = response.text.strip()
 
             if log_file:
@@ -985,6 +1019,29 @@ def grade_website(url: str, pagespeed_mobile: int = None, screenshot_dir: Path =
                 except Exception:
                     pass
             return result
+
+    # --- Capture-health guard: even if the screenshot wasn't fully white, an empty post-JS
+    # render (no real text after the patient re-render) means we never actually saw the page.
+    # Do NOT let the gate guess "coming-soon" off a broken capture (this is exactly what
+    # wrongly buried bytez). Mark CAPTURE_FAILED: a recoverable capture problem, retry it,
+    # never treat as a dead/placeholder site.
+    if capture_result.get('capture_healthy') is False and not _http_is_error:
+        result['letter_grade'] = 'INVALID'
+        result['is_error_page'] = True
+        result['page_state'] = 'CAPTURE_FAILED'
+        result['error_type'] = 'capture_failed'
+        result['gate_source'] = 'capture'
+        result['gate_reason'] = (
+            f"Page did not render real content after a patient re-render "
+            f"(post-JS words={capture_result.get('word_count')}). Capture problem, not a dead "
+            f"site; recoverable -- retry the capture, do not treat as dead.")
+        if log_file:
+            try:
+                with open(log_file, 'a', encoding='utf-8') as f:
+                    f.write(f"\n--- CAPTURE FAILED ---\nURL: {url}\n{result['gate_reason']}\n")
+            except Exception:
+                pass
+        return result
 
     # --- Jina content extraction (needed by BOTH the gate and the content scorer) ---
     jina_result = {}

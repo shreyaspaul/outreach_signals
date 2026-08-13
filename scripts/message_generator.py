@@ -47,18 +47,27 @@ DATA_DICTIONARY = {
     "monthly_visits": "Approx monthly visitors, the FRESH Apify/SimilarWeb figure (the old Crunchbase number is stale and ignored). This is the accurate one to quote. traffic_is_high tells you if it clears the bar for scale framing.",
     "traffic_is_high": "True = visits are meaningful enough to use the 'with your traffic, even a small slice is a real number' framing. False = do NOT lean on scale; find another true benefit.",
     "tech_stack": "What the site is built on.",
-    "design_score": "0-100 how professional/distinctive the design looks. <50 = weak/generic for a funded company.",
-    "design_note": "Human read on the design.",
-    "content_score": "0-100 how clear/substantive/credible the copy is. <55 = thin, unclear, or unproven.",
-    "content_note": "Human read on the copy.",
+    "design_score": "0-100 design quality — but UNRELIABLE ON ITS OWN: a harsh grader rates ~78% of sites ~50 ('competent but unremarkable'), which is NOT a reason to pitch a redesign. Do not decide off this number alone — READ design_reasoning. Never quote the number.",
+    "design_reasoning": "The grader's actual assessment of the design — WHY it scored what it did (specific observations: layout, typography, polish, whether it's a real site or a broken/blank screenshot). READ THIS to understand whether the design is genuinely lacking or actually fine/good, then use your OWN judgement on whether design is the honest lead. FOR YOUR UNDERSTANDING ONLY — never quote its adjectives ('generic', 'template'); if you do lead on design, frame it constructively and grounded, not as a verdict.",
+    "design_really_lacking": "A HINT, not a rule (design_score <=40). True usually means genuinely poor/unfinished design — a legit design lead. It does NOT forbid a design angle above 40, and it does NOT force one below 40: read design_reasoning and decide. If the reasoning says the design is fine/good/polished, do NOT pitch a redesign regardless of the number.",
+    "content_score": "0-100 how clear/substantive/credible the copy is. More reliable than design_score (it spreads). Don't quote it — read content_reasoning.",
+    "content_reasoning": "The grader's assessment of the COPY — clarity, substance, credibility, DEPTH. READ THIS to judge whether the content is genuinely thin/shallow (few words, no proof, surface-level) vs solid. Genuinely thin content is a strong lead ESPECIALLY for content/education/docs/SEO-driven businesses (their content IS the product). FOR YOUR UNDERSTANDING — never quote its adjectives; if you lead on content, frame it constructively ('room to go deeper').",
+    "content_really_thin": "A HINT (content_score <=50): true usually means genuinely thin/shallow copy — a legit content lead. Not a gate: read content_reasoning and judge; weigh it against design (for a content-driven business, thin content usually supersedes a fine design).",
+    "proof_from_site": "REAL evidence pulled from THEIR own site: the customers they display, the metrics/results they publish, the testimonials they show. THIS IS YOUR PRECINCT — the concrete, verifiable thing you name in message 1 (like 'seeing Slope and Evergrow on there says a lot'). Mine it for the strongest, most recognizable customer or the hardest number. Use ONLY the hard facts in it; ignore any scoring or opinion framing. Empty = no precinct, so do NOT lead with design.",
     "real_user_load_seconds": "REAL-USER load time (s). Good <=2.5, needs-improvement 2.5-4, poor >4. Claim 'slow to load' only if ni/poor.",
     "real_user_load_rating": "good / needs-improvement / poor.",
     "real_user_responsiveness_ms": "REAL-USER lag on tap/click (ms). Good <=200, poor >500. If poor: 'laggy when you tap' (NOT slow loading).",
     "real_user_responsiveness_rating": "good / needs-improvement / poor.",
-    "real_user_layout_shift": "REAL-USER layout shift. Good <=0.1, poor >0.25. If poor: 'page jumps around as it loads' (NOT slow loading).",
-    "real_user_layout_shift_rating": "good / needs-improvement / poor.",
-    "fails_google_speed_overall": "True = fails Google's real-user thresholds overall; use the specific failing metric to decide what to say.",
-    "lab_speed_score_REFERENCE_ONLY": "Synthetic lab score. NEVER base a speed claim on this. If real_user_* are absent, do not mention speed at all.",
+    # LAYOUT SHIFT (CLS) IS RETIRED AS A SIGNAL (2026-07-14, user decision). It is not solid enough
+    # to build a cold message on: CrUX CLS is a 28-day rolling real-user average that moves on its
+    # own, so the claim rots without anyone touching the site (logic.inc went 1.0 -> 0.02 in weeks),
+    # it silently vanishes when a site drops below Google's reporting threshold, and it is often
+    # only available at origin level rather than for the page we are actually talking about.
+    # The fields are deliberately NOT exposed to the writer, so CLS cannot be chosen as the signal.
+    "fails_google_speed_overall": "True = fails Google's real-user thresholds overall. INFO ONLY — do NOT lead on performance just because this is true; use performance_really_poor as the gate.",
+    "lab_speed_score_REFERENCE_ONLY": "Synthetic MOBILE lab score. NEVER base a speed claim on this (every site, ours included, scores low on mobile).",
+    "desktop_speed_score": "Synthetic DESKTOP lab score (0-100). Desktop should be high; a LOW desktop score (<=55) means the site is genuinely slow even on the easy test. Used in the performance gate.",
+    "performance_really_poor": "THE PERFORMANCE-LEAD GATE. True ONLY when speed is genuinely, unmistakably poor: desktop score <=55, OR real-user load >=4s, OR real-user tap responsiveness >=600ms. **Lead on performance ONLY if this is True.** If False, speed is borderline/fine — do NOT mention it, pick another angle (design/precinct/etc). This exists because borderline CrUX readings drift and get us caught citing a lag that isn't there.",
     "a11y_violation_count": "Total accessibility violations found.",
     "a11y_critical": "Count of CRITICAL accessibility issues.",
     "a11y_serious": "Count of SERIOUS accessibility issues.",
@@ -99,7 +108,8 @@ PICK THE ONE SIGNAL, by how much it would make THIS founder pay attention (weigh
 1. Real-user PERFORMANCE that is genuinely bad. Use field metrics only:
    - real_user_load needs-improvement/poor -> slow to load
    - real_user_responsiveness poor -> laggy when you tap, a beat before it reacts
-   - real_user_layout_shift poor -> the page jumps around as it loads
+   - LAYOUT SHIFT IS RETIRED. Never make it the signal, never mention the page jumping,
+     shifting, moving or settling as it loads, even if you infer it. It is not reliable enough.
    - If there is NO real-user data, performance is OFF the table. Never use the lab score.
 2. DESIGN clearly weak for their stage/product (design_score low + note), especially for design-led/creative/visual products where a generic site contradicts the pitch.
 3. CONTENT unclear, thin, or low on credibility/proof (content_score low + note).
@@ -183,7 +193,7 @@ HARD RULES (non-negotiable, even while sounding natural):
 - NEVER use an em dash, en dash, or double hyphen. Commas or periods only.
 - All lowercase feel, like a real DM. No corporate polish, no emojis, no exclamation marks.
 - No jargon (no LCP, INP, CLS, WCAG, contrast, headers, render). Plain words only.
-- Performance wording must stay accurate: load = slow to load / a faster-loading site; responsiveness = laggy when you tap / responds the instant they tap; layout shift = jumps around as it loads / stays steady as it loads. You may name the issue plainly and briefly to ground it, then tie it to the upside. Never call lag or shift "slow loading", and never dwell on or pile onto the problem.
+- Performance wording must stay accurate: load = slow to load / a faster-loading site; responsiveness = laggy when you tap / responds the instant they tap. Never call lag "slow loading", and never dwell on or pile onto the problem. Layout shift is retired: never say the page jumps, shifts, moves or settles as it loads.
 - Only mention their traffic/scale if use_traffic_scale is true.
 - No invented numbers, percentages, or dollars. No buzzwords (cutting-edge, best-in-class, innovative, seamless, world-class, leverage, game-changing).
 - No defensive hedging ("no agenda", "no pressure", "no pitch", "just trying to help", "sorry to bother").
@@ -317,6 +327,41 @@ def build_secondary_signals(row):
     return sec
 
 
+def extract_proof_from_reasoning(reasoning):
+    """Pull the evidence-bearing sentences (Substance + Credibility) out of the grader's
+    content_reasoning, stripping the 'Substance N/10 -' scoring prefix. Those two lines quote
+    the real customers, metrics, and testimonials shown on the prospect's site — the precinct
+    for message 1. We deliberately DROP design_reasoning and the Clarity/Persuasiveness/Depth
+    lines: those are opinion/adjectives, and opinion is exactly what must never reach the writer.
+    Returns a short list of clean fact sentences, or None.
+
+    We ALSO strip the grader's negative judgment that rides inside these sentences — clauses
+    about "placeholder" / "0x" / "0%" / "0+" stats and "undermines / glaring / lacks / generic".
+    Those are (a) the grader's opinion, not clean evidence, and (b) usually a count-up animation
+    captured at rest (numbers that animate from 0 on scroll), NOT real placeholders — citing them
+    tells a founder their site has a problem it may not have (the OmniAI/Monumint lesson). Only the
+    positive evidence (named customers, real metrics, backers) should reach the writer."""
+    if not reasoning:
+        return None
+    # a clause is dropped if it carries the grader's negative/placeholder judgment
+    NEG = re.compile(r"\b0\s*x\b|\b0\s*%|\b0\+|placeholder|undermin|glaring|\blacks?\b|"
+                     r"generic|without any|no named|not explained|merely named|rather than", re.I)
+    out = []
+    for label in ('Substance', 'Credibility'):
+        m = re.search(label + r'\s+\d+/10\s*[—\-:]\s*(.+?)(?=\n[A-Z][a-z]+\s+\d+/10|$)',
+                      str(reasoning), re.DOTALL)
+        if not m:
+            continue
+        sentence = ' '.join(m.group(1).split())
+        # keep only the clauses that carry no negative-judgment flag
+        clauses = re.split(r"(?:,\s*(?:but|though|although|however|despite|severely|while)\b|;|\bbut this is\b)", sentence)
+        clean = [c.strip(" ,;.") for c in clauses if c.strip() and not NEG.search(c)]
+        kept = ". ".join(clean).strip()
+        if len(kept) >= 25:  # drop items that collapse to almost nothing after stripping
+            out.append(kept)
+    return out or None
+
+
 def build_prospect(row):
     visits_num = accurate_visits(row)
     p = {
@@ -326,17 +371,17 @@ def build_prospect(row):
         "traffic_is_high": (visits_num is not None and visits_num >= TRAFFIC_HIGH_THRESHOLD),
         "tech_stack": _val(row, 'tech_stack'),
         "design_score": _val(row, 'design_score'),
-        "design_note": _val(row, 'design_comment'),
+        "design_reasoning": _val(row, 'design_comment') or _val(row, 'design_summary'),
         "content_score": _val(row, 'content_score'),
-        "content_note": _val(row, 'content_analysis'),
+        "content_reasoning": _val(row, 'content_summary') or _val(row, 'content_analysis'),
         "real_user_load_seconds": _val(row, 'field_lcp'),
         "real_user_load_rating": _val(row, 'field_lcp_rating'),
         "real_user_responsiveness_ms": _val(row, 'field_inp'),
         "real_user_responsiveness_rating": _val(row, 'field_inp_rating'),
-        "real_user_layout_shift": _val(row, 'field_cls'),
-        "real_user_layout_shift_rating": _val(row, 'field_cls_rating'),
+        # field_cls / field_cls_rating intentionally omitted: layout shift is retired as a signal.
         "fails_google_speed_overall": (str(_val(row, 'cwv_pass')).lower() == 'false') if _val(row, 'cwv_pass') is not None else None,
         "lab_speed_score_REFERENCE_ONLY": _val(row, 'pagespeed_mobile'),
+        "desktop_speed_score": _val(row, 'pagespeed_desktop'),
         "a11y_violation_count": _val(row, 'a11y_violation_count'),
         "a11y_critical": _val(row, 'a11y_critical'),
         "a11y_serious": _val(row, 'a11y_serious'),
@@ -346,9 +391,39 @@ def build_prospect(row):
         "a11y_top_issues": _val(row, 'a11y_top_issues'),
         "a11y_not_measured": bool(_val(row, 'a11y_error')),
     }
+    # PERFORMANCE-LEAD GATE (2026-07-19): only lead on speed when it's GENUINELY, unmistakably poor,
+    # with margin so a borderline reading (that drifts) never gets cited. Otherwise pick another angle.
+    # Thresholds: desktop lab <= 55 (slow even on the easy test), OR real-user load >= 4.0s, OR
+    # real-user tap responsiveness >= 600ms (well past Google's 500ms "poor" line). "needs-improvement"
+    # / borderline-poor (e.g. INP 550, desktop 66 like heylua) does NOT qualify.
+    def _n(v):
+        try:
+            return float(v)
+        except (TypeError, ValueError):
+            return None
+    _desk, _load, _inp = _n(p.get("desktop_speed_score")), _n(p.get("real_user_load_seconds")), _n(p.get("real_user_responsiveness_ms"))
+    p["performance_really_poor"] = bool(
+        (_desk is not None and _desk <= 55)
+        or (_load is not None and _load >= 4.0)
+        or (_inp is not None and _inp >= 600))
+    # DESIGN HINT (2026-07-19): design_score alone is unreliable — a harsh grader rates ~78% of sites
+    # ~50 ("competent but unremarkable"), which is NOT a reason to pitch a redesign. This flag is an
+    # ADVISORY hint, not a hard gate: <=40 usually means genuinely lacking (unfinished/unpolished). The
+    # writer reads design_reasoning + this hint and makes its own call. (Very low scores <25 can be
+    # broken/blank screenshots, not real assessments — the reasoning says so.)
+    _dsc = _n(p.get("design_score"))
+    p["design_really_lacking"] = bool(_dsc is not None and _dsc <= 40)
+    # CONTENT HINT: content_score is more reliable than design_score (it spreads: mean ~67). <=50 usually
+    # means genuinely thin/shallow copy — a real lead, ESPECIALLY for content/education/docs-driven
+    # businesses. Advisory, not a gate: read content_reasoning and judge.
+    _csc = _n(p.get("content_score"))
+    p["content_really_thin"] = bool(_csc is not None and _csc <= 50)
     facts = _val(row, 'proud_facts')
     if facts:
         p["quotable_facts"] = [f.strip() for f in str(facts).split('|') if f.strip()]
+    proof = extract_proof_from_reasoning(_val(row, 'content_reasoning'))
+    if proof:
+        p["proof_from_site"] = proof
     sec = build_secondary_signals(row)
     if sec:
         p["secondary_signals"] = sec

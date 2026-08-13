@@ -29,11 +29,14 @@ BATCH = os.environ.get("LEADS_BATCH", "batch_01")
 DATA = ROOT / "data" / BATCH
 BUNDLES = DATA / "message_bundles_all.json"
 SKILL = ROOT / ".claude" / "skills" / "generate-outreach" / "SKILL.md"
-RESULTS = DATA / "message_results.json"
+# Output files are env-overridable so a fresh full regen can write to NEW files (e.g.
+# RESULTS_FILE=message_results_v3.json MESSAGES_FILE=messages_v3.csv) without touching the live
+# campaign. qa_check.py (a subprocess) imports these and inherits the same env, so both agree.
+RESULTS = DATA / os.environ.get("RESULTS_FILE", "message_results.json")
 ENRICHED = next(iter(sorted(DATA.glob("enriched_*.csv"))), DATA / "enriched_ALL_999.csv")
-MESSAGES = DATA / "messages_v2.csv"
-MODEL = "claude-sonnet-5"
-IN_RATE, OUT_RATE = 3e-6, 15e-6  # Sonnet 5 standard $/token
+MESSAGES = DATA / os.environ.get("MESSAGES_FILE", "messages_v2.csv")
+MODEL = os.environ.get("GEN_MODEL", "claude-opus-4-8")
+IN_RATE, OUT_RATE = 5e-6, 25e-6  # Opus 4.8 standard $/token
 
 REQUIRED = ["priority", "signal_category", "chosen_signal", "inference", "why_it_matters",
             "genuine_positive", "quotable_fact_to_use", "case_study_name",
@@ -159,6 +162,8 @@ def main():
     client = anthropic.Anthropic()
     system, prospects = build_system()
 
+    if not RESULTS.exists():          # fresh run to a new output file
+        RESULTS.write_text("[]")
     done = {r["domain"] for r in json.loads(RESULTS.read_text())}
     todo = [p for p in prospects if p["domain"] not in done]
     picks = todo[args.offset:args.offset + args.limit]
@@ -167,7 +172,16 @@ def main():
     print(f"Generating {len(picks)} prospects via {MODEL} ({'BATCH' if args.batch else 'realtime'})...")
 
     def params(dom, bundle, steer=""):
-        return dict(model=MODEL, max_tokens=2000, system=system, thinking={"type": "disabled"},
+        # Adaptive thinking ENABLED (2026-07): with thinking off the model picked its angle with
+        # zero reasoning and defaulted to the same modal framing every time (the "sameness" the user
+        # flagged). Adaptive thinking + high effort lets it actually reason about which precinct/signal
+        # fits THIS lead before writing. Sonnet 5 rejects budget_tokens (400) — the depth knob is
+        # output_config.effort. The text block is still parsed below (empty thinking block skipped).
+        # max_tokens 12000: high-effort adaptive thinking can consume most of the budget before the
+        # JSON is written; at 8000 ~40% of pilot rows truncated to empty (stop_reason=max_tokens). 12000
+        # cleared it with headroom, and stays under the SDK's ~16k non-streaming timeout guard.
+        return dict(model=MODEL, max_tokens=12000, system=system,
+                    thinking={"type": "adaptive"}, output_config={"effort": "high"},
                     messages=[{"role": "user", "content": USER_INSTR + json.dumps(bundle, indent=2, default=str) + steer}])
 
     def cost_of(u):
@@ -250,7 +264,7 @@ def main():
     for r in results:
         by[r["domain"]] = r
     RESULTS.write_text(json.dumps(list(by.values()), indent=2))
-    print(f"\nMerged {len(results)} -> message_results.json (now {len(by)})")
+    print(f"\nMerged {len(results)} -> {RESULTS.name} (now {len(by)})")
 
     # AUTO POST-BATCH QA SWEEP: flag + fix tone/cta/casing/mech across this batch
     # (belt-and-suspenders on top of the inline tone-correction). It re-assembles if it fixes.

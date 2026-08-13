@@ -357,6 +357,10 @@ def _run_llm_gate(url, company_name, content, title, screenshot_path, final_url,
     for attempt in range(MAX_GATE_RETRIES):
         try:
             response = model.generate_content(parts)
+            try:
+                from _token_log import log_usage; log_usage('gate', response)
+            except Exception:
+                pass
             response_text = response.text.strip()
             break
         except Exception as e:
